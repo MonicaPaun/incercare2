@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistemul Circulator - Test</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --accent: #f500bc;
+      --background: #ffe0f6;
+      --white: #ffffff;
+      --text: #333;
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .top-menu {
+      background: var(--accent);
+      color: var(--white);
+      padding: 25px 15px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .top-menu h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .test-container {
+      background: var(--white);
+      border-left: 6px solid var(--accent);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 30px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .back-button i {
+      font-size: 1.2rem;
+    }
+
+    .back-button:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    b {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+
+    input[type="button"] {
+      display: block;
+      margin: 30px auto 0 auto;
+      padding: 10px 25px;
+      font-size: 16px;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="button"]:hover {
+      background-color: #c2185b;
+    }
+
+    @media (max-width: 768px) {
+      .top-menu h1 {
+        font-size: 1.6rem;
+      }
+
+      .test-container {
+        padding: 20px;
+      }
+    }
+  </style>
+
+  <script type="text/javascript">
+    var ans = [], yourAns = [], score = 0;
+    ans[1] = "b"; ans[2] = "c"; ans[3] = "a"; ans[4] = "b"; ans[5] = "c";
+    ans[6] = "c"; ans[7] = "b"; ans[8] = "a"; ans[9] = "c";
+
+    function Engine(q, a) {
+      yourAns[q] = a;
+    }
+
+    function Score() {
+      var text = "Rezultate:";
+      score = 0;
+      for (let i = 1; i <= 9; i++) {
+        text += "\n" + i + ")";
+        if (ans[i] !== yourAns[i]) {
+          text += " Ai greșit! Corect era: " + ans[i];
+        } else {
+          text += " Corect!";
+          score++;
+        }
+      }
+      text += "\n\nScorul total: " + score + " / 9\nComentariul meu: ";
+      text += score <= 4 ? "Mai studiază!" : score <= 7 ? "Bine!" : "Foarte bine!";
+      alert(text);
+    }
+  </script>
+</head>
+
+<body>
+  <div class="top-menu">
+    <h1><span class="icon">❤️</span> Sistemul Circulator</h1>
+  </div>
+
+  <div class="main-content">
+    <a href="../../teste.html" class="back-button"><i class='bx bx-arrow-back'></i> Înapoi la Teste</a>
+
+    <div class="test-container">
+      <h1>Test: Circulația sângelui</h1>
+      <form>
+        <p><b>1. Circulația sângelui se realizează prin SISTEMUL ...</b>
+          <br><input type="radio" name="q1" value="a" onclick="Engine(1, this.value)">a) Digestiv
+          <br><input type="radio" name="q1" value="b" onclick="Engine(1, this.value)">b) Circulator
+          <br><input type="radio" name="q1" value="c" onclick="Engine(1, this.value)">c) Limfatic
+          <br><input type="radio" name="q1" value="d" onclick="Engine(1, this.value)">d) Nervos
+        </p>
+
+        <p><b>2. Arterele sunt vase de sânge care ...</b>
+          <br><input type="radio" name="q2" value="a" onclick="Engine(2, this.value)">a) Fac legătura între arteriole și venule.
+          <br><input type="radio" name="q2" value="b" onclick="Engine(2, this.value)">b) Transportă sângele de la organe spre inimă.
+          <br><input type="radio" name="q2" value="c" onclick="Engine(2, this.value)">c) Transportă sângele de la inimă spre organe.
+          <br><input type="radio" name="q2" value="d" onclick="Engine(2, this.value)">d) Au pereți foarte subțiri.
+        </p>
+
+        <p><b>3. Venele sunt vase de sânge care ...</b>
+          <br><input type="radio" name="q3" value="a" onclick="Engine(3, this.value)">a) Transportă sângele de la organe spre inimă.
+          <br><input type="radio" name="q3" value="b" onclick="Engine(3, this.value)">b) Transportă sângele de la inimă spre organe.
+          <br><input type="radio" name="q3" value="c" onclick="Engine(3, this.value)">c) Au pereți groși și elastici.
+          <br><input type="radio" name="q3" value="d" onclick="Engine(3, this.value)">d) Au pereți foarte subțiri.
+        </p>
+
+        <p><b>4. Capilarele sunt vase de sânge care ...</b>
+          <br><input type="radio" name="q4" value="a" onclick="Engine(4, this.value)">a) Au pereți mai subțiri și conțin valve.
+          <br><input type="radio" name="q4" value="b" onclick="Engine(4, this.value)">b) Fac legătura între arteriole și venule.
+          <br><input type="radio" name="q4" value="c" onclick="Engine(4, this.value)">c) Au pereți groși și elastici.
+          <br><input type="radio" name="q4" value="d" onclick="Engine(4, this.value)">d) Transportă sângele de la organe spre inimă.
+        </p>
+
+        <p><b>5. Inima are ...</b>
+          <br><input type="radio" name="q5" value="a" onclick="Engine(5, this.value)">a) 5 camere
+          <br><input type="radio" name="q5" value="b" onclick="Engine(5, this.value)">b) 2 camere
+          <br><input type="radio" name="q5" value="c" onclick="Engine(5, this.value)">c) 4 camere
+          <br><input type="radio" name="q5" value="d" onclick="Engine(5, this.value)">d) 3 camere
+        </p>
+
+        <p><b>6. Cum se numește stratul muscular gros, cu rol contractil?</b>
+          <br><input type="radio" name="q6" value="a" onclick="Engine(6, this.value)">a) Pericard
+          <br><input type="radio" name="q6" value="b" onclick="Engine(6, this.value)">b) Endocard
+          <br><input type="radio" name="q6" value="c" onclick="Engine(6, this.value)">c) Miocard
+          <br><input type="radio" name="q6" value="d" onclick="Engine(6, this.value)">d) Epicard
+        </p>
+
+        <p><b>7. Cum se numește învelișul dublu ce protejează inima?</b>
+          <br><input type="radio" name="q7" value="a" onclick="Engine(7, this.value)">a) Endocard
+          <br><input type="radio" name="q7" value="b" onclick="Engine(7, this.value)">b) Pericard
+          <br><input type="radio" name="q7" value="c" onclick="Engine(7, this.value)">c) Miocard
+          <br><input type="radio" name="q7" value="d" onclick="Engine(7, this.value)">d) Epicard
+        </p>
+
+        <p><b>8. Sângele deoxigenat este dus la plămâni prin artera ...</b>
+          <br><input type="radio" name="q8" value="a" onclick="Engine(8, this.value)">a) pulmonară
+          <br><input type="radio" name="q8" value="b" onclick="Engine(8, this.value)">b) mare
+          <br><input type="radio" name="q8" value="c" onclick="Engine(8, this.value)">c) limfatică
+          <br><input type="radio" name="q8" value="d" onclick="Engine(8, this.value)">d) venoasă
+        </p>
+
+        <p><b>9. Afecțiunea care presupune blocaj al unei artere coronare se numește ...</b>
+          <br><input type="radio" name="q9" value="a" onclick="Engine(9, this.value)">a) Ateroscleroză
+          <br><input type="radio" name="q9" value="b" onclick="Engine(9, this.value)">b) Hipertensiune
+          <br><input type="radio" name="q9" value="c" onclick="Engine(9, this.value)">c) Infarct miocardic
+          <br><input type="radio" name="q9" value="d" onclick="Engine(9, this.value)">d) AVC
+        </p>
+
+        <input type="button" onclick="Score()" value="Verifică răspunsurile">
+      </form>
+    </div>
+  </div>
+</body>
+</html>

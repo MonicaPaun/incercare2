@@ -1,0 +1,1718 @@
+/* Google Font for Handwriting Style */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(to bottom right, #fbd3e9, #bb377d, #ff6f61);
+
+  color: #2c3e50;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Scrollbar personalizat - ADN / Nervos */
+::-webkit-scrollbar {
+    width: 14px; /* Lățimea scrollbar-ului */
+}
+
+/* Fundalul scrollbar-ului (partea de fundal) */
+::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Fundal deschis pentru a se distinge clar */
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Butonul scrollbar-ului (partea care se mișcă) */
+::-webkit-scrollbar-thumb {
+     background: linear-gradient(45deg, #ec407a, #f48fb1);
+    border-radius: 10px;
+    border: 2px solid #fff; /* Mărim contrastul cu un border alb */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Când mouse-ul este deasupra butonului */
+::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(45deg, #d81b60, #f06292);
+
+    transform: scale(1.1); /* Crește dimensiunea când treci cu mouse-ul */
+}
+
+/* Efect fluid pentru track */
+::-webkit-scrollbar-track-piece {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+
+/* Hero Section */
+header.hero {
+  background: #c2185b;
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+  border-radius: 50px;
+  animation: waveBg 10s infinite alternate ease-in-out;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 10%;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+@keyframes waveBg {
+  0% { border-radius: 0 0 60px 60px / 0 0 40px 40px; }
+  50% { border-radius: 0 0 75px 45px / 0 0 60px 30px; }
+  100% { border-radius: 0 0 60px 60px / 0 0 40px 40px; }
+}
+
+header.hero h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  animation: slideIn 1.5s ease-out;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideIn {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+h1 .highlight {
+  background: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: #c2185b;
+  font-size: 3rem;
+  animation: fadeInDown 1s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+button, .button {
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #f06292, #f8bbd0);
+  box-shadow: 0 6px 15px rgba(240, 98, 146, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s;
+  background-size: 200% 200%;
+  background-position: left center;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover, .button:hover {
+  transform: scale(1.08);
+  background-position: right center;
+ box-shadow: 0 8px 20px rgba(240, 98, 146, 0.5);
+}
+
+/* Shine effect */
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: skewX(-20deg);
+}
+
+button:hover::before {
+  animation: shine 0.75s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+#goBackBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 6px;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #f06292, #f8bbd0);
+  box-shadow: 0 6px 15px rgba(240, 98, 146, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s;
+  background-size: 200% 200%;
+  background-position: left center;
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* Hover effect */
+#goBackBtn:hover {
+  transform: scale(1.07);
+  background-position: right center;
+    box-shadow: 0 6px 18px rgba(240, 98, 146, 0.5);
+}
+
+/* Shine effect */
+#goBackBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: skewX(-20deg);
+}
+
+#goBackBtn:hover::before {
+  animation: shine 0.75s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+
+.section {
+  padding: 3rem;
+  background: linear-gradient(to right bottom, #ffe0f0, #fff0f8); /* roz pastel */
+  color: #802753; /* roz închis */
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem 0;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInUp 1.2s ease;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section h2 {
+  font-size: 2.5rem;
+    color: #d81b60; /* roz vibrant */
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.section ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-top: 10px;
+}
+
+
+
+img {
+  max-width: 200px;
+  margin: 20px auto;
+  display: block;
+}
+
+
+/* Ce este section */
+#ce-este {
+   font-family: 'Poppins', serif;
+   background: linear-gradient(to right bottom, #ffe0f0, #fff0f8);
+  color: #802753;
+  border-radius: 20px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1.5s ease-out;
+ border: 2px solid #d81b60;
+}
+
+/* Titlul */
+#ce-este h2 {
+  font-family: 'Poppins', serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+    color: #ad1457;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  animation: slideUp 1s ease-out;
+}
+
+/* Paragrafe și text */
+#ce-este p {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #5a1a3f;
+  margin: 1.5rem 0;
+  text-align: justify;
+  max-width: 900px;
+  animation: fadeInText 1.5s ease-out;
+}
+
+/* Highlights */
+#ce-este .highlight {
+  text-decoration: underline;
+    color: #ad1457; /* verde plăcut */
+  font-weight: bold;
+}
+
+/* Content-wrapper pentru text și imagine */
+#ce-este .content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+/* Imaginea */
+#ce-este img {
+  max-width: 600px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#ce-este img:hover {
+  transform: scale(1.1); /* Mărire la hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Umbra mai mare */
+}
+
+/* Animații */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInText {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+#componenta {
+  font-family: 'Poppins', serif;
+  background: linear-gradient(to right bottom, #ffe0f0, #fff0f8);
+  color: #802753;
+  border-radius: 20px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  min-height: 500px;
+  animation: fadeIn 1.5s ease-out;
+  border: 2px solid #d81b60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#componenta h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+#componenta .intro-text {
+  font-size: 1.3rem;
+  font-style: italic;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  max-width: 850px;
+  line-height: 1.5;
+  color: #a8325a;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgb(168 43 88 / 0.15);
+  padding: 2rem 2.5rem;
+  flex: 1 1 350px;
+  max-width: 500px;
+  color: #5a2341;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgb(168 43 88 / 0.3);
+}
+
+.card h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #d81b60;
+  padding-bottom: 0.3rem;
+}
+
+.subcards-container {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.subcard {
+  background: #ffe6f0;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  flex: 1 1 140px;
+  box-shadow: 0 4px 10px rgb(216 27 96 / 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.subcard:hover {
+  box-shadow: 0 10px 20px rgb(216 27 96 / 0.3);
+}
+
+.subcard h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.7rem;
+  color: #d81b60;
+  font-weight: 600;
+  border-bottom: 1px solid #d81b60;
+  padding-bottom: 0.2rem;
+}
+
+.card ul, .subcard ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+  color: #662244;
+  font-weight: 500;
+}
+
+.card ul li, .subcard ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+
+#inima {
+  font-family: 'Poppins', serif;
+  background: linear-gradient(to right bottom, #ffe0f0, #fff0f8);
+  color: #802753;
+  border-radius: 20px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  min-height: 500px;
+  animation: fadeIn 1.5s ease-out;
+  border: 2px solid #d81b60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#inima h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #d13358;
+}
+
+#inima .card {
+  max-width: 800px; /* lățime mai mare */
+  width: 100%;      /* să fie fluid pe ecrane mici */
+  margin: 0 auto;   /* centrare orizontală */
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 18px rgba(209, 51, 88, 0.15);
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+#inima .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(209, 51, 88, 0.3);
+  cursor: default;
+}
+
+#inima .card h3 {
+  color: #d13358;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+#inima ul, ol {
+  margin-left: 1.4rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: #6b2a4a;
+}
+
+#inima ul li, ol li {
+  margin-bottom: 0.7rem;
+}
+
+#inima p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #6b2a4a;
+}
+
+#inima small {
+  display: block;
+  font-size: 0.85rem;
+  color: #9c4865;
+  margin-top: 0.2rem;
+}
+
+#inima em {
+  color: #b54767;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+#vase {
+    font-family: 'Poppins', serif;
+  background: linear-gradient(to right bottom, #ffe0f0, #fff0f8);
+  color: #802753;
+  border-radius: 20px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  min-height: 500px;
+  animation: fadeIn 1.5s ease-out;
+  border: 2px solid #d81b60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#vase h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #006d99;
+  text-shadow: 1px 1px 3px #b3e0ff;
+}
+
+#vase p {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+#vase .cards-wrapper {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#vase .card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 14px rgba(0, 77, 102, 0.1);
+  padding: 1.8rem 2rem;
+  width: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+#vase .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 22px rgba(0, 77, 102, 0.2);
+}
+
+#vase .card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #004d66;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+#vase .card ul {
+  list-style: inside disc;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: #00334d;
+}
+
+details summary {
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  color: #0077aa;
+  outline: none;
+}
+
+details[open] summary {
+  color: #004d66;
+}
+
+details p,
+details ul {
+  margin-left: 1.2rem;
+  margin-top: 0.5rem;
+  color: #005577;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+
+#boli {
+  font-family: 'Poppins', serif;
+  background: linear-gradient(to right bottom, #ffe0f0, #fff0f8);
+  color: #802753;
+  border-radius: 20px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  min-height: 500px;
+  animation: fadeIn 1.5s ease-out forwards;
+  border: 2px solid #d81b60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header */
+#boli h2 {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  color: #a02f65;
+  text-shadow: 1px 1px 4px #f6d7e8;
+  letter-spacing: 1.2px;
+  animation: slideInDown 1s ease forwards;
+}
+
+/* Scroll container */
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: inset 0 0 15px rgba(216, 27, 96, 0.3);
+  background: #fff0f8;
+  animation: slideInUp 1s ease 0.3s forwards;
+  opacity: 0;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  min-width: 900px;
+  color: #582046;
+  transition: transform 0.3s ease;
+}
+
+thead th {
+  background-color: #fcd9e9;
+  color: #7b2556;
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 700;
+  border-bottom: 3px solid #d81b60;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #f7cde0;
+  cursor: default;
+  transition: background-color 0.4s ease, transform 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: #ffd4eb;
+  transform: scale(1.02);
+  box-shadow: 0 8px 15px rgba(216, 27, 96, 0.2);
+}
+
+tbody td {
+  padding: 14px 20px;
+  vertical-align: top;
+}
+
+tbody ul {
+  margin: 0;
+  padding-left: 18px;
+  list-style-type: disc;
+  color: #6a2a57;
+}
+
+tbody ul li {
+  margin-bottom: 7px;
+  transition: color 0.3s ease;
+}
+
+tbody ul li:hover {
+  color: #d81b60;
+  font-weight: 600;
+  cursor: default;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {opacity: 0; transform: translateY(30px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideInDown {
+  0% {opacity: 0; transform: translateY(-40px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideInUp {
+  0% {opacity: 0; transform: translateY(40px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #boli {
+    padding: 2rem 2rem;
+    min-height: auto;
+  }
+
+  table {
+    min-width: 700px;
+    font-size: 1rem;
+  }
+
+  thead th, tbody td {
+    padding: 10px 12px;
+  }
+}
+
+
+#circulatie-mare {
+  font-family: 'Poppins', serif;
+  background: linear-gradient(to right bottom, #ffe0f0, #fff0f8);
+  color: #802753;
+  border-radius: 20px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  min-height: 500px;
+  animation: fadeIn 1.5s ease-out forwards;
+  border: 2px solid #d81b60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#circulatie-mare h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1.8rem;
+  color: #a02f65;
+  text-shadow: 1px 1px 4px #f6d7e8;
+  animation: slideInDown 1s ease forwards;
+}
+
+#circulatie-mare p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1.6rem;
+}
+
+.flux-sange ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.flux-sange ul li {
+  position: relative;
+  padding-left: 1.8rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+  animation-delay: calc(0.3s * var(--i));
+}
+
+.flux-sange ul li:nth-child(1) { --i: 1; }
+.flux-sange ul li:nth-child(2) { --i: 2; }
+.flux-sange ul li:nth-child(3) { --i: 3; }
+
+.flux-sange ul li::before {
+  content: "➡️";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.valoare-vs {
+  color: #d81b60;
+  font-weight: 700;
+  font-size: 1.4rem;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.valoare-ad {
+  color: #802753;
+  font-weight: 700;
+  font-size: 1.4rem;
+  animation: pulse 2s infinite ease-in-out alternate;
+}
+
+.flux-sange p em {
+  font-size: 1rem;
+  color: #aa6287;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideInDown {
+  from {opacity: 0; transform: translateY(-40px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes pulse {
+  0%, 100% {opacity: 1;}
+  50% {opacity: 0.6;}
+}
+
+
+
+#circulatie-mica {
+    font-family: 'Poppins', serif;
+  background: linear-gradient(to right bottom, #ffe0f0, #fff0f8);
+  color: #802753;
+  border-radius: 20px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  min-height: 500px;
+  animation: fadeIn 1.5s ease-out forwards;
+  border: 2px solid #d81b60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#circulatie-mica h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1.8rem;
+  color: #1a4470;
+  text-shadow: 1px 1px 4px #a8c7f0;
+  animation: slideInDown 1s ease forwards;
+}
+
+#circulatie-mica p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1.6rem;
+}
+
+.flux-sange ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.flux-sange ul li {
+  position: relative;
+  padding-left: 1.8rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+  animation-delay: calc(0.3s * var(--i));
+}
+
+.flux-sange ul li:nth-child(1) { --i: 1; }
+.flux-sange ul li:nth-child(2) { --i: 2; }
+.flux-sange ul li:nth-child(3) { --i: 3; }
+
+.flux-sange ul li::before {
+  content: "➡️";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.valoare-v0 {
+  color: #1a5783;
+  font-weight: 700;
+  font-size: 1.4rem;
+  animation: pulseBlue 2s infinite ease-in-out;
+}
+
+.valoare-as {
+  color: #255075;
+  font-weight: 700;
+  font-size: 1.4rem;
+  animation: pulseBlue 2s infinite ease-in-out alternate;
+}
+
+.flux-sange p em {
+  font-size: 1rem;
+  color: #668abf;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideInDown {
+  from {opacity: 0; transform: translateY(-40px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes pulseBlue {
+  0%, 100% {opacity: 1;}
+  50% {opacity: 0.6;}
+}
+
+
+
+.structura-image-btn {
+  font-family: 'Poppins', sans-serif;
+  background-color: #d81b60;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 1rem 0.5rem;
+  box-shadow: 0 6px 15px rgba(216, 27, 96, 0.3);
+}
+
+.structura-image-btn:hover {
+  background-color: #ad1457;
+  transform: translateY(-2px);
+}
+
+.structura-image-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 5vh;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.75);
+  animation: fadeIn 0.5s ease;
+}
+
+.structura-modal-content {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+  animation: zoomIn 0.4s ease;
+}
+
+.structura-close-modal {
+  color: white;
+  position: absolute;
+  top: 25px;
+  right: 45px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.structura-close-modal:hover {
+  color: #f8bbd0;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.7);}
+  to {transform: scale(1);}
+}
+
+
+
+
+/* THEME TOGGLE */
+#theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.8rem;
+    background: #d81b60;
+  color: #fff0f8;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 10000;
+  transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+ background: #f48fb1;
+  color: #6a1b3f;
+}
+
+body.dark {
+background: linear-gradient(to right, #6a1b3f, #880e4f, #ad1457);
+  color: #ffe0f0;
+}
+
+/* LOADER */
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#loader-left, #loader-right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url('assets/poze/fundal_albastru.png');
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+  z-index: 2;
+  transition: all 1s ease;
+}
+
+#loader-left { left: 0; background-position: left center; }
+#loader-right { right: 0; background-position: right center; }
+
+#loader-center {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+}
+
+.site-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ffebf0;
+  text-shadow: 2px 2px 8px #ad1457;
+}
+
+#rotating-adn {
+  width: 100px;
+  height: 100px;
+  animation: rotateADN 3s linear infinite;
+   filter: drop-shadow(0 0 10px #d81b60);
+}
+
+@keyframes rotateADN {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loader-close #loader-left {
+  transform: translateX(-100%);
+}
+.loader-close #loader-right {
+  transform: translateX(100%);
+}
+.loader-close #loader-center {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+/* Stilizare pentru meniul lateral retractabil */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Inițial, meniul este ascuns pe stânga */
+  width: 250px;
+  height: 100%;
+  background-color: #ff7aa2;
+  color: white;
+  z-index: 1000;
+  transition: left 0.3s ease-in-out;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.2);
+  overflow-y: auto; /* Asta adaugă scroll vertical dacă e nevoie */
+  scrollbar-width: thin; /* opțional: scroll mai subțire în Firefox */
+
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.side-menu li {
+  margin-bottom: 1.5rem;
+}
+
+.side-menu a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 20px 30px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.side-menu .submenu a {
+
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  font-weight: normal;
+  font-size: 1.1rem;
+  color: white;
+  text-decoration: none;
+
+  max-width: 100%;
+  box-sizing: border-box;
+
+  white-space: normal;       /* permite înfășurare text */
+  word-break: normal;        /* evită ruperea cuvintelor în mijloc */
+  overflow-wrap: break-word; /* rupe doar la spații sau linii */
+  text-align: left;
+}
+
+
+.side-menu a i {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.side-menu a:hover {
+ background-color: #e64980;
+  color: white;
+}
+
+#menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+    background-color: #f06292;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+  font-size: 2rem;
+}
+
+#menu-toggle i {
+  display: block;
+}
+
+/* Când meniul este deschis */
+.side-menu.open {
+  left: 0; /* Meniul devine vizibil */
+}
+
+/* Adăugăm un efect de opacitate pentru fundal */
+body {
+  transition: background-color 0.3s ease;
+}
+
+body.menu-open {
+  background-color: rgba(0, 0, 0, 0.5); /* Fundal semitransparent când meniul este deschis */
+}
+
+/* Adăugăm stiluri pentru iconițele din meniu */
+#menu-toggle:hover i, .side-menu a:hover i {
+ background-color: #ffb6c1;
+
+  border-radius: 50%;
+}
+
+.side-menu .has-submenu > a {
+  justify-content: space-between;
+   background-color: #f48fb1;
+  border-radius: 5px;
+}
+
+
+.side-menu .has-submenu .submenu a {
+ background-color: #ffc1e3;
+  
+  margin-left: 10px;
+  font-weight: normal;
+  font-size: 0.9rem;
+   padding: 10px 15px;       /* mai puțin padding să nu se extindă prea mult */
+  text-align: center;       /* centrează textul */
+  white-space: normal;      /* lasă textul să se înfășoare pe mai multe linii */
+  border-radius: 5px;
+  align-items: start;    /* aliniază iconița și textul pe verticală */
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.side-menu .submenu {
+display: none;
+  padding-left: 20px;
+  flex-direction: column;
+   max-width: 100%;          /* nu depăși lățimea părintelui */
+  box-sizing: border-box;   /* padding și border incluse în max-width */
+  overflow-wrap: break-word; /
+}
+
+/*.side-menu .has-submenu:hover .submenu {
+
+  align-items: center; /* centrează vertical elementele (dacă e nevoie) 
+  justify-content: center; 
+}
+*/
+
+.side-menu .arrow {
+  font-size: 1rem;
+  transition: transform 0.3s;
+}
+
+.side-menu .has-submenu:hover .arrow {
+  transform: rotate(180deg); /* răstoarnă săgeata */
+}
+
+.arrow.rotated {
+  transform: rotate(180deg);
+}
+
+
+.side-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.side-menu::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+}
+
+
+/* Butonul Notițe (dreapta sus) */
+.top-right {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.notite-btn {
+  background-color: #f06292;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notite-btn i {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.notite-panel {
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  width: 800px; /* mai lat */
+  height: 600px; /* mai puțin înalt */
+  background: #fff;
+border: 2px solid #ec407a;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: none;
+  resize: both;
+  overflow: hidden;
+  z-index: 9999;
+  cursor: move; /* drag din orice punct */
+}
+
+.notite-panel iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.notite-header {
+  background: #f06292;
+  color: white;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* Stiluri pentru butonul de închidere (close-small) */
+.close-small {
+  cursor: pointer;
+  font-size: 24px; /* Mărim fontul pentru butonul de închidere */
+  color: #ff4040; /* Culoare mai vizibilă pentru buton */
+  font-weight: bold; /* Text mai gros pentru buton */
+  padding: 5px 10px; /* Adăugăm padding pentru un buton mai mare */
+  border-radius: 50%; /* Colțuri rotunjite pentru buton */
+  background-color: #fff; /* Fundal alb pentru a-l face mai vizibil */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Umbra pentru un efect 3D */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Tranziție pentru efecte de hover */
+}
+
+.close-small:hover {
+  background-color: #ff4040; /* Culoare de fundal mai aprinsă la hover */
+  color: white; /* Text alb la hover */
+  transform: scale(1.1); /* Mărim butonul puțin când trecem cu mouse-ul peste el */
+}
+
+.close-small:active {
+  transform: scale(0.95); /* Mărire inversă când butonul este apăsat */
+}
+
+
+.notite-panel:active {
+  cursor: grabbing;
+}
+
+
+/* SEARCH BAR */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: auto;
+  z-index: 10;
+  margin: 0;
+  
+}
+
+.search-bar input {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  width: 400px;
+  outline: none;
+  background-color: transparent;
+  color: white; /* Textul input-ului va fi alb */
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.search-bar input::placeholder {
+  color: white; /* Textul "Căutare..." va fi alb */
+}
+
+.search-bar input:focus {
+  border-color: #f954d5;
+}
+
+.search-bar i {
+  font-size: 24px;
+  margin-left: -40px;
+  cursor: pointer;
+  color: white; /* Iconița de căutare va fi albă */
+}
+
+.search-bar i:hover {
+  color: #bf0092;
+}
+
+/* Dark Mode Search */
+body.dark .search-bar input {
+  background-color: transparent;
+  color: inherit;
+}
+
+body.dark .search-bar i {
+  color: inherit;
+}
+
+body.light .search-bar input {
+  border-color: #fe6262;
+  color: black;
+}
+
+body.light .search-bar i {
+  color: black;
+}
+
+  .highlighted {
+    background-color: rgb(243, 138, 208);
+    text-decoration: underline;
+  }
+  .current-highlighted {
+    background-color: rgb(249, 40, 207) !important;
+  }
+
+#scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 75px;
+  right: 20px;
+  width: 45px;       /* egal cu height */
+  height: 45px;
+  background: #f06292;
+  color: #e0f7fa;
+  border-radius: 50%;  /* face cerc */
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  z-index: 10000;
+  transition: background-color 0.3s ease;
+  padding: 0;  /* important pentru centrare */
+  box-sizing: border-box;
+}
+
+
+#scrollTopBtn:hover {
+    background: #ffb6c1;
+  color: #880e4f;
+
+}
+
+
+#chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 80px; /* Mutat mai la stânga față de butonul de temă */
+  background: #f06292;
+  color: white;
+ font-size: 1.8rem;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 10000;
+  transition: background-color 0.3s ease;
+}
+
+#chat-box {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  flex-direction: column;
+}
+
+#chat-header {
+  background-color: #d86d90;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+#chat-close {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#chat-box iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* LIGHT/DARK SWITCHER */
+#theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.8rem;
+  background: #fff;
+  color: #c2185b;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 10000;
+  transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background-color: #c2185b;
+  color: #fff;
+}
+
+body.dark {
+  background: linear-gradient(to right, #3c0a28, #5e124e);
+  color: #fce4ec;
+}
+
+body.dark .main-content {
+  background: rgba(255,255,255,0.07);
+}
+
+body.dark .sidebar {
+  background: #4a0b30;
+  color: #ffe4f0;
+}
+
+body.dark .sidebar li:hover {
+  background-color: #ffffff22;
+  color: #fff;
+}
+/* LOADER CORTINĂ CU ADN */
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#loader-left, #loader-right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url('assets/poze/fundal_rosu.png');
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+  z-index: 2;
+  transition: all 1s ease;
+}
+
+#loader-left {
+  left: 0;
+  background-position: left center;
+}
+
+#loader-right {
+  right: 0;
+  background-position: right center;
+}
+
+#loader-center {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+}
+
+.site-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px #ed66d6;
+}
+
+#rotating-adn {
+  width: 100px;
+  height: 100px;
+  animation: rotateADN 3s linear infinite;
+  filter: drop-shadow(0 0 10px #f06292);
+}
+
+@keyframes rotateADN {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loader-close #loader-left {
+  transform: translateX(-100%);
+}
+.loader-close #loader-right {
+  transform: translateX(100%);
+}
+.loader-close #loader-center {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}

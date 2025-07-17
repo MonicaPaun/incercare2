@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemul Osos</title>
+  <!-- Faviconuri pentru toate dispozitivele -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/poze/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/poze/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/poze/favicon_io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/poze/favicon_io/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/poze/favicon_io/android-chrome-512x512.png">
+
+
+<!-- Clasic .ico pentru fallback pe browsere vechi -->
+<link rel="shortcut icon" href="assets/poze/favicon_io/favicon.ico" type="image/x-icon">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<!--Google Fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles-oase.css">
+</head>
+
+
+  
+<body>
+  <!-- Butonul pentru meniul retractabil -->
+  <div id="menu-toggle" class="menu-toggle">
+    <i class='bx bx-menu'></i> <!-- Iconița pentru meniu -->
+  </div>
+<!-- Buton Notițe în colțul dreapta sus -->
+<div id="notite-btn-container" class="top-right">
+  <button id="notiteBtn" class="notite-btn" onclick="toggleNotite()">
+    <i class='bx bx-notepad'></i> Notițe
+  </button>
+</div>
+
+<div id="notitePanel" class="notite-panel">
+  <div class="notite-header">
+    <span>Notițele mele</span>
+    <span class="close-small" onclick="toggleNotite()">&times;</span>
+  </div>
+  <iframe src="notite1.html"></iframe>
+  
+ </div>
+
+
+
+ 
+<div id="side-menu" class="side-menu">
+  <ul>
+    <li class="has-submenu">
+      <a href="#"><i class='bx bx-book-open'></i> Introducere <i class='bx bx-chevron-down arrow'></i></a>
+      <ul class="submenu">
+        <li><a href="#ce-este"><i class='bx bx-question-mark'></i> Ce este sistemul osos?</a></li>
+        <li><a href="#functii"><i class='bx bx-cog'></i> Funcțiile sistemului osos</a></li>
+        <li><a href="#clasificare"><i class='bx bx-layer'></i> Clasificarea oaselor</a></li>
+        <li><a href="#structura"><i class='bx bx-body'></i> Structura osului</a></li>
+      </ul>
+    </li>
+
+    <li class="has-submenu">
+      <a href="#"><i class='bx bx-network-chart'></i> Scheletul uman <i class='bx bx-chevron-down arrow'></i></a>
+      <ul class="submenu">
+        <li><a href="#axial"><i class='bx bx-body'></i> Scheletul axial</a></li>
+        <li><a href="#apendicular"><i class='bx bx-extension'></i> Scheletul apendicular</a></li>
+        <li><a href="#membre-superioare"><i class='bx bx-walk'></i> Membre superioare</a></li>
+        <li><a href="#membre-inferioare"><i class='bx bx-walk'></i> Membre inferioare</a></li>
+        <li><a href="#trunchi"><i class='bx bx-home-heart'></i> Scheletul trunchiului</a></li>
+      </ul>
+    </li>
+
+    <li class="has-submenu">
+      <a href="#"><i class='bx bx-git-merge'></i> Funcții speciale <i class='bx bx-chevron-down arrow'></i></a>
+      <ul class="submenu">
+        <li><a href="#articulatii"><i class='bx bx-link'></i> Articulații</a></li>
+        <li><a href="#osificare"><i class='bx bx-plus-medical'></i> Osificare & regenerare</a></li>
+        <li><a href="#afectiuni"><i class='bx bx-bug'></i> Afecțiuni ale sistemului osos</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#harta-sistem"><i class='bx bx-map'></i> Hartă schematică</a>
+    </li>
+  </ul>
+</div>
+
+
+  <!-- <div id="loader-wrapper">
+       
+        <div id="loader-left" style="background-image: url('assets/poze/fundal.png');"></div>
+        
+       
+        <div id="loader-right" style="background-image: url('assets/poze/fundal.png');"></div>
+    
+       
+        <div id="loader-center">
+            <h1 class="site-title">Biblioteca</h1>
+            <img id="rotating-adn" src="assets/poze/adn.png" alt="Rotating ADN" />
+        </div>
+    </div>-->
+        <!-- Faviconuri pentru toate dispozitivele -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/poze/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/poze/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/poze/favicon_io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/poze/favicon_io/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/poze/favicon_io/android-chrome-512x512.png">
+<link rel="manifest" href="assets/poze/Icon/site.webmanifest"> <!-- opțional dacă ai un manifest.json -->
+
+<!-- Clasic .ico pentru fallback pe browsere vechi -->
+<link rel="shortcut icon" href="assets/poze/favicon_io/favicon.ico" type="image/x-icon">
+       
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <h1>Sistemul osos</h1>
+    <p>Descoperă structura și funcțiile sistemului osos.</p>
+  <div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Caută..." autocomplete="off" />
+  <div id="searchInfo" style="font-size: 0.9em; margin-top: 4px; color: #555;"></div>
+</div>
+  </header>
+
+ <div id="searchContainer">
+  <!-- CE ESTE? -->
+<section id="ce-este" class="section">
+  <h2>Ce este sistemul osos?</h2>
+  <div class="content-wrapper"></div>
+  <p>
+    <span class="highlight">Sistemul osos</span> reprezintă ansamblul organelor dure, oasele, care formează scheletul corpului uman.
+    Acesta este parte pasivă a aparatului locomotor și, prin conexiunea cu mușchii și articulațiile, permite mișcarea.
+  </p>
+  <img src="assets/poze/scheletele.png" alt="scheletul-uman" class="center-img dynamic-img">
+</section>
+
+
+ <!-- FUNCȚIILE SISTEMULUI OSOS -->
+<section id="functii" class="section">
+  <h2>2. Funcțiile sistemului osos</h2>
+  <div class="tabel-functii-container">
+    <table class="tabel-functii">
+      <thead>
+        <tr>
+          <th>Funcție</th>
+          <th>Descriere</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Suport</td>
+          <td>Oasele susțin țesuturile moi, conferă forma generală a corpului</td>
+        </tr>
+        <tr>
+          <td>Mișcare</td>
+          <td>Oasele servesc drept pârghii pentru mușchii scheletici</td>
+        </tr>
+        <tr>
+          <td>Protecție</td>
+          <td>Craniul protejează creierul; cutia toracică - inima și plămânii; coloana - măduva spinării</td>
+        </tr>
+        <tr>
+          <td>Hematopoieză</td>
+          <td>Măduva osoasă roșie produce elemente figurate ale sângelui</td>
+        </tr>
+        <tr>
+          <td>Depozit mineral</td>
+          <td>Stochează 99% din calciu și fosforul organismului</td>
+        </tr>
+        <tr>
+          <td>Metabolic și hormonal</td>
+          <td>Secretă osteocalcină, hormon implicat în reglarea metabolismului</td>
+        </tr>
+        <tr>
+          <td>Antitoxic</td>
+          <td>Oasele pot reține metale grele/toxice și le eliberează lent</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+  <!-- CLASIFICAREA OASELOR -->
+<section id="clasificare" class="section">
+  <h2>3. Clasificarea oaselor</h2>
+  <div class="tabel-clasificare-container">
+    <table class="tabel-clasificare">
+      <thead>
+        <tr>
+          <th>Tip os</th>
+          <th>Caracteristici</th>
+          <th>Exemple</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Oase lungi</td>
+          <td>Diafiză, epifize, canal medular</td>
+          <td>Femur, humerus</td>
+        </tr>
+        <tr>
+          <td>Oase plate</td>
+          <td>Subțiri, protecție, inserții musculare</td>
+          <td>Scapula, oasele craniului</td>
+        </tr>
+        <tr>
+          <td>Oase scurte</td>
+          <td>Dimensiuni egale, mișcări fine</td>
+          <td>Carpiene, tarsiene</td>
+        </tr>
+        <tr>
+          <td>Oase neregulate</td>
+          <td>Forme variate, funcții speciale</td>
+          <td>Vertebrele</td>
+        </tr>
+        <tr>
+          <td>Oase sesamoide</td>
+          <td>În tendoane, protejează și modifică direcția forței musculare</td>
+          <td>Rotula</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+ <!-- STRUCTURA OSULUI -->
+<section id="structura" class="section">
+  <h2>4. Structura osului</h2>
+
+  <div class="accordion">
+    <div class="accordion-item">
+      <button class="accordion-header">Structură Macroscopică</button>
+      <div class="accordion-content">
+        <div class="card-grid">
+          <div class="card"><h3>Diafiza</h3><p>Partea centrală, compactă, cu canal medular</p></div>
+          <div class="card"><h3>Epifize</h3><p>Capete late, os spongios, cartilaj articular</p></div>
+          <div class="card"><h3>Metafiza</h3><p>Zonă de creștere în copilărie</p></div>
+          <div class="card"><h3>Periost</h3><p>Membrană vascularizată, creștere și reparație</p></div>
+          <div class="card"><h3>Endost</h3><p>Tapetează cavitatea medulară, conține celule osoase</p></div>
+          <div class="card"><h3>Măduva osoasă</h3><p>Roșie (hematopoieză), galbenă (rezervă grasă)</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">Structură Microscopică</button>
+      <div class="accordion-content">
+        <div class="card-grid">
+          <div class="card"><h3>Os compact</h3><p>Sisteme Haversiene (osteoni)</p></div>
+          <div class="card"><h3>Os spongios</h3><p>Trabecule, spații cu măduvă</p></div>
+          <div class="card"><h3>Osteoblaste</h3><p>Sintetizează matricea osoasă</p></div>
+          <div class="card"><h3>Osteocite</h3><p>Celule osoase mature</p></div>
+          <div class="card"><h3>Osteoclaste</h3><p>Resorbție osoasă</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+
+<!-- SCHELETUL AXIAL -->
+<section id="axial" class="section">
+  <h2>5. Scheletul axial</h2>
+
+  <div class="axial-cards">
+    <div class="axial-card">
+      <h3>🧠 Craniu</h3>
+      <p>8 oase neurocraniu<br>14 oase viscerocraniu</p>
+    </div>
+
+    <div class="axial-card">
+      <h3>🦴 Coloana vertebrală</h3>
+      <p>33–34 vertebre<br>(7C, 12T, 5L, 5S, 4–5Co)</p>
+    </div>
+
+    <div class="axial-card">
+      <h3>🫁 Cutia toracică</h3>
+      <p>12 perechi de coaste<br>+ stern</p>
+    </div>
+  </div>
+
+  <!-- Buton imagine -->
+  <button id="openImageBtn" class="open-image-btn">📷 Schelet axial</button>
+
+  <!-- Lightbox -->
+  <div id="imageModal" class="image-modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImage" src="assets/poze/axial.jpg" alt="Scheletul axial">
+  </div>
+</section>
+
+
+<!-- SCHELETUL APENDICULAR -->
+<section id="apendicular" class="section">
+  <h2>6. Scheletul apendicular</h2>
+
+  <div class="apendicular-cards">
+    <div class="apendicular-card">
+      <h3>🦾 Centura scapulară</h3>
+      <p>Scapula și clavicula</p>
+    </div>
+
+    <div class="apendicular-card">
+      <h3>✋ Membre superioare</h3>
+      <p>Humerus, radius, ulna,<br>carpiene, metacarpiene, falange</p>
+    </div>
+
+    <div class="apendicular-card">
+      <h3>🦵 Centura pelviană</h3>
+      <p>Oasele coxale + sacrum</p>
+    </div>
+
+    <div class="apendicular-card">
+      <h3>🚶‍♀️ Membre inferioare</h3>
+      <p>Femur, tibie, fibulă, rotulă,<br>tarsiene, metatarsiene, falange</p>
+    </div>
+  </div>
+
+  <!-- Buton imagine -->
+  <button id="openImageBtn2" class="open-image-btn">📷 Schelet apendicular</button>
+
+  <!-- Lightbox -->
+  <div id="imageModal2" class="image-modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImage2" src="assets/poze/apendicular.jpg" alt="Scheletul apendicular">
+  </div>
+</section>
+<section id="membre-superioare" class="section">
+  <h2>7. Membre superioare</h2>
+
+  <div class="accordion">
+    <div class="accordion-item">
+      <button class="accordion-header">🦾 Centura scapulară</button>
+      <div class="accordion-body">
+        <strong>Oase:</strong> Scapula (omoplat), Clavicula<br>
+        <strong>Funcție:</strong> Leagă membrul superior de scheletul axial, permite mobilitate mare a brațului.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">💪 Brațul</button>
+      <div class="accordion-body">
+        <strong>Os:</strong> Humerus<br>
+        <strong>Detalii:</strong> Os lung, se articulează cu scapula, radius și ulna; permite mișcarea brațului.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">🔁 Antebrațul</button>
+      <div class="accordion-body">
+        <strong>Oase:</strong> Radius (lateral), Ulna (medial)<br>
+        <strong>Funcție:</strong> Mișcări de rotație – pronație și supinație.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">🤲 Mâna</button>
+      <div class="accordion-body">
+        <ul>
+          <li><strong>Carpiene:</strong> 8 oase scurte – încheietura, mișcări fine</li>
+          <li><strong>Metacarpiene:</strong> 5 oase lungi – susțin palma</li>
+          <li><strong>Falange:</strong> 14 oase – degete, mișcări precise</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">⚙️ Funcții principale</button>
+      <div class="accordion-body">
+        • Mișcare complexă a brațului și mâinii<br>
+        • Prindere, manipulare, precizie<br>
+        • Susținere musculară
+      </div>
+    </div>
+  </div>
+
+  <!-- Buton imagine -->
+  <button id="openImageBtn3" class="open-image-btn">📷 Membre superioare</button>
+
+  <!-- Lightbox -->
+  <div id="imageModal3" class="image-modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImage3" src="assets/poze/membre-superioare.jpg" alt="Membre superioare">
+  </div>
+</section>
+
+
+<section id="membre-inferioare" class="section">
+  <h2>8. Membre inferioare</h2>
+
+  <div class="tabel-inferior">
+    <table>
+      <thead>
+        <tr>
+          <th>Segment</th>
+          <th>Oase principale</th>
+          <th>Caracteristici și funcții</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Centura pelviană</td>
+          <td>Oasele coxale (ilium, ischium, pubis), sacrum</td>
+          <td>Leagă membrele inferioare de scheletul axial, suportă greutatea corpului.</td>
+        </tr>
+        <tr>
+          <td>Coapsa</td>
+          <td>Femur</td>
+          <td>Cel mai lung și rezistent os, suportă greutatea și permite mișcarea piciorului.</td>
+        </tr>
+        <tr>
+          <td>Gambă</td>
+          <td>Tibie (medială), Fibulă (laterală)</td>
+          <td>Tibia suportă greutatea; fibula oferă stabilitate laterală.</td>
+        </tr>
+        <tr>
+          <td>Genunchi</td>
+          <td>Rotulă (os sesamoid)</td>
+          <td>Protejează genunchiul, mărește forța mușchilor coapsei.</td>
+        </tr>
+        <tr>
+          <td>Picior</td>
+          <td>Tarsiene, Metatarsiene, Falange</td>
+          <td>Suport, echilibru și mobilitate în mers și alergare.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="functie-inferioare">
+    <h3>Funcții principale:</h3>
+    <ul>
+      <li>• Suportul și distribuția greutății corpului</li>
+      <li>• Mobilitate și echilibru în mers, alergare și sărituri</li>
+      <li>• Absorbția șocurilor</li>
+    </ul>
+  </div>
+
+  <!-- Buton imagine -->
+  <button id="openImageBtn4" class="open-image-btn">📷 Membre inferioare</button>
+
+  <!-- Lightbox -->
+  <div id="imageModal4" class="image-modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImage4" src="assets/poze/membre-inferioare.jpg" alt="Membre inferioare">
+  </div>
+</section>
+
+
+
+<section id="trunchi" class="section">
+  <h2>9. Scheletul trunchiului</h2>
+
+  <div class="cards-container">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>Coloana vertebrală</h3>
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Oase:</strong> 33-34 vertebre</p>
+          <p>Cervicale (7), Toracale (12), Lombare (5), Sacrale (5 fuzionate), Coccigiene (4-5 fuzionate)</p>
+          <p><em>Funcții:</em> Susține capul și trunchiul, protejează măduva spinării, oferă mobilitate.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>Cutia toracică</h3>
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Oase:</strong> Stern, 12 perechi coaste</p>
+          <p><em>Funcții:</em> Protecție pentru organele vitale, susținere musculară.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trunchi-functii">
+    <h4>Funcții principale:</h4>
+    <ul>
+      <li>Protecția organelor vitale și a măduvei spinării</li>
+      <li>Susținerea și mișcarea capului și trunchiului</li>
+      <li>Loc de inserție pentru mușchii trunchiului și membrelor</li>
+    </ul>
+  </div>
+
+  <!-- Buton imagine -->
+  <button class="open-image-btn" data-target="modalImage5" data-src="assets/poze/trunchi.jpg">📷 Scheletul trunchiului</button>
+
+  <!-- Lightbox -->
+  <div class="image-modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImage5" src="" alt="Scheletul trunchiului">
+  </div>
+</section>
+
+<section id="articulatii" class="section">
+  <h2>6. Articulații: clasificare</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-icon">🧱</div>
+      <div class="timeline-content">
+        <h3>Fibroase</h3>
+        <p>Țesut conjunctiv dens, fixă</p>
+        <span>Ex: Sutura craniului</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-icon">🧊</div>
+      <div class="timeline-content">
+        <h3>Cartilaginoase</h3>
+        <p>Cartilaj, mișcare limitată</p>
+        <span>Ex: Simfiza pubiană</span>
+      </div>
+    </div>
+
+    <div class="timeline-item expandable" id="sinovialeTrigger">
+      <div class="timeline-icon">⚙️</div>
+      <div class="timeline-content">
+        <h3>Sinoviale</h3>
+        <p>Mișcare mare, capsulă, lichid sinovial</p>
+        <span>Ex: Umăr, genunchi</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tipuri sinoviale -->
+  <div class="sinoviale-extra" id="sinovialeExtra">
+    <h4>Tipuri de articulații sinoviale:</h4>
+    <ul>
+      <li><strong>Sferoidale</strong>: Permite rotație în toate direcțiile. <em>(Ex: Umăr, șold)</em></li>
+      <li><strong>Balama</strong>: Mișcare într-un singur plan. <em>(Ex: Cot, genunchi)</em></li>
+      <li><strong>Pivot</strong>: Mișcare de rotație. <em>(Ex: Atlanto-axială)</em></li>
+      <li><strong>Plane</strong>: Mișcări de alunecare. <em>(Ex: Intercarpiene)</em></li>
+    </ul>
+  </div>
+</section>
+
+
+<section id="osificare" class="section">
+<h2>7. Osificare și regenerare osoasă</h2>
+
+<div class="osificare-grid">
+  <div class="osif-card">
+    <h3>Osificare de membrană</h3>
+    <p>Țesut fibros → os</p>
+    <span>Ex: oasele craniului</span>
+  </div>
+
+  <div class="osif-card">
+    <h3>Osificare endocondrală</h3>
+    <p>Cartilaj → os</p>
+    <span>Ex: oasele lungi</span>
+  </div>
+
+  <div class="osif-card">
+    <h3>Creștere osoasă</h3>
+    <p>Prin cartilaj epifizar și periost</p>
+  </div>
+
+  <div class="osif-card">
+    <h3>Regenerare osoasă</h3>
+    <p>Etape: Hematom → Calus → Os definitivat</p>
+  </div>
+
+  <div class="osif-card hormones">
+    <h3>Factori implicați</h3>
+    <ul>
+      <li>Hormoni: GH, estrogeni, tiroidieni</li>
+      <li>Vitamine: A, C, D</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+
+<section id="afectiuni" class="section">
+  <h2>8. Afecțiuni ale sistemului osos</h2>
+
+  <table class="interactive-table">
+    <thead>
+      <tr>
+        <th>Afecțiune</th>
+        <th>Descriere</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="expandable-row">
+        <td>Osteoporoză</td>
+        <td>Scădere densitate osoasă, risc fracturi</td>
+      </tr>
+      <tr class="detail-row">
+        <td colspan="2">Frecventă la femei postmenopauză, tratament include aport de calciu și exerciții fizice.</td>
+      </tr>
+
+      <tr class="expandable-row">
+        <td>Fracturi</td>
+        <td>Rupturi osoase</td>
+      </tr>
+      <tr class="detail-row">
+        <td colspan="2">Necesită imobilizare sau chirurgie, timpul de vindecare variază în funcție de gravitate.</td>
+      </tr>
+
+      <tr class="expandable-row">
+        <td>Rahitism / Osteomalacie</td>
+        <td>Deficit de vitamina D</td>
+      </tr>
+      <tr class="detail-row">
+        <td colspan="2">Mineralizare deficitară a oaselor, cauzează deformări scheletice.</td>
+      </tr>
+
+      <tr class="expandable-row">
+        <td>Artrită</td>
+        <td>Inflamație articulară</td>
+      </tr>
+      <tr class="detail-row">
+        <td colspan="2">Ex: poliartrită reumatoidă, simptome: durere, rigiditate, tratament medicamentos.</td>
+      </tr>
+
+      <tr class="expandable-row">
+        <td>Scolioză, Cifoza, Lordoză</td>
+        <td>Deformări ale coloanei vertebrale</td>
+      </tr>
+      <tr class="detail-row">
+        <td colspan="2">Pot afecta postura și mobilitatea, tratament poate include kinetoterapie și/sau intervenții chirurgicale.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+
+
+
+<section id="harta-sistem" class="section">
+  <h2>🦴 SISTEMUL OSOS — Hartă schematică</h2>
+
+  <ul class="tree">
+    <li>
+      <span class="branch-label">🔵 Trunchi</span>
+      <ul>
+        <li>
+          <span class="branch-label">🟢 Coloana vertebrală</span>
+          <ul>
+            <li>🟡 Vertebre cervicale (7) – <em>susțin capul, permit mobilitate și rotație</em></li>
+            <li>🟡 Vertebre toracale (12) – <em>atașament coaste, protejează organele toracice</em></li>
+            <li>🟡 Vertebre lombare (5) – <em>suport greutate, flexibilitate trunchi</em></li>
+            <li>🟡 Vertebre sacrale (5 fuzionate) – <em>susțin pelvisul</em></li>
+            <li>🟡 Vertebre coccigiene (4-5 fuzionate) – <em>coadă vestigială, suport țesuturi moi</em></li>
+          </ul>
+        </li>
+        <li>
+          <span class="branch-label">🟠 Cutia toracică</span>
+          <ul>
+            <li>🟤 Stern – <em>protejează inima și plămânii</em></li>
+            <li>🟤 Coaste (12 perechi) – <em>protecție și mișcare respiratorie</em></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <span class="branch-label">🔴 Membre superioare</span>
+      <ul>
+        <li>
+          <span class="branch-label">🟣 Centura scapulară</span>
+          <ul>
+            <li>🔺 Scapula – <em>fixare mușchi, mobilitate umăr</em></li>
+            <li>🔺 Clavicula – <em>leagă membrul superior de trunchi</em></li>
+          </ul>
+        </li>
+        <li>
+          <span class="branch-label">🟠 Braț</span>
+          <ul><li>🔸 Humerus – <em>pârghie pentru mișcarea brațului</em></li></ul>
+        </li>
+        <li>
+          <span class="branch-label">🟠 Antebraț</span>
+          <ul>
+            <li>🔹 Radius – <em>rotație antebraț (supinație/pronație)</em></li>
+            <li>🔹 Ulna – <em>articulație cot, stabilitate</em></li>
+          </ul>
+        </li>
+        <li>
+          <span class="branch-label">🟠 Mână</span>
+          <ul>
+            <li>🔹 Carpiene (8 oase) – <em>mobilitate încheietură</em></li>
+            <li>🔸 Metacarpiene (5 oase) – <em>susțin palma</em></li>
+            <li>🔸 Falange (14 oase) – <em>dexteritate și prindere</em></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <span class="branch-label">🟣 Membre inferioare</span>
+      <ul>
+        <li>
+          <span class="branch-label">🟢 Centura pelviană</span>
+          <ul>
+            <li>🔺 Ilium – <em>suport greutate, fixare mușchi</em></li>
+            <li>🔺 Ischium – <em>suport șezut</em></li>
+            <li>🔺 Pubis – <em>articulație simfiză pubiană</em></li>
+            <li>🔺 Sacrum – <em>legătură coloana vertebrală-pelvis</em></li>
+          </ul>
+        </li>
+        <li>
+          <span class="branch-label">🟠 Coapsă</span>
+          <ul><li>🔸 Femur – <em>suportă greutatea corpului, mișcare picior</em></li></ul>
+        </li>
+        <li>
+          <span class="branch-label">🟠 Gambă</span>
+          <ul>
+            <li>🔹 Tibie – <em>suportă greutatea corpului</em></li>
+            <li>🔹 Fibulă – <em>stabilitate laterală picior</em></li>
+          </ul>
+        </li>
+        <li>
+          <span class="branch-label">🟠 Genunchi</span>
+          <ul><li>🔹 Rotulă – <em>protecție și pârghie mușchi coapsă</em></li></ul>
+        </li>
+        <li>
+          <span class="branch-label">🟠 Picior</span>
+          <ul>
+            <li>🔹 Tarsiene (7 oase) – <em>formare boltei piciorului, absorb șocuri</em></li>
+            <li>🔸 Metatarsiene (5 oase) – <em>suport în mers</em></li>
+            <li>🔸 Falange (14 oase) – <em>echilibru și sprijin</em></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+</div>
+
+ <!-- ÎNAPOI -->
+  <div class="buttons" style="margin-bottom: 3rem;">
+    <button id="goBackBtn">Înapoi la Sisteme</button>
+  </div>
+
+  <!-- SWITCH TEMĂ -->
+  <div id="theme-toggle" onclick="toggleTheme()">
+    <i class='bx bx-moon'></i>
+  </div>
+<button id="scrollTopBtn" title="Du-te sus">
+  <i class='bx bx-up-arrow-alt'></i>
+</button>
+
+
+<!-- Buton deschidere ChatBot -->
+<div id="chat-toggle"><i class='bx bx-bot'></i></div>
+
+<!-- Fereastra ChatBot -->
+<div id="chat-box">
+  <div id="chat-header">
+    <span>BioBot</span>
+    <button id="chat-close">✖</button>
+  </div>
+  <iframe src="bio-bot2.html"></iframe>
+</div>
+
+  <script src="assets/js/script-oase.js"></script>
+</body>
+</html>

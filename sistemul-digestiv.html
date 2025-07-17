@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistemul digestiv</title>
+  <!-- Faviconuri pentru toate dispozitivele -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/poze/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/poze/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/poze/favicon_io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/poze/favicon_io/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/poze/favicon_io/android-chrome-512x512.png">
+
+
+<!-- Clasic .ico pentru fallback pe browsere vechi -->
+<link rel="shortcut icon" href="assets/poze/favicon_io/favicon.ico" type="image/x-icon">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="assets/css/style-digestiv.css" />
+
+   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<!--Google Fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+   <!-- Butonul pentru meniul retractabil -->
+   <div id="menu-toggle" class="menu-toggle">
+    <i class='bx bx-menu'></i> <!-- Iconița pentru meniu -->
+  </div>
+
+  <!-- Buton Notițe în colțul dreapta sus -->
+<div id="notite-btn-container" class="top-right">
+  <button id="notiteBtn" class="notite-btn" onclick="toggleNotite()">
+    <i class='bx bx-notepad'></i> Notițe
+  </button>
+</div>
+
+<div id="notitePanel" class="notite-panel">
+  <div class="notite-header">
+    <span>Notițele mele</span>
+    <span class="close-small" onclick="toggleNotite()">&times;</span>
+  </div>
+  <iframe src="notite1.html"></iframe>
+  
+ </div>
+
+<div id="side-menu" class="side-menu">
+  <ul>
+    <li class="has-submenu">
+      <a href="#"><i class='bx bx-book-open'></i>Introducere<i class='bx bx-chevron-down arrow'></i></a>
+      <ul class="submenu">
+        <li><a href="#ce-este"><i class='bx bx-question-mark'></i> Ce este sistemul digestiv?</a></li>
+          <li><a href="#digestia"><i class='bx bx-question-mark'></i> Ce este digestia?</a></li>
+      </ul>
+    </li>
+
+    <li class="has-submenu">
+      <a href="#"><i class='bx bx-wind'></i>Componente<i class='bx bx-chevron-down arrow'></i></a>
+      <ul class="submenu">
+        <li><a href="#digestia-bucal"><i class='bx bx-cloud'></i> Digestia bucală</a></li>
+        <li><a href="#faringe-esofag"><i class='bx bx-cloud'></i>Faringe și esofag</a></li>
+           <li><a href="#stomac"><i class='bx bx-cloud'></i>Stomacul și digestia gastrică</a></li>
+              <li><a href="#intestin-subtire"><i class='bx bx-cloud'></i>Intestinul subține</a></li>
+                 <li><a href="#intestin-gros"><i class='bx bx-cloud'></i>Intestinul gros</a></li>
+                    <li><a href="#ficat"><i class='bx bx-cloud'></i>Ficatul</a></li>
+      <li><a href="#pancreas"><i class='bx bx-cloud'></i>Pancreasul</a></li>
+     <li><a href="#digestia-intestinala"><i class='bx bx-cloud'></i>Digestia intestinală</a></li>
+      <li><a href="#absorbtie"><i class='bx bx-cloud'></i>Absorbția intestinală</a></li>
+    
+    
+    
+    </ul>
+</li> 
+
+    <li><a href="#boli"><i class='bx bx-health'></i> Boli ale sistemului digestiv</a></li>
+  </ul>
+</div>
+
+
+ <!-- <div id="loader-wrapper">
+       
+        <div id="loader-left" style="background-image: url('assets/poze/fundal.png');"></div>
+        
+       
+        <div id="loader-right" style="background-image: url('assets/poze/fundal.png');"></div>
+    
+       
+        <div id="loader-center">
+            <h1 class="site-title">Biblioteca</h1>
+            <img id="rotating-adn" src="assets/poze/adn.png" alt="Rotating ADN" />
+        </div>
+    </div>-->
+
+  <!-- HEADER -->
+  <header class="hero">
+    <h1>Sistemul Digestiv</h1>
+    <p>Transformă alimentele în energie și substanțe nutritive esențiale pentru corp.</p>
+    <div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Caută..." autocomplete="off" />
+  <div id="searchInfo" style="font-size: 0.9em; margin-top: 4px; color: #555;"></div>
+</div>
+  </header>
+
+ <div id="searchContainer">
+<!-- CE ESTE? -->
+<section id="ce-este" class="section">
+  <h2>Ce este sistemul digestiv?</h2>
+  <div class="content-wrapper">
+    <p>
+      <span class="highlight">Sistemul digestiv</span> este un ansamblu de organe care are rolul de a transforma alimentele în substanțe nutritive esențiale pentru funcționarea organismului și de a elimina deșeurile nefolositoare. 
+      Acesta începe de la gură și se încheie cu anusul, implicând un proces complex ce include mestecarea, înghițirea, digestia chimică și absorbția nutrienților.
+    </p>
+
+    <p>
+      Organele principale ale sistemului digestiv includ: gura, faringele, esofagul, stomacul, intestinul subțire și intestinul gros. Organele anexe, cum ar fi ficatul, pancreasul și vezica biliară, contribuie și ele prin secreții esențiale în procesul digestiv.
+    </p>
+
+    <p>
+      Fiecare etapă a digestiei are un rol bine definit în asigurarea energiei și substanțelor necesare pentru dezvoltare, refacerea celulelor și susținerea funcțiilor vitale ale organismului.
+    </p>
+  </div>
+  <img src="assets/poze/sistemul-digestiv.png" alt="sistemul digestiv" class="center-img dynamic-img">
+</section>
+
+
+<section id="digestia" class="section">
+  <h2>Digestia – definiție și tipuri</h2>
+
+  <div class="content-wrapper">
+    <p><span class="highlight-red">Scop:</span> transformarea hranei în substanțe nutritive simple pentru absorbție.</p>
+
+    <ul class="digest-list">
+      <li><span class="highlight-red">Transformări:</span>
+        <ul>
+          <li><strong>Mecanice:</strong> mărunțire</li>
+          <li><strong>Fizice:</strong> dizolvare, umectare</li>
+          <li><strong>Chimice:</strong> hidroliză (cu enzime și apă)</li>
+        </ul>
+      </li>
+
+      <li><strong>Enzime:</strong> biocatalizatori specifici unei reacții</li>
+
+      <li><span class="highlight-red">Tipuri:</span>
+        <ul>
+          <li><strong>Intracelulară:</strong> protozoare, spongieri, celenterate
+            <ul>
+              <li>Mecanisme: fagocitoză/pinocitoză → vacuolă digestivă + lizozom → hidroliză → absorbție → eliminare reziduuri</li>
+              <li>Rol și în: metamorfoză, imunitate</li>
+            </ul>
+          </li>
+          <li><strong>Extracelulară:</strong> în tubul digestiv
+            <ul>
+              <li>Enzime secretate de glande digestive (microscopice și anexe)</li>
+              <li>Formare de sucuri digestive: apă, mucus, ioni, enzime</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+
+
+<!-- 1. Digestia bucală -->
+<section id="digestia-bucala" class="digest-section">
+  <h2>1. Digestia bucală</h2>
+  <p><strong>Organe implicate:</strong> dinți, limbă</p>
+  <ul>
+    <li><strong>Dinți:</strong> Incisivi (taie), Canini (sfâșie), Premolari/Molari (mărunțesc)</li>
+    <li><strong>Tipuri:</strong> dinți de lapte → dinți definitivi</li>
+    <li><strong>Limbă:</strong> mișcare, gust, masticație, deglutiție</li>
+    <li><strong>Salivă:</strong> apă, mucus, ioni, lizozim, amilază salivară (digestia amidonului)</li>
+  </ul>  <button class="structura-image-btn" data-img="assets/poze/dinti.jpg">📷 Structura</button>
+</section>
+
+<!-- 2. Faringe și esofag -->
+<section id="faringe-esofag" class="digest-section">
+  <h2>2. Faringe și esofag</h2>
+  <ul>
+    <li><strong>Faringe:</strong> punct comun digestie/respirație, rol important în deglutiție</li>
+    <li><strong>Esofag:</strong> tub muscular ce transportă hrana spre stomac</li>
+  </ul>
+ <button class="structura-image-btn" data-img="assets/poze/faringe-esofag.jpg">📷 Structura</button>
+</section>
+
+<!-- 3. Stomacul și digestia gastrică -->
+<section id="stomac" class="digest-section">
+  <h2>3. Stomacul și digestia gastrică</h2>
+  <ul>
+    <li><strong>Structură:</strong> unicameral sau tetracameral (rumegătoare)</li>
+    <li><strong>Suc gastric:</strong> apă, mucus, HCl, enzime (pepsină, labferment, lipază)</li>
+    <li><strong>HCl:</strong> activează enzimele, creează mediu acid, rol antibacterian</li>
+    <li><strong>Piloric:</strong> reglează trecerea alimentelor în intestin</li>
+  </ul>
+ <button class="structura-image-btn" data-img="assets/poze/stomac.png">📷 Structura</button>
+</section>
+
+<!-- 4. Intestinul subține -->
+<section id="intestin-subtire" class="digest-section">
+  <h2>4. Intestinul subține</h2>
+  <ul>
+    <li><strong>Porțiuni:</strong> duoden, anse intestinale</li>
+    <li><strong>Lungime:</strong> carnivore &lt; omnivore &lt; erbivore</li>
+    <li><strong>Mucoasă:</strong> valvule conivente, vilozități, microvilozități</li>
+    <li><strong>Glande:</strong> produc suc intestinal</li>
+  </ul><button class="structura-image-btn" data-img="assets/poze/intestin-subtire.jpg">📷 Structura</button>
+</section>
+
+<div id="structuraImageModal" class="structura-image-modal">
+  <span class="structura-close-modal">&times;</span>
+  <img id="structuraModalContent" class="structura-modal-content" src="" alt="Structura">
+</div>
+
+<!-- 5. Intestinul gros -->
+<section id="intestin-gros" class="digest-section">
+  <h2>5. Intestinul gros</h2>
+  <ul>
+    <li><strong>Structură:</strong> cecum, colon, rect</li>
+    <li><strong>Cecum:</strong> bine dezvoltat la cal, iepure; redus la om (cu apendice)</li>
+    <li><strong>Conținut:</strong> mișcare unidirecțională; fixare prin peritoneu</li>
+  </ul><button class="structura-image-btn" data-img="assets/poze/intestin-gros.jpg">📷 Structura</button>
+</section>
+
+<!-- 6. Ficatul -->
+<section id="ficat" class="digest-section">
+  <h2>6. Ficatul</h2>
+  <ul>
+    <li><strong>Locație:</strong> sub diafragm, partea dreaptă</li>
+    <li><strong>Structură:</strong> lobi → lobuli</li>
+    <li><strong>Circulație:</strong> arteră hepatică (nutritivă), venă portă (funcțională)</li>
+    <li><strong>Rol:</strong> produce bila, stocată în vezica biliară, eliberată în duoden</li>
+  </ul><button class="structura-image-btn" data-img="assets/poze/ficat.jpg">📷 Structura</button>
+</section>
+
+<!-- 7. Pancreasul -->
+<section id="pancreas" class="digest-section">
+  <h2>7. Pancreasul</h2>
+  <ul>
+    <li><strong>Locație:</strong> sub stomac</li>
+    <li><strong>Structură:</strong> exocrină (suc pancreatic), endocrină (hormoni)</li>
+    <li><strong>Tip:</strong> glandă mixtă</li>
+  </ul><button class="structura-image-btn" data-img="assets/poze/pancreas.jpg">📷 Structura</button>
+</section>
+
+<!-- 8. Digestia intestinală -->
+<section id="digestia-intestinala" class="digest-section">
+  <h2>8. Digestia intestinală</h2>
+  <ul>
+    <li><strong>Bila:</strong> emulsionează grăsimile; pigmenți biliari, colesterol, lecitină</li>
+    <li><strong>Suc pancreatic:</strong> proteaze, lipază, amilază</li>
+    <li><strong>Suc intestinal:</strong> oligopeptidaze, lipază, dizaharidaze</li>
+  
+</section>
+
+<!-- 9. Absorbția intestinală -->
+<section id="absorbtie" class="digest-section">
+  <h2>9. Absorbția intestinală</h2>
+  <ul>
+    <li><strong>Loc:</strong> intestin subține (vilozități), intestin gros (parțial)</li>
+    <li><strong>Substanțe absorbite:</strong> aminoacizi, monozaharide, acizi grași, vitamine, ioni</li>
+    <li><strong>Bacterii simbionte:</strong> produc vitamine utile</li>
+  
+</section>
+
+
+
+<section id="boli" class="section">
+  <h2>Boli ale sistemului digestiv</h2>
+
+  <div class="table-wrapper">
+    <table class="boli-table">
+      <thead>
+        <tr>
+          <th>Boală</th>
+          <th>Cauze</th>
+          <th>Manifestări</th>
+          <th>Prevenire</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gastrită</td>
+          <td>
+            Iritații (alcool, tutun, substanțe caustice)<br>
+            Alimente alterate, prea fierbinți<br>
+            Supraîncărcarea stomacului
+          </td>
+          <td>
+            Greață, vărsături<br>
+            Regurgitări, dureri gastrice<br>
+            Indispoziție, dureri de cap
+          </td>
+          <td>
+            Alimentație blândă<br>
+            Fără condimente iuți<br>
+            Evitarea alcoolului și tutunului<br>
+            Igiena alimentelor și a mâinilor
+          </td>
+        </tr>
+        <tr>
+          <td>Ulcer gastro-duodenal</td>
+          <td>
+            Acțiunea HCl<br>
+            H. pylori (prin alimente nespălate)
+          </td>
+          <td>
+            Leziuni stomac/duoden<br>
+            Durere, arsură gastrică
+          </td>
+          <td>
+            Evitarea alimentelor iritante<br>
+            Igiena alimentară strictă
+          </td>
+        </tr>
+        <tr>
+          <td>Hepatită</td>
+          <td>
+            Virusuri hepatice
+          </td>
+          <td>
+            Icter, oboseală<br>
+            Tulburări digestive<br>
+            Fecale decolorate, urină închisă
+          </td>
+          <td>
+            Igiena personală și alimentară<br>
+            Evitarea sângelui contaminat
+          </td>
+        </tr>
+        <tr>
+          <td>Apendicită</td>
+          <td>
+            Inflamarea apendicelui
+          </td>
+          <td>
+            Durere în partea dreaptă<br>
+            Greață, vărsături
+          </td>
+          <td>
+            Intervenție medicală la primele simptome
+          </td>
+        </tr>
+        <tr>
+          <td>Toxiinfecții alimentare</td>
+          <td>
+            Ciuperci neavizate<br>
+            Lapte, ouă insuficient fierte<br>
+            Alimente alterate
+          </td>
+          <td>
+            Febră, tulburări digestive severe
+          </td>
+          <td>
+            Preparare corectă a alimentelor<br>
+            Igienă strictă în bucătărie
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+  <!-- ÎNAPOI -->
+  <div class="buttons" style="margin-bottom: 3rem;">
+    <button id="goBackBtn">Înapoi la Sisteme</button>
+  </div>
+
+  <!-- SWITCH TEMĂ -->
+  <div id="theme-toggle" onclick="toggleTheme()">
+    <i class='bx bx-moon'></i>
+  </div>
+<button id="scrollTopBtn" title="Du-te sus">
+  <i class='bx bx-up-arrow-alt'></i>
+</button>
+
+
+<!-- Buton deschidere ChatBot -->
+<div id="chat-toggle"><i class='bx bx-bot'></i></div>
+
+<!-- Fereastra ChatBot -->
+<div id="chat-box">
+  <div id="chat-header">
+    <span>BioBot</span>
+    <button id="chat-close">✖</button>
+  </div>
+  <iframe src="bio-bot2.html"></iframe>
+</div>
+
+  <script src="assets/js/script-digestiv.js"></script>
+</body>
+</html>

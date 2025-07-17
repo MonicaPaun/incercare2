@@ -1,0 +1,869 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #fb2e2e;
+    min-height: 100vh;
+    transition: background 0.4s ease, color 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.chatbot-popup {
+    position: fixed;
+    z-index: 1000;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrăm chatbot-ul */
+    width: 420px;
+    height: auto;
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.5), 0 32px 64px -48px rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
+
+}
+
+.chat-header{
+    
+    display: flex;
+     align-items: center;
+     background-color: #f83535;
+     padding: 15px 22px;
+     justify-content: space-between;
+   
+}
+
+.chat-header .header-info{
+display: flex;
+gap: 10px;
+align-items: center;
+
+}
+
+.header-info .chatbot-logo{
+    width: 35px;
+    height: 35px;
+    padding: 6px;
+    fill: #f34648;
+    flex-shrink: 0;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.header-info .logo-text{
+    font-size: 1.31rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.chat-header #close-chatbot{
+    border: none;
+    color: #fff;
+    height: 40px;
+    width: 40px;
+    font-size: 1.9rem;
+    padding-top: 2px ;
+    margin-right: -10px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #f83535;
+    transition: 0.2s ease;
+
+}
+
+.chat-header #close-chatbot:hover{
+    background-color: #a70104;
+}
+
+.chat-body{
+    padding: 25px 22px;
+    display: flex;
+    gap: 20px;
+     height: 460px;  
+    margin-bottom: 82px;
+    overflow-y: auto;
+    flex-direction: column;
+    scrollbar-width:thin ;
+    scrollbar-color: #ccccf5 transparent;
+}
+
+.chat-body .message{
+    display: flex;
+    gap: 11px;
+    align-items: center;
+
+}
+.chat-body .bot-message .bot-avatar{
+    width: 35px;
+    height: 35px;
+    padding: 6px;
+    fill: #ffffff;
+     flex-shrink: 0;
+   margin-bottom: 2px;
+    align-self: flex-end;
+    background-color:#f34648;
+    border-radius: 50%;
+}
+
+.chat-body .user-message {
+  flex-direction: column;
+  align-items: flex-end;
+}
+.chat-body .message .message-text{
+    padding: 12px 16px;
+    max-width: 75%;
+    font-size: 0.95rem;
+    background: #f2f2ff;
+
+}
+.chat-body .user-message .attachment{
+   width: 50%;
+    margin-top: -7px;
+    border-radius: 13px 3px 13px 13px;
+}
+
+.chat-body .bot-message.thinking .message-text{
+    padding: 2px 16px;
+
+}
+
+.chat-body .bot-message .message-text {
+    background: #f2f2ff;
+    border-radius:13px 13px 13px 3px;
+}
+
+.chat-body .user-message .message-text {
+    color: #fff;
+    background: #f34648;
+    border-radius:13px 13px 3px 13px;
+}
+
+.chat-body .bot-message .thinking-indicator{
+    display: flex;
+    gap: 4px;
+   padding-block: 15px;
+
+}
+
+.chat-body .bot-message .thinking-indicator .dot{
+height: 7px;
+width: 7px;
+opacity: 0.7;
+border-radius: 50%;
+background-color: #f34648;
+animation: dotPulse 1.8s ease-in-out infinite;
+}
+
+.chat-body .bot-message .thinking-indicator .dot:nth-child(1){
+    animation-delay: 0.2s;
+
+}
+.chat-body .bot-message .thinking-indicator .dot:nth-child(2){
+    animation-delay: 0.3s;
+
+}
+
+.chat-body .bot-message .thinking-indicator .dot:nth-child(3){
+    animation-delay: 0.4s;
+
+}
+
+
+
+
+@keyframes dotPulse {
+    0%, 44% {
+        transform: translateY(0);
+    }
+
+    28% {
+        opacity: 0.4;
+        transform: translateY(-4px);
+    }
+
+    44% {
+        opacity: 0.2;
+        
+    }
+}
+
+.chat-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+    width: 100%; 
+    background-color: #fff;
+    padding: 15px 22px 20px;
+    display: flex;
+    justify-content: space-between; /* Aliniază butoanele pe orizontală */
+    padding-left: 30px; /* Poți ajusta această valoare dacă butoanele nu sunt corect plasate */
+    padding-right: 30px;
+
+}
+
+.chat-footer .chat-form {
+    display: flex;
+    position: relative;
+    align-items: center;
+    background: #fff;
+    border-radius: 32px;
+    outline: 1px solid #cccce5;
+    width: 100%; 
+    max-width: 420px; 
+    margin: 0 auto; 
+}
+
+.chat-footer .chat-form:focus-within {
+    outline: 2px solid #f34648;
+}
+
+
+.chat-form .message-input{
+   border: none;
+   outline: none;
+   height: 47px;
+      width: 100%;
+      resize: none;
+    font-size: 0.95rem;
+   padding: 14px  0 13px 18px;
+   border-radius: inherit;
+}
+
+.chat-form .chat-controls{
+    display: flex;
+    height: 47px;
+    gap: 3px;
+    align-items: center;
+    align-self: flex-end;
+    padding-right: 6px;
+}
+
+.chat-form .chat-controls button{
+    height: 35px;
+    width: 35px;
+    border: none;
+    font-size: 1.15rem;
+    cursor: pointer;
+    color: #f83535;
+    background: none;
+    border-radius: 50%;
+    transition: 0.2s ease;
+}
+
+.chat-form .chat-controls #send-message{
+    color:#fff;
+    display: none;
+    background: #f34648;
+
+}
+
+.chat-form .message-input:valid~.chat-controls #send-message{
+    display: block;
+}
+
+.chat-form .chat-controls #send-message:hover{
+    background:#a70104;
+}
+
+.chat-form .chat-controls button:hover{
+    background: #f2f2ff;
+}
+
+.chat-form .file-upload-wrapper{
+    height: 35px;
+    width: 35px;
+    position: relative;
+    
+}
+.chat-form .file-upload-wrapper :where(img, button){
+  position: absolute;
+
+}
+
+.chat-form .file-upload-wrapper img{
+  
+    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.chat-form .file-upload-wrapper #file-cancel{
+
+    color:#ff0000;
+    background: #fff;
+}
+
+.chat-form .file-upload-wrapper :where(img, #file-cancel),
+.chat-form .file-upload-wrapper.file-uploaded #file-upload{
+    display: none;
+}
+
+.chat-form .file-upload-wrapper.file-uploaded img,
+.chat-form .file-upload-wrapper.file-uploaded:hover #file-cancel{
+    display : block;
+ 
+}
+
+em-emoji-picker{
+    position: absolute;
+    left: 50%;
+    top:-337px;
+    width:100%;
+    max-width: 350px;
+    max-height: 330px;
+    visibility: hidden;
+    transform:translateX(-50%); 
+}
+
+body.show-emoji-picker em-emoji-picker{
+visibility: visible;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+  }
+/* SIDEBAR */
+.sidebar {
+    width: 60px;
+    background-color: #b22222;
+    color: white;
+    transition: width 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: hidden;
+    z-index: 10;
+    height: 100vh;
+}
+
+.sidebar:hover {
+    width: 220px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar li {
+    padding: 12px;
+    border-bottom: 1px solid white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar li:hover {
+    background-color: white;
+    color: #b22222;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.item-icon {
+    font-size: 1.5rem;
+}
+
+.item-txt {
+    margin-left: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.sidebar:hover .item-txt {
+    opacity: 1;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+   
+    margin-top: 50px;
+    z-index: 1;
+}
+
+
+
+/* LIGHT/DARK SWITCHER */
+#theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.8rem;
+    background: #fff;
+    color: #8b0000;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 10000;
+    transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #8b0000;
+    color: #fff;
+}
+
+body.dark {
+    background: linear-gradient(to right, #3b0a0a, #5a1f1f);
+    color: white;
+}
+
+body.dark .main-content {
+    background: rgba(255,255,255,0.05);
+}
+
+body.dark .sidebar {
+    background: #3a0f0f;
+    color: #eee;
+}
+
+body.dark .sidebar li:hover {
+    background-color: #ffffff22;
+    color: #fff;
+}
+
+/* SCROLL PROGRESS BAR */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: #8b0000;
+    z-index: 10000;
+    transition: width 0.3s ease-in-out;
+}
+
+/* SCROLL PROGRESS BAR (when scroll progresses) */
+#progress-bar.active {
+    animation: progressFill 0.3s ease-out forwards;
+}
+
+@keyframes progressFill {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* RESPONSIVE STYLES */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 60px;
+    }
+
+    .sidebar:hover {
+        width: 100%;
+    }
+
+    .sidebar li {
+        font-size: 1.2rem;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+}
+
+/* LOADER CORTINĂ CU ADN */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#loader-left, #loader-right {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url('assets/poze/fundal_rosu.png');
+    background-repeat: no-repeat;
+    background-size: 200% 100%;
+    z-index: 2;
+    transition: all 1s ease;
+}
+
+#loader-left {
+    left: 0;
+    background-position: left center;
+}
+
+#loader-right {
+    right: 0;
+    background-position: right center;
+}
+
+#loader-center {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+}
+
+.site-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px #000;
+}
+
+#rotating-adn {
+    width: 100px;
+    height: 100px;
+    animation: rotateADN 3s linear infinite;
+    filter: drop-shadow(0 0 10px #ff4040);
+}
+
+@keyframes rotateADN {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.loader-close #loader-left {
+    transform: translateX(-100%);
+}
+.loader-close #loader-right {
+    transform: translateX(100%);
+}
+.loader-close #loader-center {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* Icona User în colțul din dreapta sus */
+#user-icon {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    font-size: 5rem;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+#user-toggle {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    font-size: 1.8rem;
+    color: #eb3030; /* Culoare roșie pentru butonul care deschide meniul */
+    cursor: pointer;
+    z-index: 10001;
+}
+
+#user-toggle i {
+    color: white; /* Setează culoarea iconiței de afisaj pe alb */
+}
+
+#user-menu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: rgb(198, 27, 27); /* Fundal roșu pentru meniu */
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    min-width: 140px;
+    display: none;
+    z-index: 10002;
+}
+
+#user-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#user-menu li {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#user-menu li:hover {
+    background-color: #f2f2f2;
+}
+
+#user-menu li i {
+    font-size: 1.1rem;
+    color: #eb3030; /* Iconițele din meniu vor fi roșii */
+}
+
+/* Show menu when active */
+#user-menu.show {
+    display: block;
+}
+
+/* Dark mode adaptation */
+body.dark #user-menu {
+    background: #3b0a0a;
+    color: white;
+}
+
+body.dark #user-menu li:hover {
+    background-color: #5a1f1f;
+}
+
+/* Meniu User cu efect de tranziție */
+#user-menu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: white; /* Fundal alb pentru meniul de utilizator */
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    min-width: 140px;
+    display: block;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10002;
+}
+
+#user-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Meniu User cu fundal alb pentru tema deschisă */
+#user-menu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    min-width: 140px;
+    display: block;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10002;
+}
+
+#user-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+
+/* Logo Styles */
+.logo-container {
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    left: -20px;
+}
+
+#logo {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: none;
+    cursor: grab;
+    transition: transform 0.3s ease;
+    transform-origin: center center;
+    position: relative;
+    user-select: none;
+  }
+  .modal-content:active {
+    cursor: grabbing;
+  }
+  
+
+.zoom-buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 2;
+}
+
+.zoom-buttons button {
+    font-size: 30px;
+    background-color: rgba(139, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.zoom-buttons button:hover {
+    background-color: rgba(139, 0, 0, 0.8);
+}
+
+.close {
+    position: absolute;
+    top: 50px;            /* Coborât mai jos */
+    right: 40px;          /* Ușor mai spre interior */
+    font-size: 70px;      /* Clar mai mare */
+    font-weight: 900;     /* Extra bold */
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.close:hover {
+    transform: scale(1.2);
+    color: #ffcccc;       /* Schimbare ușoară de culoare la hover (opțional) */
+}
+
+.close:focus {
+    outline: none;
+}
+
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+    #logo {
+        width: 180px;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
+
+    .search-container input {
+        width: 80%;
+    }
+}
+.top-menu {
+    width: 100%;
+    background-color: #c0392b; /* Roșu plăcut */
+    padding: 7px 20px; /* Creștem puțin padding-ul pentru a face bara mai mare */
+    color: white;
+    font-size: 20px; /* Mărim puțin fontul */
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px; /* Înalțimea barei este mai mare */
+  }
+  
+  .top-menu h1 {
+    margin: 0;
+    font-size: 20px;
+    padding-left: 40px; /* Adăugăm puțin spațiu la stânga pentru a muta titlul spre dreapta */
+  }
+  
+  
+  .top-menu .icon {
+    font-size: 28px; /* Mărimea icon-ului mai mare */
+    margin-left: 10px;
+  }
+  /* Stiluri pentru bara de meniu în Dark Mode */
+  body.dark .top-menu {
+    background-color: #8e1f1f; /* O nuanță mai închisă de roșu, dar încă plăcută */
+  }
+  
+  body.dark .top-menu h1 {
+    color: white; /* Asigurăm că textul rămâne alb în dark mode */
+  }
+  
+  body.dark .top-menu .icon {
+    color: white; /* Facem și iconițele albe în dark mode */
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  button, .button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.3s;
+  }
+  
+  button:hover, .button:hover {
+    transform: scale(1.05);
+  }

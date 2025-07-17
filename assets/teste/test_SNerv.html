@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Test Sistemul Nervos - Quiz Interactiv</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fce4ec 0%, #880e4f 100%);
+    margin: 0;
+    padding: 0;
+    color: #3e0f2f;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+  form {
+    background: #fff0f6;
+    border-radius: 15px;
+    box-shadow: 0 12px 25px rgba(136, 14, 79, 0.3);
+    padding: 30px 40px;
+    max-width: 700px;
+    width: 100%;
+    margin: 40px 20px;
+    animation: fadeInScale 0.8s ease forwards;
+  }
+
+  h1 {
+    text-align: center;
+    color: #6a1b4d;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: slideDown 0.8s ease forwards;
+  }
+
+  p {
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+  }
+
+  label {
+    display: block;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+
+  label:hover {
+    background-color: #f8bbd0;
+    color: #880e4f;
+  }
+
+  input[type="radio"]:checked + label {
+    background-color: #880e4f;
+    color: #fff;
+    border: 2px solid #fce4ec;
+  }
+
+  /* Trick for clicking labels - associate with input */
+  input[type="radio"] {
+    display: none;
+  }
+
+  input[type="radio"]:checked + label {
+    box-shadow: 0 0 12px 3px #c2185b;
+  }
+
+  .question {
+    margin-bottom: 30px;
+  }
+
+  button {
+    background-color: #880e4f;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 6px 15px rgba(136, 14, 79, 0.6);
+  }
+
+  button:hover {
+    background-color: #a91b62;
+    transform: scale(1.05);
+  }
+
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+<script>
+  const ans = ["", "a", "b", "b", "d", "d", "c", "b", "a", "c"];
+  const yourAns = [];
+
+  function Engine(question, answer) {
+    yourAns[question] = answer;
+  }
+
+  function Score() {
+    let score = 0;
+    let answerText = "Rezultate:\n\n";
+    for (let i = 1; i <= 9; i++) {
+      answerText += i + ")";
+      if (ans[i] !== yourAns[i]) {
+        answerText += " Ai greșit! Corect era: " + ans[i] + "\n";
+      } else {
+        answerText += " Corect!\n";
+        score++;
+      }
+    }
+    answerText += "\nScorul total: " + score + "/9\n\nComentariul meu: ";
+    if (score <= 4) {
+      answerText += "Mai studiază!";
+    } else if (score >= 5 && score <= 7) {
+      answerText += "Bine!";
+    } else if (score > 7 && score <= 9) {
+      answerText += "Foarte bine!";
+    }
+    alert(answerText);
+  }
+</script>
+</head>
+
+<body>
+  <form onsubmit="return false;">
+    <h1>Test Sistemul Nervos</h1>
+
+    <div class="question">
+      <p>1. Foițele meningeale: ...</p>
+      <input type="radio" id="q1a" name="q1" value="a" onclick="Engine(1, this.value)">
+      <label for="q1a">a) au rol și în hrănire</label>
+
+      <input type="radio" id="q1b" name="q1" value="b" onclick="Engine(1, this.value)">
+      <label for="q1b">b) piamater aderă la peretele osos</label>
+
+      <input type="radio" id="q1c" name="q1" value="c" onclick="Engine(1, this.value)">
+      <label for="q1c">c) duramater aderă la organul nervos</label>
+
+      <input type="radio" id="q1d" name="q1" value="d" onclick="Engine(1, this.value)">
+      <label for="q1d">d) oferă protecție lichidă encefalului și măduvei</label>
+    </div>
+
+    <div class="question">
+      <p>2. Despre sistemul nervos somatic, este adevărată următoarea afirmație:</p>
+      <input type="radio" id="q2a" name="q2" value="a" onclick="Engine(2, this.value)">
+      <label for="q2a">a) Se mai numește sistem nervos autonom.</label>
+
+      <input type="radio" id="q2b" name="q2" value="b" onclick="Engine(2, this.value)">
+      <label for="q2b">b) Face legătura între organism și mediu.</label>
+
+      <input type="radio" id="q2c" name="q2" value="c" onclick="Engine(2, this.value)">
+      <label for="q2c">c) Partea periferică este reprezentată prin centri nervoși.</label>
+
+      <input type="radio" id="q2d" name="q2" value="d" onclick="Engine(2, this.value)">
+      <label for="q2d">d) Partea centrală este localizată în ganglionii spinali.</label>
+    </div>
+
+    <div class="question">
+      <p>3. Reflexul voluntar este ...</p>
+      <input type="radio" id="q3a" name="q3" value="a" onclick="Engine(3, this.value)">
+      <label for="q3a">a) înnăscut.</label>
+
+      <input type="radio" id="q3b" name="q3" value="b" onclick="Engine(3, this.value)">
+      <label for="q3b">b) dobândit.</label>
+
+      <input type="radio" id="q3c" name="q3" value="c" onclick="Engine(3, this.value)">
+      <label for="q3c">c) permanent.</label>
+
+      <input type="radio" id="q3d" name="q3" value="d" onclick="Engine(3, this.value)">
+      <label for="q3d">d) constant.</label>
+    </div>
+
+    <div class="question">
+      <p>4. Despre ganglionii nervoși este adevărat: </p>
+      <input type="radio" id="q4a" name="q4" value="a" onclick="Engine(4, this.value)">
+      <label for="q4a">a) conțin prelungiri ale neuronilor.</label>
+
+      <input type="radio" id="q4b" name="q4" value="b" onclick="Engine(4, this.value)">
+      <label for="q4b">b) se găsesc în interiorul axului cerebrospinal.</label>
+
+      <input type="radio" id="q4c" name="q4" value="c" onclick="Engine(4, this.value)">
+      <label for="q4c">c) sunt localizați pe traiectul unor vase limfatice.</label>
+
+      <input type="radio" id="q4d" name="q4" value="d" onclick="Engine(4, this.value)">
+      <label for="q4d">d) aparțin sistemului nervos periferic.</label>
+    </div>
+
+    <div class="question">
+      <p>5. Legătura dintre cele două emisfere cerebrale se realizează prin: ... </p>
+      <input type="radio" id="q5a" name="q5" value="a" onclick="Engine(5, this.value)">
+      <label for="q5a">a) fibre ascendente</label>
+
+      <input type="radio" id="q5b" name="q5" value="b" onclick="Engine(5, this.value)">
+      <label for="q5b">b) fibre descendente</label>
+
+      <input type="radio" id="q5c" name="q5" value="c" onclick="Engine(5, this.value)">
+      <label for="q5c">c) fibre de asociație</label>
+
+      <input type="radio" id="q5d" name="q5" value="d" onclick="Engine(5, this.value)">
+      <label for="q5d">d) fibre comisurale</label>
+    </div>
+
+    <div class="question">
+      <p>6. Ramurile dorsale ale nervilor spinali ... </p>
+      <input type="radio" id="q6a" name="q6" value="a" onclick="Engine(6, this.value)">
+      <label for="q6a">a) Conțin fibre vasomotorii pentru meninge</label>
+
+      <input type="radio" id="q6b" name="q6" value="b" onclick="Engine(6, this.value)">
+      <label for="q6b">b) Formează plexurile lombar și sacral</label>
+
+      <input type="radio" id="q6c" name="q6" value="c" onclick="Engine(6, this.value)">
+      <label for="q6c">c) Conțin fibre motorii și senzitive</label>
+
+      <input type="radio" id="q6d" name="q6" value="d" onclick="Engine(6, this.value)">
+      <label for="q6d">d) Formează plexurile cervical și brahial</label>
+    </div>
+
+    <div class="question">
+      <p>7. Paleocerebelul este constituit de:</p>
+      <input type="radio" id="q7a" name="q7" value="a" onclick="Engine(7, this.value)">
+      <label for="q7a">a) Lobul posterior al cerebelului</label>
+
+      <input type="radio" id="q7b" name="q7" value="b" onclick="Engine(7, this.value)">
+      <label for="q7b">b) Lobul anterior al cerebelului</label>
+
+      <input type="radio" id="q7c" name="q7" value="c" onclick="Engine(7, this.value)">
+      <label for="q7c">c) Pedunculii cerebeloși</label>
+
+      <input type="radio" id="q7d" name="q7" value="d" onclick="Engine(7, this.value)">
+      <label for="q7d">d) Cortul cerebelului</label>
+    </div>
+
+    <div class="question">
+      <p>8. Care dintre următoarele reflexe este spinal?</p>
+      <input type="radio" id="q8a" name="q8" value="a" onclick="Engine(8, this.value)">
+      <label for="q8a">a) Pupilodilatator</label>
+
+      <input type="radio" id="q8b" name="q8" value="b" onclick="Engine(8, this.value)">
+      <label for="q8b">b) De clipire</label>
+
+      <input type="radio" id="q8c" name="q8" value="c" onclick="Engine(8, this.value)">
+      <label for="q8c">c) Pupilar de acomodare</label>
+
+      <input type="radio" id="q8d" name="q8" value="d" onclick="Engine(8, this.value)">
+      <label for="q8d">d) Lacrimal</label>
+    </div>
+
+    <div class="question">
+      <p>9. Ganglionul spinal conține ...</p>
+      <input type="radio" id="q9a" name="q9" value="a" onclick="Engine(9, this.value)">
+      <label for="q9a">a) neuroni motori și senzitivi</label>
+
+      <input type="radio" id="q9b" name="q9" value="b" onclick="Engine(9, this.value)">
+      <label for="q9b">b) neuroni visceromotori</label>
+
+      <input type="radio" id="q9c" name="q9" value="c" onclick="Engine(9, this.value)">
+      <label for="q9c">c) neuroni viscerosenzitivi</label>
+
+      <input type="radio" id="q9d" name="q9" value="d" onclick="Engine(9, this.value)">
+      <label for="q9d">d) neuroni somatomotori</label>
+    </div>
+
+    <button type="button" onclick="Score()">Verificare</button>
+  </form>
+</body>
+
+</html>

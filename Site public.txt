@@ -1,0 +1,9 @@
+Site public
+
+
+https://anatomiq.netlify.app/
+
+
+Site GitHub:
+
+https://monicapaun.github.io/AnatomIQ-aplicatie/

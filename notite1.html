@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Adaugă Boxicons CDN pentru iconițele Boxicons -->
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+  </head>
+  <body>
+    <div class="app">
+      <div class="sidebar">
+        <button id="add-note">➕ Add Note</button>
+        <div id="notes-list"></div>
+      </div>
+      <div class="note-editor" id="note-editor" style="display:none;">
+        <input type="text" id="note-title" placeholder="Title..." />
+        <textarea id="note-body" placeholder="Write your note..."></textarea>
+      </div>
+    </div>
+
+  </div> <!-- Sfârșitul .app-container -->
+
+  <script src="assets/js/not.js"></script>
+</body>
+</html>

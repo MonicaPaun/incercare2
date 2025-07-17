@@ -1,0 +1,4283 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+   background: linear-gradient(to bottom right, #a2ede7, #b2f7ef, #c0fff4);
+  color: #055e5e; /* text închis turcoaz */
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+
+
+/* Scrollbar personalizat - ADN / Nervos */
+::-webkit-scrollbar {
+    width: 14px; /* Lățimea scrollbar-ului */
+}
+
+/* Fundalul scrollbar-ului (partea de fundal) */
+::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Fundal deschis pentru a se distinge clar */
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Butonul scrollbar-ului (partea care se mișcă) */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg,#003f3f, #00695c);
+    border-radius: 10px;
+    border: 2px solid #fff; /* Mărim contrastul cu un border alb */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Când mouse-ul este deasupra butonului */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #003f4d, #00bfa5);
+    transform: scale(1.1); /* Crește dimensiunea când treci cu mouse-ul */
+}
+
+/* Efect fluid pentru track */
+::-webkit-scrollbar-track-piece {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+
+/* Hero Section */
+header.hero {
+   background: linear-gradient(to right, #67eaca, #b2f7ef);
+  color: #003f3f;
+  text-align: center;
+  padding: 4rem 2rem;
+  border-radius: 50px;
+  animation: waveBg 10s infinite alternate ease-in-out;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 10%;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+@keyframes waveBg {
+  0% { border-radius: 0 0 60px 60px / 0 0 40px 40px; }
+  50% { border-radius: 0 0 75px 45px / 0 0 60px 30px; }
+  100% { border-radius: 0 0 60px 60px / 0 0 40px 40px; }
+}
+
+header.hero h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  animation: slideIn 1.5s ease-out;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+header.hero p{
+ font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  animation: slideIn 1.5s ease-out;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+@keyframes slideIn {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+h1 .highlight {
+  background: white;
+  color: #1aa89e; /* accent pe titlu */
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 3rem;
+  animation: fadeInDown 1s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+button, .button {
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #00bfa6, #4dd0e1);
+  box-shadow: 0 6px 15px rgba(0, 191, 166, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s;
+  background-size: 200% 200%;
+  background-position: left center;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover, .button:hover {
+  transform: scale(1.08);
+  background-position: right center;
+  box-shadow: 0 8px 20px rgba(0, 191, 166, 0.5);
+}
+
+/* Shine effect */
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: skewX(-20deg);
+}
+
+button:hover::before {
+  animation: shine 0.75s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+#goBackBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 6px;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #00bfa6, #4dd0e1);
+  box-shadow: 0 6px 15px rgba(0, 191, 166, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s;
+  background-size: 200% 200%;
+  background-position: left center;
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* Hover effect */
+#goBackBtn:hover {
+  transform: scale(1.07);
+  background-position: right center;
+  box-shadow: 0 6px 18px rgba(0, 191, 166, 0.5);
+}
+
+/* Shine effect */
+#goBackBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: skewX(-20deg);
+}
+
+#goBackBtn:hover::before {
+  animation: shine 0.75s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+
+.section {
+  padding: 3rem;
+ background: linear-gradient(to right bottom, #c0fff4, #e0fffa);
+  color: #055e5e;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem 0;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInUp 1.2s ease;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  color: #00897b;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.section ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-top: 10px;
+}
+
+
+
+img {
+  max-width: 200px;
+  margin: 20px auto;
+  display: block;
+}
+
+
+/* Ce este section */
+#ce-este {
+   font-family: 'Poppins', serif;
+  background: linear-gradient(to right bottom, #c0fff4, #e0fffa);
+  color: #055e5e;
+  border-radius: 20px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1.5s ease-out;
+   border: 2px solid #00897b;
+}
+
+/* Titlul */
+#ce-este h2 {
+  font-family: 'Poppins', serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #00695c;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  animation: slideUp 1s ease-out;
+}
+
+/* Paragrafe și text */
+#ce-este p {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #333;
+  margin: 1.5rem 0;
+  text-align: justify;
+  max-width: 900px;
+  animation: fadeInText 1.5s ease-out;
+}
+
+/* Highlights */
+#ce-este .highlight {
+  text-decoration: underline;
+  color: #2e7d32; /* verde plăcut */
+  font-weight: bold;
+}
+
+/* Content-wrapper pentru text și imagine */
+#ce-este .content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+/* Imaginea */
+#ce-este img {
+  max-width: 600px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#ce-este img:hover {
+  transform: scale(1.1); /* Mărire la hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Umbra mai mare */
+}
+
+/* Animații */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInText {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Secțiunea Caracteristici */
+#caracteristici {
+  font-family: 'Poppins', sans-serif; /* Schimbare font */
+  background: linear-gradient(to right bottom, #c0fff4, #e0fffa);
+  color: #055e5e;
+  padding: 4rem 2rem; /* Mai mult padding pe laterale pentru a da spațiu */
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  animation: fadeInUp 1.5s ease-out;
+  border: 2px solid #00897b;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Titlu secțiune */
+#caracteristici h2 {
+  font-family: 'Poppins', sans-serif; /* Schimbare font */
+  font-size: 3rem;
+  color: #00897b;
+  margin-bottom: 2rem; /* Mai mult spațiu sub titlu */
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-50%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Paragraf cu informații */
+#caracteristici p {
+  font-family: 'Poppins', sans-serif; /* Schimbare font */
+  font-size: 1.5rem; /* Ajustăm fontul pentru paragraf */
+  color: #00695c;
+  margin-bottom: 0.5rem; /* Mai mult spațiu sub paragraf */
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  animation: slideIn 1s ease-out;
+}
+
+/* Listă caracteristici */
+#caracteristici ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-top: 2rem;
+  margin-bottom: 3rem; /* Mai mult spațiu sub listă */
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Mai mult spațiu între elementele listei */
+}
+
+#caracteristici ul li {
+   font-family: 'Poppins', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#caracteristici ul li:hover {
+  color: #00897b;
+  transform: translateX(5px);
+}
+
+#caracteristici ul li::before {
+  content: "🧫";
+  margin-right: 15px;
+  font-size: 1.5rem;
+  color: #00897b;
+  transition: transform 0.3s ease;
+}
+
+#caracteristici ul li:hover::before {
+  transform: rotate(10deg);
+}
+
+/* Tabelul cu diferențe */
+.differences-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 4rem; /* Mai mult spațiu față de lista de caracteristici */
+  animation: tableAppear 1.5s ease-out;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+@keyframes tableAppear {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.differences-table th,
+.differences-table td {
+  padding: 1.2rem 2rem;
+  text-align: center;
+  border: 1px solid #00897b;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Culori modificate pentru tabel */
+.differences-table th {
+  background-color: #00695c;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.differences-table td {
+  background-color: #fafafa;
+  color: #ffffff;
+  border-left: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.differences-table tr:nth-child(even) td {
+  background-color: #e0f7fa;
+}
+
+.differences-table tr:hover td {
+  background-color: #00695c ;
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Borduri și animații pentru tabel */
+.differences-table th, .differences-table td {
+  border: 1px solid #003f3f;
+}
+
+.differences-table td {
+  background-color: #26a69a;
+}
+
+.differences-table tr:nth-child(even) td {
+  background-color:#26a69a;
+}
+
+/* Adăugăm o animare subtilă când tabelul apare */
+.differences-table th,
+.differences-table td {
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.differences-table tr:hover td {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Stiluri adiționale pentru tablouri responsive */
+@media (max-width: 768px) {
+  #caracteristici {
+    padding: 2rem;
+    min-height: 450px;
+  }
+
+  .differences-table {
+    font-size: 1rem;
+  }
+
+  #caracteristici h2 {
+    font-size: 2rem;
+  }
+
+  #caracteristici p {
+    font-size: 1.2rem;
+  }
+
+  #caracteristici ul li {
+    font-size: 1.1rem;
+  }
+}
+
+
+
+/* Secțiunea Funcții */
+#functii {
+  font-family: 'Poppins', sans-serif; /* Schimbare font */
+  background: linear-gradient(to bottom right, #d4fff9, #b2f7ef);
+  border-radius: 40px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  font-size: 1.1rem;
+  animation: fadeInUp 1.2s ease;
+  color: #044e4e;
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  border: 2px solid #00897b;
+}
+
+#functii h2 {
+  font-family: 'Poppins', sans-serif; /* Schimbare font */
+  font-size: 3rem;
+  color: #00796b;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+#functii .intro {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+#functii .highlight {
+  background-color: #ffffff;
+  color: #009688;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 150, 136, 0.2);
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* coloane flexibile */
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto 0 auto; /* centrat pe orizontală */
+  padding: 0 1rem; /* puțină distanță la margini */
+  box-sizing: border-box;
+}
+
+.cards-container .card {
+  width: 100%; /* ocupă toată coloana */
+  scroll-snap-align: start; /* dacă vrei scroll snap */
+}
+
+
+
+.card {
+  background: #ffffff;
+  border: 2px dashed #9be7e3;
+  border-radius: 25px;
+  padding: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 1.6rem;
+  color: #00a38a;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.card ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+}
+
+.card ul li::before {
+  content: "🌿";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 1.1rem;
+}
+
+.card p {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #055e5e;
+  margin-bottom: 1rem;
+}
+
+
+
+/* Secțiunea Compoziție */
+.compozitie-section {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right bottom, #e0fff9, #c0fff4);
+  padding: 3rem;
+  border-radius: 30px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  max-width: 1200px;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #00897b;
+  animation: fadeInUp 1.2s ease;
+  color: #055e5e;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  position: relative;
+}
+
+.compozitie-section h2 {
+  font-family: 'Poppins', sans-serif;
+  color: #00897b;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1s ease-in-out;
+   flex-direction: column;
+  align-items: center;
+}
+.compozitie-section p{
+    font-family: 'Poppins', sans-serif;
+  color: #00897b;
+  font-size: 1rem;
+  text-align: flex-start;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1s ease-in-out;
+   flex-direction: row;
+  align-items: flex-start;
+}
+
+.compozitie-section ul {
+
+  list-style: none;
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.compozitie-section ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.compozitie-section ul li::before {
+  content: "🌿";
+  position: absolute;
+  left: -1.5rem;
+  color: #00a393;
+}
+
+.org-substances {
+  padding-left: 2rem;
+  margin-top: 0.5rem;
+}
+
+.org-substances li::before {
+  content: "➤";
+  color: #00bfa5;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.glucide {
+  color: #e91e63; /* roz */
+  font-weight: bold;
+}
+
+.lipide {
+  color: #fbc02d; /* galben */
+  font-weight: bold;
+}
+
+.proteine {
+  color: #4caf50; /* verde */
+  font-weight: bold;
+}
+
+.acizi {
+  color: #2196f3; /* albastru */
+  font-weight: bold;
+}
+
+/* Iconiță pentru toggle */
+.toggle-examples {
+   cursor: pointer;
+   color: #fff; /* Culoare text albă pentru contrast */
+   background-color: #00bfa5; /* Culoare verde pentru fundal */
+   padding: 6px 10px; /* Ajustează paddingul pentru a obține un cerc perfect */
+   border-radius: 50%; /* Face iconițele complet rotunde */
+   font-size: 1.2rem; /* Dimensiune mai mare a fontului pentru vizibilitate */
+   font-weight: bold;
+   display: inline-block;
+   transition: background-color 0.3s ease, transform 0.3s ease;
+   text-align: center; /* Asigură că textul este centrat */
+   line-height: 1; /* Ajută la alinierea verticală corectă a textului */
+}
+
+/* Efect hover */
+.toggle-examples:hover {
+   background-color: #028c73; /* Culoare mai închisă la hover */
+   transform: scale(1.1); /* Efect de mărire la hover */
+}
+
+
+/* Exemplu ascuns */
+.example-list {
+  margin-top: 6px;
+  margin-left: 20px;
+  font-style: italic;
+  color: #444;
+  display: none; /* Ascuns initial */
+}
+
+/* Starea activă când lista este vizibilă */
+.example-list.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Imaginea */
+.compozitie-section img {
+  position: absolute;
+  top: 15rem; /* ajustează în funcție de cât de sus vrei imaginea */
+  right:10rem;
+  max-width: 250px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0;
+}
+
+.compozitie-section img:hover {
+  transform: scale(1.1); /* Mărire la hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Umbra mai mare */
+}
+
+/* Animații */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInText {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+/* Stiluri pentru secțiunea Celula Procariotă */
+.pk-section {
+    font-family: 'Poppins', serif;
+  background: linear-gradient(to bottom right, #e0fffa, #ccfff5);
+  border: 2px solid #00bfa6;
+  border-radius: 40px;
+      width: 90%;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 3rem;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-out;
+    border: 2px solid #00897b;
+  animation: slideFadeIn 1s ease-in-out;
+}
+
+.pk-section p {
+    font-family: 'Poppins', serif;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.pk-section h3 {
+    font-family: 'Poppins', serif;
+  margin-top: 1.5rem;
+  color: #00796b;
+  font-size: 1.5rem;
+}
+
+/* emoji-uri specifice pe clase */
+.emoji-wall::before {
+  content: "🧱 ";
+  font-size: 1.2rem;
+}
+
+.emoji-membrana::before {
+  content: "🧬 ";
+  font-size: 1.2rem;
+}
+
+.emoji-citoplasma::before {
+  content: "💧 ";
+  font-size: 1.2rem;
+}
+
+/* Subliniază conceptele-cheie */
+mark {
+  background-color: #86f0dd;
+  color: #004d40;
+  padding: 0.1rem 0.3rem;
+  border-radius: 6px;
+}
+
+/* Sub-listă (cercuri) */
+.pk-section ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.pk-section ul li {
+  margin-bottom: 0.6rem;
+}
+
+.pk-section ul li ul {
+  list-style-type: circle;
+  padding-left: 1.2rem;
+  margin-top: 0.4rem;
+}
+
+.pk-section strong {
+  color: #004d40;
+}
+
+.pk-section em {
+  font-style: italic;
+  color: #00897b;
+}
+
+@keyframes slideFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Emoji-uri suplimentare pentru structuri noi */
+.pk-section .emoji-mezozom::before {
+  content: "🔁 ";
+  font-size: 1.2rem;
+}
+
+.pk-section .emoji-nucleoid::before {
+  content: "🧬 ";
+  font-size: 1.2rem;
+}
+
+.pk-section .emoji-ribozomi::before {
+  content: "🧪 ";
+  font-size: 1.2rem;
+}
+
+.pk-section .emoji-fotosinteza::before {
+  content: "🌞 ";
+  font-size: 1.2rem;
+}
+
+.pk-section .emoji-vacuole::before {
+  content: "⚗️ ";
+  font-size: 1.2rem;
+}
+
+.pk-section .emoji-incluziuni::before {
+  content: "📦 ";
+  font-size: 1.2rem;
+}
+
+/* Listă detaliată */
+.pk-section li {
+  line-height: 1.6;
+}
+
+/* Titlurile elementelor din listă */
+.pk-section li > strong {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+}
+
+/* Ajustări responsive (pentru ecrane mai mici) */
+@media screen and (max-width: 768px) {
+  .pk-section {
+    padding: 2rem;
+  }
+
+  .pk-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .pk-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .pk-section p,
+  .pk-section ul li {
+    font-size: 1rem;
+  }
+}
+
+/* Butonul care deschide imaginea */
+.open-image-btn {
+  background-color: #00bfa6;
+  color: white;
+  font-weight: bold;
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 8px rgba(0, 137, 123, 0.3);
+  transition: background 0.3s ease;
+}
+
+.open-image-btn:hover {
+  background-color: #00897b;
+}
+
+/* Modalul care afișează imaginea pe tot ecranul */
+.image-modal {
+  display: none; /* Ascuns implicit */
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.85);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.image-modal .modal-content {
+  display: block;
+  margin: 5% auto;
+  max-width: 100%;
+  max-height: 85%;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,255,230,0.4);
+}
+
+/* Butonul de închidere (X) */
+.close-modal {
+  position: absolute;
+  top:5rem;
+  right: 2rem;
+  color: #ffffff;
+  font-size: 3rem;  /* <-- era 2rem, acum e mai mare */
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.5rem;        /* adaugă o zonă de click mai mare */
+  line-height: 1;
+}
+
+.close-modal:hover {
+  color: #ff5252;
+}
+
+
+
+
+/* Stiluri pentru secțiunea Celula Eucariotă */
+.ek-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.ek-section {
+    font-family: 'Poppins', serif;
+  background: linear-gradient(to bottom right, #e0fffa, #ccfff5);
+  border: 2px solid #00bfa6;
+  border-radius: 40px;
+      width: 90%;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 3rem;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-out;
+    border: 2px solid #00897b;
+  animation: slideFadeIn 1s ease-in-out;
+}
+
+.ek-section h2 {
+    font-family: 'Poppins', serif;
+    color: #00796b;
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.ek-section p {
+    font-family: 'Poppins', serif;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+
+}
+
+.ek-section h3 {
+    font-family: 'Poppins', serif;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #00796b;
+    font-size: 1.5rem;
+    width: 100%;
+    max-width: 800px;
+    text-align: left;
+}
+
+/* Emoji-uri specifice pe clase */
+.emoji-membrana::before {
+    content: "🧬 ";
+    font-size: 1.2rem;
+}
+
+.emoji-citoplasma::before {
+    content: "💧 ";
+    font-size: 1.2rem;
+}
+
+.emoji-nucleu::before {
+    content: "🧠 ";
+    font-size: 1.2rem;
+}
+
+.emoji-plastide::before {
+    content: "🌿 ";
+    font-size: 1.2rem;
+}
+
+.emoji-mitocondrii::before {
+    content: "⚡ ";
+    font-size: 1.2rem;
+}
+
+.emoji-ribozomi::before {
+    content: "🧪 ";
+    font-size: 1.2rem;
+}
+
+.emoji-centrozom::before {
+    content: "🧩 ";
+    font-size: 1.2rem;
+}
+
+.emoji-perete::before {
+    content: "🧱 ";
+    font-size: 1.2rem;
+}
+
+.emoji-incluziuni::before {
+    content: "📦 ";
+    font-size: 1.2rem;
+}
+
+.emoji-vacuole::before {
+    content: "⚗️ ";
+    font-size: 1.2rem;
+}
+
+/* Subliniază conceptele-cheie */
+mark {
+    background-color: #86f0dd;
+    color: #004d40;
+    padding: 0.1rem 0.3rem;
+    border-radius: 6px;
+}
+
+/* Liste */
+.ek-section ul {
+        
+    margin-bottom: 1rem;
+}
+
+.ek-section ul li {
+   font-family: 'Poppins', serif;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.ek-section ul li ul {
+    list-style-type: circle;
+    padding-left: 1.2rem;
+    margin-top: 0.4rem;
+}
+
+.ek-section strong {
+    color: #004d40;
+}
+
+.ek-section em {
+    font-style: italic;
+    color: #00897b;
+}
+
+/* Butonul care deschide imaginea */
+.ek-open-image-btn {
+    background-color: #00bfa6;
+    color: white;
+    font-weight: bold;
+    padding: 0.8rem 1.6rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 8px rgba(0, 137, 123, 0.3);
+    transition: background 0.3s ease;
+    max-width: 220px;
+    text-align: center;
+}
+
+.ek-open-image-btn:hover {
+    background-color: #00897b;
+}
+
+/* Modal pentru imagine */
+.ek-image-modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.ek-image-modal .modal-content {
+    display: block;
+    margin: 5% auto;
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 230, 0.4);
+}
+
+/* Butonul de închidere (X) */
+.ek-close-modal {
+    position: absolute;
+    top: 5rem;
+    right: 2rem;
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0.5rem;
+    line-height: 1;
+}
+
+.ek-close-modal:hover {
+    color: #ff5252;
+}
+
+
+
+.ek-card {
+  background-color: #ffffff;
+  border: 2px solid #b2dfdb;
+  border-radius: 25px;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 150, 136, 0.1);
+  width: 100%;
+  max-width: 900px;
+  animation: slideFadeIn 1s ease-in-out;
+}
+.ek-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 18px rgba(0, 150, 136, 0.25);
+  transition: all 0.3s ease;
+}
+
+
+.ek-list-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.ek-chip {
+     background-color: #e0fffa;
+    border: 2px solid #00bfa6;
+    border-radius: 20px;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: #004d40;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0, 191, 166, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+.ek-chip:hover {
+    background-color: #b2fff3;
+    transform: translateY(-5px);
+}
+
+@media screen and (max-width: 768px) {
+  .ek-list-grid {
+    flex-direction: column;
+  }
+
+  .ek-card {
+    padding: 1rem 1.2rem;
+  }
+}
+
+.ek-regnuri-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.2rem;
+    margin: 1rem 0 2rem;
+    width: 100%;
+    max-width: 700px;
+}
+
+.ek-regn-card {
+    background-color: #e0fffa;
+    border: 2px solid #00bfa6;
+    border-radius: 20px;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: #004d40;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0, 191, 166, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.ek-regn-card:hover {
+    background-color: #b2fff3;
+    transform: translateY(-5px);
+}
+
+.ek-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 20px rgba(0, 150, 136, 0.1);
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.ek-table thead {
+  background: linear-gradient(90deg, #66bb6a, #43a047);
+  color: white;
+  text-align: center;
+}
+
+.ek-table th {
+  padding: 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.ek-table tbody {
+  background-color: #57b363;
+}
+.ek-table td {
+  padding: 1rem;
+  color:#fff;
+  border-bottom: 1px solid #004642;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.ek-table tr:hover td {
+  background-color: #035c35;
+}
+
+.ek-table-wrapper {
+  overflow-x: auto;
+}
+
+
+/* Animații */
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .ek-section {
+        padding: 2rem;
+    }
+
+    .ek-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .ek-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .ek-section p,
+    .ek-section ul li {
+        font-size: 1rem;
+    }
+
+    .ek-open-image-btn {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+
+
+#peretelecelular {
+ font-family: 'Poppins', serif;
+  background: linear-gradient(to bottom right, #e0fffa, #ccfff5);
+  border: 2px solid #00bfa6;
+  border-radius: 40px;
+      width: 90%;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 3rem;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-out;
+    border: 2px solid #00897b;
+  animation: slideFadeIn 1s ease-in-out;
+}
+
+#peretelecelular h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  color: #00796b;
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: slideIn 1s ease-out;
+}
+
+#peretelecelular ul,
+#peretelecelular ol {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.9;
+  font-size: 1.15rem;
+  color: #004d40;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+#peretelecelular .chem-list {
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+#peretelecelular .highlight {
+  background-color: #ffffff;
+  border-left: 5px solid #26a69a;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  animation: fadeIn 2s ease;
+}
+
+#peretelecelular .role-list li {
+  margin-bottom: 0.8rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+#membranacel {
+  font-family: 'Poppins', serif;
+  background: linear-gradient(to bottom right, #e0fffa, #ccfff5);
+  border: 2px solid #00bfa6;
+  border-radius: 40px;
+      width: 90%;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 3rem;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-out;
+    border: 2px solid #00897b;
+  animation: slideFadeIn 1s ease-in-out;
+}
+
+#membranacel h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.6rem;
+  color: #00796b;
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: slideIn 1s ease-out;
+}
+
+#membranacel .membrana-block {
+  background-color: #ffffff;
+  border-left: 6px solid #26a69a;
+  padding: 1.7rem;
+  margin-bottom: 2.5rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+#membranacel .membrana-block h3 {
+  font-size: 1.7rem;
+  color: #00695c;
+  margin-bottom: 1.2rem;
+}
+
+#membranacel .membrana-block ul {
+  list-style-type: none;
+  padding-left: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  color: #004d40;
+  line-height: 2;
+}
+
+#membranacel .membrana-block ul li {
+  margin-bottom: 0.8rem;
+}
+
+#membranacel .membrana-block ul ul {
+  margin-top: 0.4rem;
+  padding-left: 1.3rem;
+  border-left: 2px dashed #b2dfdb;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+#citoplasma {
+    font-family: 'Poppins', serif;
+  background: linear-gradient(to bottom right, #e0fffa, #ccfff5);
+  border: 2px solid #00bfa6;
+  border-radius: 40px;
+      width: 90%;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 3rem;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-out;
+    border: 2px solid #00897b;
+  animation: slideFadeIn 1s ease-in-out;
+}
+
+#citoplasma h2 {
+  font-size: 2.6rem;
+  color: #00796b;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  animation: slideIn 1s ease-out;
+}
+
+#citoplasma ul {
+  font-size: 1.25rem;
+  color: #004d40;
+  line-height: 2;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+#citoplasma .dropdown-toggle {
+  background-color: #ffffff;
+  border-left: 6px solid #014e46;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  width: 100%;
+  text-align: left;
+  border-radius: 12px;
+  margin: 1rem 0;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+#citoplasma .dropdown-toggle:hover {
+  background-color: #e0f2f1;
+}
+
+#citoplasma .dropdown-content {
+  display: none;
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  border-left: 4px solid #80cbc4;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+#citoplasma .dropdown-content ul {
+  padding-left: 1rem;
+  color: #004d40;
+  font-size: 1.15rem;
+  line-height: 1.9;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+#nucleul  {
+  font-family: 'Poppins', serif;
+  background: linear-gradient(to bottom right, #e0fffa, #ccfff5);
+  border: 2px solid #00bfa6;
+  border-radius: 40px;
+      width: 90%;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 3rem;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-out;
+    border: 2px solid #00897b;
+  animation: slideFadeIn 1s ease-in-out;
+}
+
+#nucleul h2 {
+  font-size: 2.5rem;
+  color: #00796b;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+#nucleul h3 {
+  font-size: 1.8rem;
+  color: #00695c;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.nucleus-structure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.structure-card {
+  background-color: #e0f7fa;
+  border-left: 5px solid #26a69a;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  color: #004d40;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  position: relative;
+}
+.structure-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  background-color: #b2ebf2;
+}
+
+.structure-card.grouped {
+  background-color: #e0f7fa;
+  border-left-color: #26a69a;
+}
+.structure-card.grouped:hover {
+  background-color: #b2ebf2;
+}
+
+.structure-card.grouped strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+
+.substructure {
+  background-color: #f0f8ff;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-left: 3px dashed #26a69a;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+
+.substructure div {
+  margin: 0.2rem 0;
+}
+
+.substructure div:hover {
+  background-color: #e1f5fe;
+  padding-left: 0.5rem;
+  border-radius: 6px;
+}
+
+
+.nucleus-intro p,
+#nucleul ul li {
+  font-size: 1.2rem;
+  color: #004d40;
+  line-height: 1.9;
+}
+
+#nucleul ul {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+
+
+#nucleul .open-image-btn {
+  background: #00bfa6;
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  margin-top: 2rem;
+  transition: background 0.3s ease;
+}
+
+#nucleul .open-image-btn:hover {
+  background:  #00897b;
+}
+
+/* Lightbox */
+#nucleul .image-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#nucleul .image-modal .modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  animation: fadeIn 0.5s;
+}
+
+#nucleul .close-nucleus-modal {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000; /* opțional, pentru siguranță */
+}
+#nucleul .close-nucleus-modal:hover {
+  color: #ff5252;
+}
+
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#mitocondrii {
+font-family: 'Poppins', serif;
+  background: linear-gradient(to bottom right, #e0fffa, #ccfff5);
+  border: 2px solid #00bfa6;
+  border-radius: 40px;
+      width: 90%;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 3rem;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-out;
+    border: 2px solid #00897b;
+  animation: slideFadeIn 1s ease-in-out;
+}
+
+#mitocondrii h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #006064;
+  margin-bottom: 1rem;
+}
+
+.mito-structure ul,
+.mito-roles ul {
+  padding-left: 2rem;
+  color: #004d40;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.mito-roles .energy-note {
+  margin-top: 0.5rem;
+  background-color: #b2ebf2;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid #00acc1;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #00695c;
+}
+
+.respiratie-container h3 {
+  font-size: 1.6rem;
+  color: #004d40;
+  margin-bottom: 1rem;
+}
+
+.respiratie-tabel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .respiratie-tabel {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.etapa {
+  background-color: #e1f5fe;
+  border-left: 5px solid #29b6f6;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  flex: 1;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.etapa:hover {
+  transform: translateY(-4px);
+  background-color: #b3e5fc;
+}
+
+.etapa h4 {
+  color: #0277bd;
+  margin-bottom: 0.8rem;
+}
+
+.etapa ul {
+  padding-left: 1.2rem;
+  color: #004d40;
+}
+/* Layout */
+.mito-structure-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.mito-structure-text {
+  font-size: 1.2rem;
+  color: #004d40;
+  padding-left: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.mito-structure-text:hover {
+  transform: translateX(-5px);
+}
+
+.mito-structure-text ul {
+  padding-left: 1.5rem;
+  line-height: 1.8;
+  margin-top: 0.5rem;
+}
+
+/* Buton imagine */
+#mitocondrii .open-image-btn {
+  background: #00bfa6;
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  margin-top: 2rem;
+  transition: background 0.3s ease;
+}
+
+#mitocondrii .open-image-btn:hover {
+  background: #00897b;
+}
+
+/* Lightbox modal */
+#mitocondrii .image-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#mitocondrii .image-modal .modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  animation: fadeIn 0.5s;
+}
+
+#mitocondrii .close-mito-modal {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+#mitocondrii .close-mito-modal:hover {
+  color: #ff5252;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* Secțiunea Ribozomi */
+#ribozomi {
+  font-family: 'Poppins', serif;
+  background: linear-gradient(to bottom right, #e0fffa, #ccfff5);
+  border: 2px solid #00bfa6;
+  border-radius: 40px;
+      width: 90%;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 3rem;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-out;
+    border: 2px solid #00897b;
+  animation: slideFadeIn 1s ease-in-out;
+}
+
+#ribozomi h2 {
+  font-size: 2.5rem;
+  color: #00796b;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#ribozomi p {
+  font-size: 1.1rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#ribozomi ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+#ribozomi ul li {
+  background-color: #b2dfdb;
+  color: #004d40;
+  padding: 12px 20px;
+  margin: 10px 0;
+  border-radius: 12px;
+  box-shadow: 2px 2px 8px rgba(0, 121, 107, 0.2);
+  transition: background 0.3s;
+}
+
+#ribozomi ul li:hover {
+  background-color: #80cbc4;
+}
+
+/* Buton imagine */
+#ribozomi .open-image-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 24px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#ribozomi .open-image-btn:hover {
+  background-color: #004d40;
+}
+
+/* Modal imagine */
+#ribozomi .image-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#ribozomi .image-modal .modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  animation: zoomIn 0.5s;
+}
+
+#ribozomi .image-modal .close-ribo-modal {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#ribozomi .image-modal .close-ribo-modal:hover {
+  color: #ffccbc;
+}
+
+/* Zoom animation */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+/* Secțiunea Plastide */
+#plastide {
+  font-family: 'Poppins', serif;
+  background: linear-gradient(to bottom right, #e0fffa, #ccfff5);
+  border: 2px solid #00bfa6;
+  border-radius: 40px;
+      width: 90%;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 3rem;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-out;
+    border: 2px solid #00897b;
+  animation: slideFadeIn 1s ease-in-out;
+}
+
+#plastide h2 {
+  text-align: center;
+  color: #00796b;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+#plastide p, #plastide li {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+#plastide ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+
+#plastide ul li {
+  padding: 8px 0;
+  position: relative;
+  padding-left: 20px;
+}
+
+.plastide-box {
+  background: linear-gradient(135deg, #e0ffe3, #d1fce6);
+  border-radius: 25px;
+  padding: 2.5rem;
+  box-shadow: 0 0 20px rgba(0, 128, 0, 0.2);
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 1000px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.fancy-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.fancy-list > li {
+  background: #c8f7d0;
+  margin: 12px 0;
+  padding: 16px 20px;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  color: #2e7d32;
+  box-shadow: 3px 3px 10px rgba(46, 125, 50, 0.1);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.fancy-list > li:hover {
+  transform: scale(1.02);
+  background: #a5d6a7;
+}
+
+.fancy-list > li span {
+  margin-left: 8px;
+}
+
+.fancy-list ul {
+  margin-top: 10px;
+  padding-left: 1.5rem;
+}
+
+.fancy-list ul li {
+  background-color: #f1f8e9;
+  margin: 6px 0;
+  padding: 10px 16px;
+  border-radius: 12px;
+  color: #33691e;
+  font-size: 1rem;
+  box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.1);
+  transition: background 0.3s ease;
+}
+
+.fancy-list ul li:hover {
+  background-color: #dcedc8;
+}
+
+@media (max-width: 600px) {
+  .fancy-list > li, .fancy-list ul li {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+
+#plastide details {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-left: 5px solid #00796b;
+  background: #f1fdfb;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#plastide summary {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #004d40;
+}
+
+#plastide code {
+  display: block;
+  background: #e0f2f1;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+#plastide .open-image-btn {
+  display: block;
+  margin: 2rem auto;
+  padding: 12px 24px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#plastide .open-image-btn:hover {
+  background-color: #004d40;
+}
+
+/* Modal */
+#plastide .image-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 60px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#plastide .modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+#plastide .close-plastide-modal {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#plastide .close-plastide-modal:hover {
+  color: #ffccbc;
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Secțiunea Plastide */
+#lizozomi {
+font-family: 'Poppins', serif;
+  background: linear-gradient(to bottom right, #e0fffa, #ccfff5);
+  border: 2px solid #00bfa6;
+  border-radius: 40px;
+      width: 90%;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 3rem;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-out;
+    border: 2px solid #00897b;
+  animation: slideFadeIn 1s ease-in-out;
+}
+
+#lizozomi h2 {
+  color: #00796b; /* înlocuit */
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+#lizozomi p {
+  color: #333; /* înlocuit */
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.lizozomi-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.lizozomi-list > li {
+  background: #c8f7d0; /* înlocuit */
+  color: #2e7d32;      /* înlocuit */
+  padding: 14px 18px;
+  margin: 12px 0;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  box-shadow: 2px 2px 10px rgba(46, 125, 50, 0.1); /* înlocuit */
+  transition: all 0.3s ease;
+}
+
+.lizozomi-list > li:hover {
+  background-color: #a5d6a7; /* înlocuit */
+  transform: scale(1.02);
+}
+
+.lizozomi-list ul {
+  padding-left: 1.5rem;
+  margin-top: 10px;
+}
+
+.lizozomi-list ul li {
+  background-color: #f1f8e9; /* înlocuit */
+  color: #33691e; /* înlocuit */
+  padding: 10px 14px;
+  margin: 6px 0;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.1); /* înlocuit */
+}
+
+#lizozomi .open-image-btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #00796b; /* înlocuit */
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#lizozomi .open-image-btn:hover {
+  background-color: #004d40; /* înlocuit */
+}
+
+#lizozomi .image-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-top: 60px;
+}
+
+#lizozomi .image-modal .modal-content {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+  animation: zoomIn 0.5s;
+}
+
+#lizozomi .image-modal .close-lizozomi-modal {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#lizozomi .image-modal .close-lizozomi-modal:hover {
+  color: #ffccbc;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+#aparatgolgi {
+  font-family: 'Poppins', serif;
+  background: linear-gradient(135deg, #e0fffa, #ccfff5);
+  border-radius: 40px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  box-shadow:
+    0 0 15px 4px rgba(0, 191, 166, 0.4),
+    0 20px 30px rgba(0, 105, 85, 0.3);
+  animation: slideFadeIn 1.3s ease-in-out;
+  overflow: hidden;
+   border: 2px solid #00897b;
+}
+
+/* subtle animated background pattern */
+#aparatgolgi::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 25% 25%, rgba(0,191,166,0.1) 0%, transparent 40%),
+              radial-gradient(circle at 75% 75%, rgba(0,128,128,0.1) 0%, transparent 40%);
+  background-size: 200px 200px;
+  animation: bgMove 12s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes bgMove {
+  0% {background-position: 0 0, 0 0;}
+  100% {background-position: 200px 200px, 200px 200px;}
+}
+
+#aparatgolgi h2 {
+  position: relative;
+  color: #00796b;
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  z-index: 1;
+  text-shadow:
+    1px 1px 3px rgba(0, 128, 128, 0.5),
+    0 0 8px #00bfa6;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#aparatgolgi p {
+  color: #2a2a2a;
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  text-align: center;
+  z-index: 1;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Lista cu bulleturi animate */
+.aparatGolgi-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+  z-index: 1;
+}
+
+.aparatGolgi-list > li {
+  position: relative;
+  background: #c8f7d0;
+  color: #2e7d32;
+  padding: 18px 24px 18px 54px;
+  margin: 16px 0;
+  border-radius: 18px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow:
+    3px 4px 15px rgba(46, 125, 50, 0.15);
+  cursor: default;
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  user-select: none;
+}
+
+.aparatGolgi-list > li:hover {
+  background-color: #a5d6a7;
+  box-shadow: 6px 8px 25px rgba(46, 125, 50, 0.3);
+  transform: scale(1.05);
+}
+
+/* custom bullet icon - pulsating */
+.aparatGolgi-list > li::before {
+  content: "⚙️";
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.7rem;
+  animation: pulse 2.5s infinite ease-in-out;
+  filter: drop-shadow(0 0 2px #00796b);
+  transition: transform 0.3s ease;
+}
+
+.aparatGolgi-list > li:hover::before {
+  transform: translateY(-50%) scale(1.3);
+  filter: drop-shadow(0 0 4px #004d40);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; transform: translateY(-50%) scale(1); }
+  50% { opacity: 1; transform: translateY(-50%) scale(1.15); }
+}
+
+/* Buton cu efect ripple si gradient animat */
+#aparatgolgi .open-image-btn {
+  background: linear-gradient(270deg, #00796b, #00bfa6, #00796b);
+  background-size: 600% 600%;
+  border-radius: 50px;
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 8px 15px rgba(0, 191, 166, 0.4);
+  transition: box-shadow 0.3s ease;
+  animation: gradientBG 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#aparatgolgi .open-image-btn:hover {
+  box-shadow: 0 15px 20px rgba(0, 128, 128, 0.7);
+  animation-play-state: paused;
+}
+
+/* ripple effect on click */
+#aparatgolgi .open-image-btn:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  pointer-events: none;
+  border-radius: 50px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: rgba(255, 255, 255, 0.25);
+  mix-blend-mode: screen;
+}
+
+#aparatgolgi .open-image-btn:active:after {
+  opacity: 1;
+  transition: none;
+  animation: ripple 0.5s ease-out;
+}
+
+@keyframes ripple {
+  0% { transform: scale(0.9); opacity: 1; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+@keyframes gradientBG {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Modal - cu backdrop blur si fade */
+#aparatgolgi .image-modal {
+  display: none;
+  position: fixed;
+  z-index: 1100;
+  inset: 0;
+  background-color: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding-top: 70px;
+  overflow-y: auto;
+  transition: opacity 0.4s ease;
+}
+
+#aparatgolgi .image-modal.show {
+  display: block;
+  opacity: 1;
+}
+
+#aparatgolgi .image-modal .modal-content {
+  display: block;
+  margin: 0 auto;
+  max-width: 85%;
+  border-radius: 25px;
+  box-shadow: 0 0 40px rgba(0, 191, 166, 0.8);
+  animation: zoomIn 0.5s ease forwards;
+  user-select: none;
+}
+
+#aparatgolgi .image-modal .close-aparatgolgi-modal {
+  position: fixed;
+  top: 25px;
+  right: 35px;
+  font-size: 48px;
+  color: #00bfa6;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 1110;
+  user-select: none;
+}
+
+#aparatgolgi .image-modal .close-aparatgolgi-modal:hover {
+  color: #004d40;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.reticul-section {
+   font-family: 'Poppins', serif;
+  background: linear-gradient(135deg, #e0fffa, #ccfff5);
+  border-radius: 40px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  box-shadow:
+    0 0 15px 4px rgba(0, 191, 166, 0.4),
+    0 20px 30px rgba(0, 105, 85, 0.3);
+  animation: slideFadeIn 1.3s ease-in-out;
+  overflow: hidden;
+   border: 2px solid #00897b;
+}
+
+.reticul-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,150,136,0.06) 0%, transparent 40%);
+  animation: moveBg 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes moveBg {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 200px; }
+}
+
+.reticul-section h2 {
+  color: #00695c;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 105, 92, 0.3);
+  z-index: 1;
+  position: relative;
+}
+
+.reticul-section p {
+  font-size: 1.15rem;
+  color: #333;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  z-index: 1;
+  position: relative;
+  line-height: 1.7;
+}
+
+.reticul-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  z-index: 1;
+  position: relative;
+}
+
+.reticul-list > li {
+  background: #d0f0e0;
+  color: #004d40;
+  padding: 18px 24px;
+  margin-bottom: 15px;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 2px 2px 12px rgba(0, 77, 64, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.reticul-list > li:hover {
+  background-color: #a7e7d1;
+  transform: scale(1.02);
+}
+
+.reticul-list .sublist {
+  margin-top: 10px;
+  padding-left: 1.5rem;
+  list-style: disc;
+  color: #00695c;
+}
+
+.open-reticul-image-btn {
+  background: linear-gradient(to right, #00796b, #26a69a);
+  padding: 14px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 8px 15px rgba(0, 121, 107, 0.3);
+  z-index: 1;
+  position: relative;
+}
+
+.open-reticul-image-btn:hover {
+  background: #004d40;
+  transform: scale(1.05);
+}
+
+/* Modal styling */
+.reticul-image-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  padding-top: 60px;
+}
+
+.reticul-image-modal .modal-content {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  animation: zoomIn 0.6s ease;
+}
+
+.reticul-image-modal .close-reticul-modal {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.reticul-image-modal .close-reticul-modal:hover {
+  color: #ffccbc;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeSlideIn {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+#centrozom.section {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e0fffa, #ccfff5);
+  border-radius: 40px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  box-shadow:
+    0 0 15px 4px rgba(0, 191, 166, 0.4),
+    0 20px 30px rgba(0, 105, 85, 0.3);
+  animation: slideFadeIn 1.3s ease-in-out;
+  overflow: hidden;
+  border: 2px solid #00897b;
+}
+
+#centrozom.section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,150,136,0.06) 0%, transparent 40%);
+  animation: moveBg 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#centrozom h2 {
+  color: #00695c;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 105, 92, 0.3);
+  z-index: 1;
+  position: relative;
+}
+
+.centrozom-intro {
+  font-size: 1.15rem;
+  color: #333;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  z-index: 1;
+  position: relative;
+  line-height: 1.7;
+}
+
+/* Buton imagine */
+
+#centrozom .open-image-btn {
+  background: linear-gradient(to right, #00796b, #26a69a);
+  padding: 14px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 8px 15px rgba(0, 121, 107, 0.3);
+  z-index: 1;
+  position: relative;
+}
+
+
+#centrozom .open-image-btn:hover {
+  background: #004d40;
+  transform: scale(1.05);
+}
+
+/* Modal Lightbox */
+
+#centrozom .image-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  padding-top: 60px;
+}
+
+
+#centrozom .image-modal .modal-content {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  animation: zoomIn 0.6s ease;
+}
+
+#centrozom .image-modal .close-centrozom-modal {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#centrozom .image-modal .close-centrozom-modal:hover {
+  color: #b2dfdb;
+}
+
+.centrozom-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  width: 100%;
+  max-width: 1000px;
+  z-index: 1;
+  position: relative;
+}
+
+.info-box {
+  background: #d0f0e0;
+  color: #004d40;
+  padding: 16px 24px;
+  border-radius: 20px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  box-shadow: 2px 4px 12px rgba(0, 77, 64, 0.1);
+  transition: transform 0.3s ease;
+  line-height: 1.6;
+}
+
+.info-box:hover {
+  transform: translateY(-5px);
+  background-color: #a7e7d1;
+}
+
+/* Animații */
+@keyframes slideFadeIn {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes moveBg {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 200px; }
+}
+
+
+/* Stilizare doar pentru secțiunea de diviziune celulară */
+#diviziune {
+font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e0fffa, #ccfff5);
+  border-radius: 40px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  box-shadow:
+    0 0 15px 4px rgba(0, 191, 166, 0.4),
+    0 20px 30px rgba(0, 105, 85, 0.3);
+  animation: slideFadeIn 1.3s ease-in-out;
+  overflow: hidden;
+  border: 2px solid #00897b;
+}
+
+#diviziune h2 {
+  font-size: 2.4rem;
+  text-align: center;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+#diviziune h2::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background-color: #249439;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+#diviziune p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+#diviziune ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+#diviziune li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+#diviziune li::before {
+  content: "•";
+  color: #14ae57;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#tipDiviziune {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-top: 10px;
+}
+
+#tipDiviziune:hover {
+  border-color: #29b9aa;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2);
+}
+
+#descriereDiviziune {
+  font-size: 1rem;
+  background: #e3f2fd;
+  color: #0c3c60;
+  padding: 20px;
+  margin-top: 20px;
+  border-left: 6px solid #34db47;
+  border-radius: 10px;
+  animation: fadeIn 0.5s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+#diviziune img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#diviziune img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+.container-box {
+  background-color: #ffffff;
+  padding: 25px;
+  margin: 20px 0;
+  border-left: 5px solid #0a730c;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.1);
+}
+
+
+.tabel-diviziune {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f9fefb;
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.tabel-diviziune:hover {
+  box-shadow: 0 10px 35px rgba(56, 142, 60, 0.3);
+}
+
+.tabel-diviziune thead {
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  color: #fff;
+  text-align: center;
+}
+
+.tabel-diviziune th {
+  padding: 16px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.tabel-diviziune td {
+  padding: 14px 16px;
+  text-align: center;
+  background-color: #e8f5e9;
+  border-bottom: 1px solid #c8e6c9;
+  transition: background-color 0.3s ease;
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.tabel-diviziune tbody tr:nth-child(even) td {
+  background-color: #d0f0c0;
+}
+
+.tabel-diviziune tbody tr:hover td {
+  background-color: #a5d6a7;
+  color: #1b5e20;
+  cursor: default;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Container & general styles */
+#mitoza {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e0fffa, #ccfff5);
+  border-radius: 40px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  box-shadow:
+    0 0 15px 4px rgba(0, 191, 166, 0.4),
+    0 20px 30px rgba(0, 105, 85, 0.3);
+  animation: slideFadeIn 1.3s ease-in-out;
+  overflow: hidden;
+  border: 2px solid #00897b;
+}
+
+#mitoza h2 {
+  font-size: 2.4rem; /* Uniformizat cu #diviziune */
+  text-align: center;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+#mitoza h2::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background-color: #249439;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+#mitoza > p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem; /* redus */
+  color: #00332f;
+  width: 100%;
+}
+
+/* ACCORDION */
+.accordion-container {
+  margin: 0 auto 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* redus */
+}
+
+.accordion-item {
+  border: none;
+  background: #b2dfdbaa;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 105, 85, 0.2);
+  overflow: visible;
+}
+
+.accordion-header {
+  background: #00796b;
+  color: white;
+  cursor: pointer;
+  padding: 1.2rem 2rem;
+  font-size: 1.4rem;
+  border: none;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  transition: background 0.3s ease;
+  user-select: none;
+  border-radius: 20px;
+  position: relative;
+}
+
+.accordion-header::after {
+  content: "▼";
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+  color: #a3d5d3;
+}
+
+.accordion-header.active::after {
+  transform: rotate(-180deg);
+  color: #e0f7fa;
+}
+
+.accordion-header:hover {
+  background: #004d40;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  background: transparent;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 2.5rem;
+  color: #00332f;
+}
+
+.accordion-content ul {
+  margin: 1.3rem 0 2rem 1.8rem;
+  padding: 0;
+  list-style: none;
+}
+
+.accordion-content ul li {
+  padding: 0.6rem 0;
+  font-size: 1.15rem;
+  position: relative;
+  padding-left: 2rem;
+  line-height: 1.5;
+}
+
+/* Modal Styles */
+.mitoza-image-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.85);
+  user-select: none;
+}
+
+.mitoza-image-modal .close-mitoza-modal {
+  position: absolute;
+  top: 20px; right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.mitoza-image-modal .close-mitoza-modal:hover {
+  color: #4db6ac;
+}
+
+.mitoza-image-modal .modal-content {
+  display: block;
+  margin: 5% auto;
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+/* Button */
+.open-mitoza-image-btn {
+  display: block;
+  margin: 1.5rem auto 0; /* redus */
+  background-color: #4db6ac;
+  border: none;
+  color: white;
+  padding: 0.85rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(77,182,172,0.5);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  font-weight: 600;
+}
+
+.open-mitoza-image-btn:hover {
+  background-color: #00796b;
+  transform: scale(1.05);
+}
+
+
+#meioza {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f9fcff, #e2f1ff); /* culori meioza */
+  border-radius: 40px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  box-shadow:
+    0 0 15px 4px rgba(0, 123, 255, 0.2),
+    0 20px 30px rgba(0, 95, 204, 0.1);
+  animation: slideFadeIn 1.3s ease-in-out;
+  overflow: hidden;
+  border: 2px solid #007bff;
+}
+
+#meioza h2 {
+  font-size: 2.4rem;
+  text-align: center;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+#meioza h2::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background-color: #007bff;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+#meioza > p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: #002f5f;
+  width: 100%;
+}
+
+/* ACCORDION */
+#meioza .accordion-container {
+  margin: 0 auto 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#meioza .accordion-item {
+  border: none;
+  background: #e4f1ff;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 119, 255, 0.2);
+  overflow: visible;
+}
+
+#meioza .accordion-header {
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  padding: 1.2rem 2rem;
+  font-size: 1.4rem;
+  border: none;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  transition: background 0.3s ease;
+  user-select: none;
+  border-radius: 20px;
+  position: relative;
+}
+
+#meioza .accordion-header::after {
+  content: "▼";
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+  color: #d4eaff;
+}
+
+#meioza .accordion-header.active::after {
+  transform: rotate(-180deg);
+  color: #e8f2ff;
+}
+
+#meioza .accordion-header:hover {
+  background: #0056b3;
+}
+
+#meioza .accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  background: transparent;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 2.5rem;
+  color: #00335f;
+}
+
+#meioza .accordion-content ul {
+  margin: 1.3rem 0 2rem 1.8rem;
+  padding: 0;
+  list-style: none;
+}
+
+#meioza .accordion-content ul li {
+  padding: 0.6rem 0;
+  font-size: 1.15rem;
+  position: relative;
+  padding-left: 2rem;
+  line-height: 1.5;
+}
+
+/* Modal pentru imagine */
+.meioza-image-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.85);
+  user-select: none;
+}
+
+.meioza-image-modal .close-meioza-modal {
+  position: absolute;
+  top: 20px; right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.meioza-image-modal .close-meioza-modal:hover {
+  color: #4db6ac;
+}
+
+.meioza-image-modal .modal-content {
+  display: block;
+  margin: 5% auto;
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Buton */
+#meioza .open-meioza-image-btn {
+  display: block;
+  margin: 1.5rem auto 0;
+  background-color: #4db6ac;
+  border: none;
+  color: white;
+  padding: 0.85rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(77,182,172,0.5);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  font-weight: 600;
+}
+
+#meioza .open-meioza-image-btn:hover {
+  background-color: #00796b;
+  transform: scale(1.05);
+}
+
+/* Stilizare pentru secțiunea de cromozom */
+  #cromozom {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e0fffa, #ccfff5);
+  border-radius: 40px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  box-shadow:
+    0 0 15px 4px rgba(0, 191, 166, 0.4),
+    0 20px 30px rgba(0, 105, 85, 0.3);
+  animation: slideFadeIn 1.3s ease-in-out;
+  overflow: hidden;
+  border: 2px solid #00897b;
+  }
+
+  #cromozom h2 {
+  font-size: 2.8rem;
+  color: #00796b;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+#cromozom h3 {
+  font-size: 1.8rem;
+  color: #009688;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+#cromozom p,
+#cromozom ul li {
+  font-size: 1.2rem;
+  color: #004d40;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  max-width: 800px;
+  text-align: left;
+}
+
+#cromozom ul ul li {
+  margin-left: 1.2rem;
+}
+
+/* Stilizare buton „Vezi imagine Cromozom” */
+.open-cromozom-image-btn {
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: linear-gradient(45deg, #00897b, #4db6ac);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 137, 123, 0.5);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  align-self: center;
+}
+
+.open-cromozom-image-btn:hover {
+  background: linear-gradient(45deg, #004d40, #26a69a);
+  box-shadow: 0 8px 20px rgba(0, 77, 64, 0.7);
+}
+
+/* Modal container (hidden by default) */
+.cromozom-image-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.85);
+  user-select: none;
+}
+
+/* Imaginea din modal */
+.cromozom-image-modal img.modal-content {
+  display: block;
+  margin: 0 auto;
+  max-width: 85%;
+  border-radius: 25px;
+  box-shadow: 0 0 40px rgba(0, 191, 166, 0.8);
+  animation: zoomIn 0.5s ease forwards;
+  user-select: none;
+}
+
+/* Buton de închidere (X) modal */
+.close-cromozom-modal {
+  position: absolute;
+  top: 20px; right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-cromozom-modal:hover {
+  color: #26a69a;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  #cromozom {
+    padding: 2rem 2rem;
+    min-height: auto;
+  }
+  #cromozom h2 {
+    font-size: 2.2rem;
+  }
+  #cromozom h3 {
+    font-size: 1.4rem;
+  }
+  #cromozom p,
+  #cromozom ul li {
+    font-size: 1rem;
+  }
+  .open-cromozom-image-btn {
+    font-size: 1rem;
+    padding: 0.65rem 1.6rem;
+  }
+  .close-cromozom-modal {
+    font-size: 2.5rem;
+    top: 10px;
+    right: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* THEME TOGGLE */
+#theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.8rem;
+   background: #1e7f8c;
+  color: #e0f7fa;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 10000;
+  transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background: #88d1c2;
+  color: #003f4d;
+}
+
+body.dark {
+background: linear-gradient(to right, #0f4c5c, #135d66, #1e7f8c); /* turcoaz închis spre mediu */
+  color: #e0f7fa; /* un turcoaz pal pentru text */
+}
+
+/* LOADER */
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#loader-left, #loader-right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url('assets/poze/fundal_albastru.png');
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+  z-index: 2;
+  transition: all 1s ease;
+}
+
+#loader-left { left: 0; background-position: left center; }
+#loader-right { right: 0; background-position: right center; }
+
+#loader-center {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+}
+
+.site-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ffebf0;
+  text-shadow: 2px 2px 8px #1e7f8c;
+}
+
+#rotating-adn {
+  width: 100px;
+  height: 100px;
+  animation: rotateADN 3s linear infinite;
+  
+  filter: drop-shadow(0 0 10px #1e7f8c);
+}
+
+@keyframes rotateADN {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loader-close #loader-left {
+  transform: translateX(-100%);
+}
+.loader-close #loader-right {
+  transform: translateX(100%);
+}
+.loader-close #loader-center {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+/* Stilizare pentru meniul lateral retractabil */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Inițial, meniul este ascuns pe stânga */
+  width: 250px;
+  height: 100%;
+    background-color: #00bfa5;
+  color: white;
+  z-index: 1000;
+  transition: left 0.3s ease-in-out;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.2);
+  overflow-y: auto; /* Asta adaugă scroll vertical dacă e nevoie */
+  scrollbar-width: thin; /* opțional: scroll mai subțire în Firefox */
+
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.side-menu li {
+  margin-bottom: 1.5rem;
+}
+
+.side-menu a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 20px 30px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.side-menu .submenu a {
+
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  font-weight: normal;
+  font-size: 1.1rem;
+  color: white;
+  text-decoration: none;
+
+  max-width: 100%;
+  box-sizing: border-box;
+
+  white-space: normal;       /* permite înfășurare text */
+  word-break: normal;        /* evită ruperea cuvintelor în mijloc */
+  overflow-wrap: break-word; /* rupe doar la spații sau linii */
+  text-align: left;
+}
+
+
+.side-menu a i {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.side-menu a:hover {
+  background-color: #00796b;
+  color: white;
+}
+
+#menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color:#00897b; 
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+  font-size: 2rem;
+}
+
+#menu-toggle i {
+  display: block;
+}
+
+/* Când meniul este deschis */
+.side-menu.open {
+  left: 0; /* Meniul devine vizibil */
+}
+
+/* Adăugăm un efect de opacitate pentru fundal */
+body {
+  transition: background-color 0.3s ease;
+}
+
+body.menu-open {
+  background-color: rgba(0, 0, 0, 0.5); /* Fundal semitransparent când meniul este deschis */
+}
+
+/* Adăugăm stiluri pentru iconițele din meniu */
+#menu-toggle:hover i, .side-menu a:hover i {
+  background-color: #67eaca; 
+  border-radius: 50%;
+}
+
+.side-menu .has-submenu > a {
+  justify-content: space-between;
+   background-color: #26a69a;
+  border-radius: 5px;
+}
+
+
+.side-menu .has-submenu .submenu a {
+  background-color: #80deea;
+  margin-left: 10px;
+  font-weight: normal;
+  font-size: 0.9rem;
+   padding: 10px 15px;       /* mai puțin padding să nu se extindă prea mult */
+  text-align: center;       /* centrează textul */
+  white-space: normal;      /* lasă textul să se înfășoare pe mai multe linii */
+  border-radius: 5px;
+  align-items: start;    /* aliniază iconița și textul pe verticală */
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.side-menu .submenu {
+display: none;
+  padding-left: 20px;
+  flex-direction: column;
+   max-width: 100%;          /* nu depăși lățimea părintelui */
+  box-sizing: border-box;   /* padding și border incluse în max-width */
+  overflow-wrap: break-word; /
+}
+
+/*.side-menu .has-submenu:hover .submenu {
+
+  align-items: center; /* centrează vertical elementele (dacă e nevoie) 
+  justify-content: center; 
+}
+*/
+
+.side-menu .arrow {
+  font-size: 1rem;
+  transition: transform 0.3s;
+}
+
+.side-menu .has-submenu:hover .arrow {
+  transform: rotate(180deg); /* răstoarnă săgeata */
+}
+
+.arrow.rotated {
+  transform: rotate(180deg);
+}
+
+
+.side-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.side-menu::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+}
+
+
+/* Butonul Notițe (dreapta sus) */
+.top-right {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.notite-btn {
+  background-color: #00796b;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notite-btn i {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.notite-panel {
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  width: 800px; /* mai lat */
+  height: 600px; /* mai puțin înalt */
+  background: #fff;
+  border: 2px solid #00796b;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: none;
+  resize: both;
+  overflow: hidden;
+  z-index: 9999;
+  cursor: move; /* drag din orice punct */
+}
+
+.notite-panel iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.notite-header {
+  background: #26a69a;
+  color: white;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* Stiluri pentru butonul de închidere (close-small) */
+.close-small {
+  cursor: pointer;
+  font-size: 24px; /* Mărim fontul pentru butonul de închidere */
+  color: #ff4040; /* Culoare mai vizibilă pentru buton */
+  font-weight: bold; /* Text mai gros pentru buton */
+  padding: 5px 10px; /* Adăugăm padding pentru un buton mai mare */
+  border-radius: 50%; /* Colțuri rotunjite pentru buton */
+  background-color: #fff; /* Fundal alb pentru a-l face mai vizibil */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Umbra pentru un efect 3D */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Tranziție pentru efecte de hover */
+}
+
+.close-small:hover {
+  background-color: #ff4040; /* Culoare de fundal mai aprinsă la hover */
+  color: white; /* Text alb la hover */
+  transform: scale(1.1); /* Mărim butonul puțin când trecem cu mouse-ul peste el */
+}
+
+.close-small:active {
+  transform: scale(0.95); /* Mărire inversă când butonul este apăsat */
+}
+
+
+.notite-panel:active {
+  cursor: grabbing;
+}
+
+
+/* SEARCH BAR */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: auto;
+  z-index: 10;
+  margin: 0;
+  
+}
+
+.search-bar input {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  width: 400px;
+  outline: none;
+  background-color: transparent;
+  color: white; /* Textul input-ului va fi alb */
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.search-bar input::placeholder {
+  color: white; /* Textul "Căutare..." va fi alb */
+}
+
+.search-bar input:focus {
+  border-color: #00bfa5;
+}
+
+.search-bar i {
+  font-size: 24px;
+  margin-left: -40px;
+  cursor: pointer;
+  color: white; /* Iconița de căutare va fi albă */
+}
+
+.search-bar i:hover {
+  color: #00bfa5;
+}
+
+/* Dark Mode Search */
+body.dark .search-bar input {
+  background-color: transparent;
+  color: inherit;
+}
+
+body.dark .search-bar i {
+  color: inherit;
+}
+
+body.light .search-bar input {
+  border-color: #fe6262;
+  color: black;
+}
+
+body.light .search-bar i {
+  color: black;
+}
+
+  .highlighted {
+    background-color: yellow;
+    text-decoration: underline;
+  }
+  .current-highlighted {
+    background-color: orange !important;
+  }
+
+#scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 75px;
+  right: 20px;
+  width: 45px;       /* egal cu height */
+  height: 45px;
+  background: #1e7f8c;
+  color: #e0f7fa;
+  border-radius: 50%;  /* face cerc */
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  z-index: 10000;
+  transition: background-color 0.3s ease;
+  padding: 0;  /* important pentru centrare */
+  box-sizing: border-box;
+}
+
+
+#scrollTopBtn:hover {
+  background: #88d1c2;
+  color: #003f4d;
+}
+
+
+#chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 80px; /* Mutat mai la stânga față de butonul de temă */
+  background: #1e7f8c;
+  color: white;
+ font-size: 1.8rem;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 10000;
+  transition: background-color 0.3s ease;
+}
+
+#chat-box {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  flex-direction: column;
+}
+
+#chat-header {
+  background-color: #1e7f8c;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+#chat-close {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#chat-box iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+

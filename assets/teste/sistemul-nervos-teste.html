@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sistemul nervos - Test</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #f50087; /* portocaliu cald */
+      --accent-light: #ff82b8; /* roz deschis */
+      --background: #ffe0f8; /* galben pai */
+      --white: #ffffff;
+      --text: #333;
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      --transition: 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .top-menu {
+      background: var(--accent);
+      color: var(--white);
+      padding: 25px 15px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      font-weight: 600;
+      font-size: 2rem;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto 50px auto;
+      width: 100%;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all var(--transition);
+      cursor: pointer;
+      user-select: none;
+      width: fit-content;
+    }
+
+    .back-button i {
+      font-size: 1.2rem;
+    }
+
+    .back-button:hover {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 0 10px var(--accent-light);
+    }
+
+    /* Container for embedded iframe (optional) */
+    .iframe-container {
+      background: var(--white);
+      border-left: 6px solid var(--accent);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 20px;
+      width: 100%;
+      max-width: 900px;
+      transition: transform 0.2s ease;
+    }
+
+    .iframe-container:hover {
+      transform: scale(1.01);
+    }
+
+    iframe {
+      width: 100%;
+      height: 480px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    /* Form styling to match the iframe container */
+    form {
+      background: var(--white);
+      padding: 25px 30px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 900px;
+      animation: fadeInUp 0.6s ease forwards;
+      user-select: none;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    form b {
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    p {
+      margin-bottom: 20px;
+      line-height: 1.4;
+      cursor: default;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+      cursor: pointer;
+      accent-color: var(--accent);
+      transform-origin: center;
+      transition: transform 0.15s ease;
+    }
+
+    input[type="radio"]:hover {
+      transform: scale(1.2);
+    }
+
+    input[type="radio"]:checked {
+      box-shadow: 0 0 8px var(--accent-light);
+    }
+
+    input[type="button"] {
+      background: var(--accent);
+      border: none;
+      color: var(--white);
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      user-select: none;
+    }
+
+    input[type="button"]:hover {
+      background: var(--accent-light);
+      box-shadow: 0 0 12px var(--accent-light);
+    }
+
+    @media (max-width: 768px) {
+      .top-menu {
+        font-size: 1.6rem;
+        padding: 20px 10px;
+      }
+
+      iframe {
+        height: 360px;
+      }
+
+      form {
+        padding: 20px 20px;
+        max-width: 100%;
+      }
+
+      input[type="button"] {
+        width: 100%;
+      }
+    }
+  </style>
+  <script>
+    var ans = [];
+    var yourAns = [];
+
+    var score = 0;
+
+    ans[1] = "a";
+    ans[2] = "b";
+    ans[3] = "b";
+    ans[4] = "d";
+    ans[5] = "d";
+    ans[6] = "c";
+    ans[7] = "b";
+    ans[8] = "a";
+    ans[9] = "c";
+
+    function Engine(question, answer) {
+      yourAns[question] = answer;
+    }
+
+    function Score() {
+      score = 0;
+      var answerText = "Rezultate:";
+      for (var i = 1; i <= 9; i++) {
+        answerText += "\n" + i + ")";
+        if (ans[i] !== yourAns[i]) {
+          answerText += " Ai greșit! Corect era: " + ans[i];
+        } else {
+          answerText += " Corect!";
+          score++;
+        }
+      }
+      answerText += "\nScorul total: " + score + "/9\n\n";
+
+      answerText += "Comentariul meu: ";
+      if (score <= 4) {
+        answerText += "Mai studiază!";
+      } else if (score <= 7) {
+        answerText += "Bine!";
+      } else if (score <= 9) {
+        answerText += "Foarte bine!";
+      }
+      alert(answerText);
+    }
+  </script>
+</head>
+<body>
+  <div class="top-menu">
+    <span class="icon">🧠</span> Sistemul nervos
+  </div>
+
+  <div class="main-content">
+    <a href="../../teste.html" class="back-button"><i class='bx bx-arrow-back'></i> Înapoi la Teste</a>
+
+   
+    <div class="iframe-container">
+      <iframe src="https://wordwall.net/embed/73376227023640b089464f655bad5e81?themeId=41&templateId=36&fontStackId=0" allowfullscreen></iframe>
+    </div>
+   
+
+    <!-- Formular test integrat, vizibil și stilizat la fel ca iframe -->
+    <form>
+      <p><b>1. Foițele meningeale: ...</b><br />
+        <input type="radio" name="q1" value="a" onclick="Engine(1,this.value)">a) au rol și în hrănire<br />
+        <input type="radio" name="q1" value="b" onclick="Engine(1,this.value)">b) piamater aderă la peretele osos<br />
+        <input type="radio" name="q1" value="c" onclick="Engine(1,this.value)">c) duramater aderă la organul nervos<br />
+        <input type="radio" name="q1" value="d" onclick="Engine(1,this.value)">d) oferă protecție lichidă encefalului și măduvei<br />
+      </p>
+
+      <p><b>2. Despre sistemul nervos somatic, este adevărată următoarea afirmație:</b><br />
+        <input type="radio" name="q2" value="a" onclick="Engine(2,this.value)">a) Se mai numește sistem nervos autonom.<br />
+        <input type="radio" name="q2" value="b" onclick="Engine(2,this.value)">b) Face legătura între organism și mediu.<br />
+        <input type="radio" name="q2" value="c" onclick="Engine(2,this.value)">c) Partea periferică este reprezentată prin centri nervoși.<br />
+        <input type="radio" name="q2" value="d" onclick="Engine(2,this.value)">d) Partea centrală este localizată în ganglionii spinali.<br />
+      </p>
+
+      <p><b>3. Reflexul voluntar este ...</b><br />
+        <input type="radio" name="q3" value="a" onclick="Engine(3,this.value)">a) înnăscut.<br />
+        <input type="radio" name="q3" value="b" onclick="Engine(3,this.value)">b) dobândit.<br />
+        <input type="radio" name="q3" value="c" onclick="Engine(3,this.value)">c) permanent.<br />
+        <input type="radio" name="q3" value="d" onclick="Engine(3,this.value)">d) constant.<br />
+      </p>
+
+      <p><b>4. Despre ganglionii nervoși este adevărat: </b><br />
+        <input type="radio" name="q4" value="a" onclick="Engine(4,this.value)">a) conțin prelungiri ale neuronilor.<br />
+        <input type="radio" name="q4" value="b" onclick="Engine(4,this.value)">b) se găsesc în interiorul axului cerebrospinal.<br />
+        <input type="radio" name="q4" value="c" onclick="Engine(4,this.value)">c) sunt localizați pe traiectul unor vase limfatice.<br />
+        <input type="radio" name="q4" value="d" onclick="Engine(4,this.value)">d) aparțin sistemului nervos periferic.<br />
+      </p>
+
+      <p><b>5. Legătura dintre cele două emisfere cerebrale se realizează prin: ... </b><br />
+        <input type="radio" name="q5" value="a" onclick="Engine(5,this.value)">a) fibre ascendente<br />
+        <input type="radio" name="q5" value="b" onclick="Engine(5,this.value)">b) fibre descendente<br />
+        <input type="radio" name="q5" value="c" onclick="Engine(5,this.value)">c) fibre de asociație<br />
+        <input type="radio" name="q5" value="d" onclick="Engine(5,this.value)">d) fibre comisurale<br />
+      </p>
+
+      <p><b>6. Ramurile dorsale ale nervilor spinali ... </b><br />
+        <input type="radio" name="q6" value="a" onclick="Engine(6,this.value)">a) Conțin fibre vasomotorii pentru meninge<br />
+        <input type="radio" name="q6" value="b" onclick="Engine(6,this.value)">b) Formează plexurile lombar și sacral<br />
+        <input type="radio" name="q6" value="c" onclick="Engine(6,this.value)">c) Conțin fibre motorii și senzitive<br />
+        <input type="radio" name="q6" value="d" onclick="Engine(6,this.value)">d) Formează plexurile cervical și brahial<br />
+      </p>
+
+      <p><b>7. Paleocerebelul este constituit de:</b><br />
+        <input type="radio" name="q7" value="a" onclick="Engine(7,this.value)">a) Lobul anterior<br />
+        <input type="radio" name="q7" value="b" onclick="Engine(7,this.value)">b) Lobul posterior<br />
+        <input type="radio" name="q7" value="c" onclick="Engine(7,this.value)">c) Lobul floculonodular<br />
+        <input type="radio" name="q7" value="d" onclick="Engine(7,this.value)">d) Lobul vizual<br />
+      </p>
+
+      <p><b>8. Unde se află centrul mișcărilor voluntare?</b><br />
+        <input type="radio" name="q8" value="a" onclick="Engine(8,this.value)">a) în cortexul cerebral<br />
+        <input type="radio" name="q8" value="b" onclick="Engine(8,this.value)">b) în cerebel<br />
+        <input type="radio" name="q8" value="c" onclick="Engine(8,this.value)">c) în ganglionii spinali<br />
+        <input type="radio" name="q8" value="d" onclick="Engine(8,this.value)">d) în trunchiul cerebral<br />
+      </p>
+
+      <p><b>9. Măduva spinării: ...</b><br />
+        <input type="radio" name="q9" value="a" onclick="Engine(9,this.value)">a) este alcătuită din substanță cenușie externă<br />
+        <input type="radio" name="q9" value="b" onclick="Engine(9,this.value)">b) este alcătuită din substanță albă externă<br />
+        <input type="radio" name="q9" value="c" onclick="Engine(9,this.value)">c) are 4 perechi de nervi spinali<br />
+        <input type="radio" name="q9" value="d" onclick="Engine(9,this.value)">d) este localizată în cavitatea toracică<br />
+      </p>
+
+      <input type="button" value="Verifică răspunsurile" onclick="Score()" />
+    </form>
+  </div>
+</body>
+</html>

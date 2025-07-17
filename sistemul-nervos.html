@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistemul Nervos</title>
+  <!-- Faviconuri pentru toate dispozitivele -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/poze/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/poze/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/poze/favicon_io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/poze/favicon_io/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/poze/favicon_io/android-chrome-512x512.png">
+
+<!-- Clasic .ico pentru fallback pe browsere vechi -->
+<link rel="shortcut icon" href="assets/poze/favicon_io/favicon.ico" type="image/x-icon">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="assets/css/style-nervos.css" />
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<!--Google Fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+   <!-- Butonul pentru meniul retractabil -->
+   <div id="menu-toggle" class="menu-toggle">
+    <i class='bx bx-menu'></i> <!-- Iconița pentru meniu -->
+  </div>
+
+  <!-- Buton Notițe în colțul dreapta sus -->
+<div id="notite-btn-container" class="top-right">
+  <button id="notiteBtn" class="notite-btn" onclick="toggleNotite()">
+    <i class='bx bx-notepad'></i> Notițe
+  </button>
+</div>
+
+<div id="notitePanel" class="notite-panel">
+  <div class="notite-header">
+    <span>Notițele mele</span>
+    <span class="close-small" onclick="toggleNotite()">&times;</span>
+  </div>
+  <iframe src="notite1.html"></iframe>
+  
+ </div>
+
+<div id="side-menu" class="side-menu">
+  <ul>
+    <li class="has-submenu">
+  <a href="#"><i class='bx bx-brain'></i>Introducere<i class='bx bx-chevron-down arrow'></i></a>
+  <ul class="submenu">
+    <li><a href="#ce-este"><i class='bx bx-info-circle'></i> Ce este sistemul nervos?</a></li>
+    <li><a href="#clasificare"><i class='bx bx-category'></i> Clasificare</a></li>
+    <li><a href="#arc"><i class='bx bx-refresh'></i> Actul și arcul reflex</a></li>
+    
+    </ul>
+    </li>
+
+    <li class="has-submenu">
+      <a href="#"><i class='bx bx-package'></i> Structura SNC <i class='bx bx-chevron-down arrow'></i></a>
+      <ul class="submenu">
+        <li><a href="#maduva"><i class='bx bx-dna'></i> Măduva spinării</a></li>
+        <li><a href="#encefal"><i class='bx bx-bulb'></i> Encefalul</a></li>
+     
+      </ul>
+    </li>
+
+    <li><a href="#boli-nervos"><i class='bx bx-error-circle'></i> Boli ale SNC</a></li>
+  </ul>
+</li>
+</ul>
+</div>
+
+
+  <!-- <div id="loader-wrapper">
+       
+        <div id="loader-left" style="background-image: url('assets/poze/fundal.png');"></div>
+        
+       
+        <div id="loader-right" style="background-image: url('assets/poze/fundal.png');"></div>
+    
+       
+        <div id="loader-center">
+            <h1 class="site-title">Biblioteca</h1>
+            <img id="rotating-adn" src="assets/poze/adn.png" alt="Rotating ADN" />
+        </div>
+    </div>-->
+
+
+  <!-- HEADER -->
+  <header class="hero">
+    <h1>Sistemul Nervos</h1>
+    <p>Controlează activitățile corpului și răspunde la stimuli.</p>
+    <div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Caută..." autocomplete="off" />
+  <div id="searchInfo" style="font-size: 0.9em; margin-top: 4px; color: #555;"></div>
+</div>
+  </header>
+
+ 
+ <div id="searchContainer">
+  <!-- CE ESTE? -->
+<section id="ce-este" class="section">
+  <h2>Ce este sistemul nervos?</h2>
+  <div class="content-wrapper"></div>
+  <p>
+    <span class="highlight">Sistemul nervos</span> este sistemul de conducere și coordonare al organismului uman. El recepționează, prelucrează și transmite informații, controlând activitățile organismului și asigurând adaptarea la mediu. Este alcătuit din țesut nervos și include creierul, măduva spinării și nervii.
+  </p>
+  <img src="assets/poze/sistemmul-nervos.png" alt="scheletul-uman" class="center-img dynamic-img">
+</section>
+
+<section id="clasificare" class="section">
+  <h2>Clasificarea sistemului nervos</h2>
+  
+  <div class="cards-wrapper">
+
+    <div class="card">
+      <h3>a) După rol:</h3>
+      <ul>
+        <li>🧠 <span class="highlight">Sistemul nervos somatic</span> – asigură integrarea organismului în mediul de viață.</li>
+        <li>🌿 <span class="highlight">Sistemul nervos vegetativ</span> – coordonează activitatea organelor interne:
+          <ul>
+            <li><strong>Simpatic</strong></li>
+            <li><strong>Parasimpatic</strong></li>
+            <li><em>Acțiune:</em>
+              <ul>
+                <li>Simultană</li>
+                <li>Antagonică</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>b) După localizare:</h3>
+      <ul>
+        <li>🏢 <span class="highlight">Sistemul nervos central</span> – encefal + măduva spinării</li>
+        <li>🛤️ <span class="highlight">Sistemul nervos periferic</span> – nervi + ganglioni nervoși</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="arc" class="section">
+  <h2>Actul și Arcul Reflex</h2>
+
+  <!-- Container Actul Reflex -->
+  <div class="arc-box">
+    <h3>Actul Reflex</h3>
+    <p>
+      <span class="highlight">Actul reflex</span> stă la baza funcționării sistemului nervos și reprezintă răspunsul organismului la acțiunea unui stimul. Este un proces automat, rapid și involuntar, declanșat de un stimul și finalizat cu un răspuns precis.
+    </p>
+  </div>
+
+  <!-- Container Arcul Reflex -->
+  <div class="arc-box">
+    <h3>Arcul Reflex</h3>
+    <p>
+      <span class="highlight">Arcul reflex</span> este baza anatomică a actului reflex și este alcătuit din:
+    </p>
+    <ul>
+      <li><strong>Receptor</strong> – detectează stimulul</li>
+      <li><strong>Cale aferentă</strong> – formată din nervi senzitiv</li>
+      <li><strong>Centru nervos</strong> – componentă a SNC care analizează informația și generează comanda</li>
+      <li><strong>Cale eferentă</strong> – formată din nervi motori</li>
+      <li><strong>Efector</strong> – răspunde la stimul:
+        <ul>
+          <li>mușchi striați (SN somatic)</li>
+          <li>glande sau mușchi netezi (SN vegetativ)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p class="schema">
+      <strong>Schema:</strong><br>
+      STIMUL → RECEPTOR → cale aferentă senzitivă → CENTRU NERVOS → cale eferentă motorie → EFECTOR
+    </p>
+  </div>
+</section>
+
+
+<section id="maduva" class="section">
+  <h2>Măduva Spinării și Nervul Spinal</h2>
+
+  <!-- Container: Descriere generală -->
+  <div class="maduva-box">
+    <h3>1. Măduva Spinării</h3>
+    <ul>
+      <li>Localizată în canalul vertebral</li>
+      <li>Are formă cilindrică, ușor turtită antero-posterior</li>
+      <li>În secțiune transversală prezintă 2 tipuri de substanță:
+        <ul>
+          <li><strong>Substanța albă</strong>: la exterior, formată din axoni și celule gliale – formează <em>cordoane</em></li>
+          <li><strong>Substanța cenușie</strong>: la interior, în formă de H, alcătuită din corpi neuronali – formează <em>coarne</em></li>
+        </ul>
+      </li>
+      <li>Este legată de receptori și efectori prin <strong>31 de perechi de nervi spinali</strong></li>
+    </ul>
+  </div>
+
+  <!-- Container: Nervul spinal -->
+  <div class="maduva-box">
+    <h3>2. Nervul Spinal</h3>
+    <ul>
+      <li><strong>Două rădăcini:</strong>
+        <ul>
+          <li><strong>Posterioară (senzitivă)</strong> – cu ganglion spinal (corpi neuronali)</li>
+          <li><strong>Anterioară (motorie)</strong> – cu axonii neuronilor motori</li>
+        </ul>
+      </li>
+      <li><strong>Trunchiul:</strong> rezultă din unirea rădăcinilor – este <em>mixt</em></li>
+      <li><strong>Ramurile:</strong> periferice, mixte</li>
+    </ul>
+  </div>
+
+  <!-- Container: Funcțiile Măduvei Spinării -->
+  <div class="maduva-box">
+    <h3>3. Funcțiile Măduvei Spinării</h3>
+    <p>Măduva spinării are rol de <span class="highlight">centru nervos reflex</span>, prin substanța cenușie care coordonează reflexe:</p>
+    <ul>
+      <li><strong>Somatice:</strong>
+        <ul>
+          <li><strong>Monosinaptice (proprioceptive)</strong>: arc reflex cu 2 neuroni – senzitiv și motor<br>
+            <em>Ex: Reflexul rotulian</em></li>
+          <li><strong>Polisinaptice</strong>: arc reflex cu cel puțin 3 neuroni – senzitiv, de asociație și motor</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+<!-- Buton Structura și Modal -->
+<button id="openStructuraImageBtn" class="structura-image-btn">📷 Structura</button>
+
+<div id="structuraImageModal" class="structura-image-modal">
+  <span class="structura-close-modal">&times;</span>
+  <img class="structura-modal-content" src="assets/poze/maduva-spinarii.jpg" alt="Structura măduvei spinării">
+</div>
+</section>
+
+
+<section id="encefal" class="section">
+  <h2>🧠 Encefalul</h2>
+  <p>Encefalul este componenta principală a sistemului nervos central și este alcătuit din:</p>
+
+  <ul class="encefal-list">
+    <li>🧩 Trunchi cerebral</li>
+    <li>🎯 Cerebel</li>
+    <li>🧪 Diencefal</li>
+    <li>💡 Emisfere cerebrale</li>
+  </ul>
+
+  <div class="encefal-box">
+    <h3>🧩 a) Trunchiul cerebral</h3>
+    <p>
+      Este continuarea măduvei spinării și conține:
+    </p>
+    <ul>
+      <li>🔹 Bulb rahidian</li>
+      <li>🔹 Puntea lui Varolio</li>
+      <li>🔹 Mezencefal</li>
+    </ul>
+    <p>Structură:</p>
+    <ul>
+      <li>Substanță cenușie centrală (nuclei)</li>
+      <li>Substanță albă periferică</li>
+    </ul>
+    <p>Nuclei:</p>
+    <ul>
+      <li>👁️ Senzitivi – primesc impulsuri senzoriale</li>
+      <li>💪 Motori – controlează musculatura feței, limbii etc.</li>
+      <li>⚙️ Vegetativi – controlează reflexe precum salivarea sau secreția gastrică</li>
+    </ul>
+    <p>🔗 Conectat la nervii cranieni</p>
+  </div>
+
+  <div class="encefal-box">
+    <h3>🎯 b) Cerebelul</h3>
+    <ul>
+      <li>Situat dorsal față de trunchiul cerebral</li>
+      <li>Conectat prin 3 perechi de pedunculi cerebeloși</li>
+      <li>🧠 Format din două emisfere cerebeloase</li>
+      <li>Substanță cenușie:
+        <ul>
+          <li>La exterior – scoarța cerebeloasă</li>
+          <li>La interior – nuclei înconjurați de substanță albă</li>
+        </ul>
+      </li>
+      <li>Rol:
+        <ul>
+          <li>⚖️ Menține echilibrul</li>
+          <li>📍 Controlează poziția corpului</li>
+          <li>🎯 Coordonează precizia mișcărilor</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="encefal-box">
+    <h3>🧪 c) Diencefalul</h3>
+    <ul>
+      <li>Situat sub emisferele cerebrale</li>
+      <li>Format din mase de nuclei nervoși (substanță cenușie)</li>
+      <li>🔸 Talamus – formațiunea cea mai voluminoasă</li>
+      <li>🔹 Hipotalamus – conține nuclei vegetativi</li>
+      <li>Roluri:
+        <ul>
+          <li>📥 Primește impulsuri senzoriale (ex: vizuale, auditive)</li>
+          <li>💧 Reglează concentrația de apă</li>
+          <li>🍽️ Reglează pofta de mâncare</li>
+          <li>❤️ Reglează emoțiile</li>
+          <li>⚙️ Reglează funcțiile sexuale</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="encefal-box">
+    <h3>💡 d) Emisferele cerebrale</h3>
+    <ul>
+      <li>🔝 Cele mai voluminoase componente ale SNC</li>
+      <li>Separate de șanțul interemisferic, unite prin substanță albă</li>
+      <li>Substanță cenușie:
+        <ul>
+          <li>➡️ La interior: nuclei bazali – coordonează poziția și mișcarea</li>
+          <li>➡️ La exterior: scoarța cerebrală</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p><strong>🧠 Arii corticale:</strong></p>
+    <ul>
+      <li>🔹 Arii senzitive (vizuală, auditivă, olfactivă, gustativă, somestezică)</li>
+      <li>🔸 Arii motorii (mișcări voluntare și involuntare)</li>
+      <li>🔻 Arii de asociație – coordonează procesele psihice</li>
+    </ul>
+
+    <p>📚 Reflexele condiționate sunt:</p>
+    <ul>
+      <li>🧠 Învățate pe parcursul vieții</li>
+      <li>📌 Dobândite și temporare</li>
+      <li>🧬 Nu sunt ereditare</li>
+    </ul>
+  </div>
+
+  <button id="btnShowEncefalImage" class="structura-image-btn">📷 Structură encefal</button>
+
+  <div id="modalEncefalImage" class="structura-image-modal">
+    <span class="structura-close-modal">&times;</span>
+    <img class="structura-modal-content" src="assets/poze/encefal.jpeg" alt="Structură encefal">
+  </div>
+</section>
+
+
+<section id="boli-nervos" class="section">
+  <h2>🧠 Boli ale sistemului nervos</h2>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Boală</th>
+          <th>Cauze</th>
+          <th>Manifestări</th>
+          <th>Prevenire</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Boala Parkinson</td>
+          <td>
+            <ul>
+              <li>Degenerarea progresivă a sistemului nervos extrapiramidal</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Tremurături la mâini</li>
+              <li>Mers rigid, cu pași mici</li>
+              <li>Rigiditate musculară generalizată</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Regim de viață echilibrat cu alternanță între activitate și odihnă</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Paralizia</td>
+          <td>
+            <ul>
+              <li>Inflamația sau leziunea unui nerv cauzate de:</li>
+              <li>• Infecții</li>
+              <li>• Tumori</li>
+              <li>• Distrugeri ale nervului</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Monoplegie – paralizia unui singur membru</li>
+              <li>Hemiplegie – paralizia unei jumătăți a corpului</li>
+              <li>Tetraplegie – paralizia tuturor membrelor</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Prevenirea suprasolicitării și a infecțiilor</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Epilepsia</td>
+          <td>
+            <ul>
+              <li>Infecții acute</li>
+              <li>Malformații congenitale ale SNC</li>
+              <li>Traumatisme craniene</li>
+              <li>Alcoolism</li>
+              <li>Tumori cerebrale</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Convulsii</li>
+              <li>Pierderea cunoștinței</li>
+              <li>Agitarea membrelor</li>
+              <li>Înțepenirea corpului</li>
+              <li>Mușcarea limbii</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Evitarea consumului de tutun, alcool și cafea</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Scleroza în plăci</td>
+          <td>
+            <ul>
+              <li>Cauză necunoscută (etiologie incertă)</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Leziuni și cicatrici sub formă de plăci în substanța albă</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Evitarea consumului de droguri și alcool</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+
+ 
+</div>
+
+  <!-- ÎNAPOI -->
+  <div class="buttons" style="margin-bottom: 3rem;">
+    <button id="goBackBtn">Înapoi la Sisteme</button>
+  </div>
+
+  <!-- SWITCH TEMĂ -->
+  <div id="theme-toggle" onclick="toggleTheme()">
+    <i class='bx bx-moon'></i>
+  </div>
+<button id="scrollTopBtn" title="Du-te sus">
+  <i class='bx bx-up-arrow-alt'></i>
+</button>
+
+
+<!-- Buton deschidere ChatBot -->
+<div id="chat-toggle"><i class='bx bx-bot'></i></div>
+
+<!-- Fereastra ChatBot -->
+<div id="chat-box">
+  <div id="chat-header">
+    <span>BioBot</span>
+    <button id="chat-close">✖</button>
+  </div>
+  <iframe src="bio-bot2.html"></iframe>
+</div>
+
+
+  <script src="assets/js/script-nervos.js"></script>
+</body>
+</html>

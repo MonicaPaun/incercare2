@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BioBot</title>
+    <!-- Faviconuri pentru toate dispozitivele -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/poze/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/poze/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/poze/favicon_io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/poze/favicon_io/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/poze/favicon_io/android-chrome-512x512.png">
+
+
+<!-- Clasic .ico pentru fallback pe browsere vechi -->
+<link rel="shortcut icon" href="assets/poze/favicon_io/favicon.ico" type="image/x-icon">
+    <!-- Linking Google Fonts For Icons -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@32,400,0,0" />
+    <link rel="stylesheet" href="assets/css/style-biobot2.css" />
+   
+  </head>
+  <body>
+   
+  
+
+<!-- Buton pentru deschiderea sidebar-ului de conversații -->
+<button class="chat-sidebar-toggle" id="chatSidebarToggle">
+<i class='bx bx-message-dots'></i>
+</button>
+
+   <!-- Sidebar pentru istoric conversații -->
+<aside class="chat-sidebar" id="chat-sidebar">
+  <h2>Conversații Salvate</h2>
+  <ul id="saved-conversations"></ul>
+</aside>
+
+<!-- Buton pentru salvare manuală -->
+<button id="save-chat-btn" title="Salvează conversația curentă">💾</button>
+
+    <div class="container">
+      <button id="scroll-down-btn" class="material-symbols-rounded scroll-icon">expand_more</button>
+
+      <!-- App Header -->
+      <header class="app-header">
+        <h1 class="heading">Hello!</h1>
+        <h4 class="sub-heading">How can I help you today?</h4>
+      </header>
+     
+      <!-- Chats -->
+      <div class="chats-container"></div>
+      <!-- Prompt Input -->
+      <div class="prompt-container">
+        <div class="prompt-wrapper">
+          <form action="#" class="prompt-form">
+            <input type="text" placeholder="Ask BioBot" class="prompt-input" required />
+            <div class="prompt-actions">
+              <!-- File Upload Wrapper -->
+              <div class="file-upload-wrapper">
+                <img src="#" class="file-preview" />
+                <input id="file-input" type="file" accept="image/*, .pdf, .txt, .csv" hidden />
+                <button type="button" class="file-icon material-symbols-rounded">description</button>
+                <button id="cancel-file-btn" type="button" class="material-symbols-rounded">close</button>
+                <button id="add-file-btn" type="button" class="material-symbols-rounded">attach_file</button>
+                <button type="button" id="emoji-picker" class="material-symbols-rounded">sentiment_satisfied</button>
+              </div>
+              <!-- Send Prompt and Stop Response Buttons -->
+              <button id="stop-response-btn" type="button" class="material-symbols-rounded">stop_circle</button>
+              <button id="send-prompt-btn" class="material-symbols-rounded">arrow_upward</button>
+            </div>
+          </form>
+          <!-- Theme and Delete Chats Buttons -->
+          <button id="theme-toggle-btn" class="material-symbols-rounded">light_mode</button>
+          <button id="delete-chats-btn" class="material-symbols-rounded">delete</button>
+        </div>
+        
+      </div>
+    </div>
+   
+  
+
+
+    
+    <script src="assets/js/script-biobot.js"></script>
+  </body>
+</html>

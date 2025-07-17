@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Circulația Sângelui</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #f9f9f9, #e0e0e0);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      background: #fff;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #e91e63;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    b {
+      color: #444;
+    }
+
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+
+    input[type="button"] {
+      display: block;
+      margin: 30px auto 0 auto;
+      padding: 10px 25px;
+      font-size: 16px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="button"]:hover {
+      background-color: #c2185b;
+    }
+  </style>
+
+  <script type="text/javascript">
+    var ans = new Array;
+    var done = new Array;
+    var yourAns = new Array;
+    var score = 1;
+    var i = 1;
+    ans[i++] = "b";
+    ans[i++] = "c";
+    ans[i++] = "a";
+    ans[i++] = "b";
+    ans[i++] = "c";
+    ans[i++] = "c";
+    ans[i++] = "b";
+    ans[i++] = "a";
+    ans[i++] = "c";
+
+    function Engine(question, answer) {
+      yourAns[question] = answer;
+    }
+
+    function Score() {
+      var answerText = "Rezultate:";
+      score = 0;
+      for (i = 1; i <= 9; i++) {
+        answerText += "\n" + i + ")";
+        if (ans[i] != yourAns[i]) {
+          answerText += " Ai greșit! Corect era: " + ans[i];
+        } else {
+          answerText += " Corect!";
+          score++;
+        }
+      }
+
+      answerText += "\n\nScorul total: " + score + " / 9\n";
+
+      answerText += "Comentariul meu: ";
+      if (score <= 4) {
+        answerText += "Mai studiază!";
+      } else if (score <= 7) {
+        answerText += "Bine!";
+      } else if (score <= 9) {
+        answerText += "Foarte bine!";
+      } else {
+        answerText += "Excelent!";
+      }
+
+      alert(answerText);
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Test: Circulația sângelui</h1>
+    <form>
+
+      <p><b>1. Circulația sângelui se realizează prin SISTEMUL ...</b><br>
+        <input type="radio" name="q1" value="a" onclick="Engine(1, this.value)">a) Digestiv<br>
+        <input type="radio" name="q1" value="b" onclick="Engine(1, this.value)">b) Circulator<br>
+        <input type="radio" name="q1" value="c" onclick="Engine(1, this.value)">c) Limfatic<br>
+        <input type="radio" name="q1" value="d" onclick="Engine(1, this.value)">d) Nervos<br>
+      </p>
+
+      <p><b>2. Arterele sunt vase de sânge care ...</b><br>
+        <input type="radio" name="q2" value="a" onclick="Engine(2, this.value)">a) Fac legătura între arteriole și venule.<br>
+        <input type="radio" name="q2" value="b" onclick="Engine(2, this.value)">b) Transportă sângele de la organe spre inimă.<br>
+        <input type="radio" name="q2" value="c" onclick="Engine(2, this.value)">c) Transportă sângele de la inimă spre organe.<br>
+        <input type="radio" name="q2" value="d" onclick="Engine(2, this.value)">d) Au pereți foarte subțiri.<br>
+      </p>
+
+      <p><b>3. Venele sunt vase de sânge care ...</b><br>
+        <input type="radio" name="q3" value="a" onclick="Engine(3, this.value)">a) Transportă sângele de la organe spre inimă.<br>
+        <input type="radio" name="q3" value="b" onclick="Engine(3, this.value)">b) Transportă sângele de la inimă spre organe.<br>
+        <input type="radio" name="q3" value="c" onclick="Engine(3, this.value)">c) Au pereți groși și elastici.<br>
+        <input type="radio" name="q3" value="d" onclick="Engine(3, this.value)">d) Au pereți foarte subțiri.<br>
+      </p>
+
+      <p><b>4. Capilarele sunt vase de sânge care ...</b><br>
+        <input type="radio" name="q4" value="a" onclick="Engine(4, this.value)">a) Au pereți mai subțiri și conțin valve.<br>
+        <input type="radio" name="q4" value="b" onclick="Engine(4, this.value)">b) Fac legătura între arteriole și venule.<br>
+        <input type="radio" name="q4" value="c" onclick="Engine(4, this.value)">c) Au pereți groși și elastici.<br>
+        <input type="radio" name="q4" value="d" onclick="Engine(4, this.value)">d) Transportă sângele de la organe spre inimă.<br>
+      </p>
+
+      <p><b>5. Inima are ...</b><br>
+        <input type="radio" name="q5" value="a" onclick="Engine(5, this.value)">a) 5 camere<br>
+        <input type="radio" name="q5" value="b" onclick="Engine(5, this.value)">b) 2 camere<br>
+        <input type="radio" name="q5" value="c" onclick="Engine(5, this.value)">c) 4 camere<br>
+        <input type="radio" name="q5" value="d" onclick="Engine(5, this.value)">d) 3 camere<br>
+      </p>
+
+      <p><b>6. Cum se numește stratul muscular gros, cu rol contractil?</b><br>
+        <input type="radio" name="q6" value="a" onclick="Engine(6, this.value)">a) Pericard<br>
+        <input type="radio" name="q6" value="b" onclick="Engine(6, this.value)">b) Endocard<br>
+        <input type="radio" name="q6" value="c" onclick="Engine(6, this.value)">c) Miocard<br>
+        <input type="radio" name="q6" value="d" onclick="Engine(6, this.value)">d) Epicard<br>
+      </p>
+
+      <p><b>7. Cum se numește învelișul dublu ce protejează inima?</b><br>
+        <input type="radio" name="q7" value="a" onclick="Engine(7, this.value)">a) Endocard<br>
+        <input type="radio" name="q7" value="b" onclick="Engine(7, this.value)">b) Pericard<br>
+        <input type="radio" name="q7" value="c" onclick="Engine(7, this.value)">c) Miocard<br>
+        <input type="radio" name="q7" value="d" onclick="Engine(7, this.value)">d) Epicard<br>
+      </p>
+
+      <p><b>8. Sângele deoxigenat este dus la plămâni prin artera ...</b><br>
+        <input type="radio" name="q8" value="a" onclick="Engine(8, this.value)">a) pulmonară<br>
+        <input type="radio" name="q8" value="b" onclick="Engine(8, this.value)">b) mare<br>
+        <input type="radio" name="q8" value="c" onclick="Engine(8, this.value)">c) limfatică<br>
+        <input type="radio" name="q8" value="d" onclick="Engine(8, this.value)">d) venoasă<br>
+      </p>
+
+      <p><b>9. Afecțiunea care presupune blocaj al unei artere coronare se numește ...</b><br>
+        <input type="radio" name="q9" value="a" onclick="Engine(9, this.value)">a) Ateroscleroză<br>
+        <input type="radio" name="q9" value="b" onclick="Engine(9, this.value)">b) Hipertensiune<br>
+        <input type="radio" name="q9" value="c" onclick="Engine(9, this.value)">c) Infarct miocardic<br>
+        <input type="radio" name="q9" value="d" onclick="Engine(9, this.value)">d) AVC<br>
+      </p>
+
+      <input type="button" onclick="Score()" value="Verifică răspunsurile">
+    </form>
+  </div>
+</body>
+
+</html>

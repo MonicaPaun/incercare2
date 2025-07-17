@@ -1,0 +1,1514 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+ background: linear-gradient(to bottom right, #d1c4e9, #ede7f6, #f3e5f5);
+  color: #4a148c;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+/* Scrollbar personalizat - ADN / Nervos */
+::-webkit-scrollbar {
+    width: 14px; /* Lățimea scrollbar-ului */
+}
+
+/* Fundalul scrollbar-ului (partea de fundal) */
+::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Fundal deschis pentru a se distinge clar */
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Butonul scrollbar-ului (partea care se mișcă) */
+::-webkit-scrollbar-thumb {
+   background: linear-gradient(45deg,#6a1b9a, #ab47bc);
+    border-radius: 10px;
+    border: 2px solid #fff; /* Mărim contrastul cu un border alb */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Când mouse-ul este deasupra butonului */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #780ea5, #c15fde);
+    transform: scale(1.1); /* Crește dimensiunea când treci cu mouse-ul */
+}
+
+/* Efect fluid pentru track */
+::-webkit-scrollbar-track-piece {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+
+/* Hero Section */
+header.hero {
+   background: linear-gradient(to right, #ce93d8, #ba68c8);
+  color: #003f3f;
+  text-align: center;
+  padding: 4rem 2rem;
+  border-radius: 50px;
+  animation: waveBg 10s infinite alternate ease-in-out;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 10%;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+@keyframes waveBg {
+  0% { border-radius: 0 0 60px 60px / 0 0 40px 40px; }
+  50% { border-radius: 0 0 75px 45px / 0 0 60px 30px; }
+  100% { border-radius: 0 0 60px 60px / 0 0 40px 40px; }
+}
+
+header.hero h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  animation: slideIn 1.5s ease-out;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+header.hero p{
+ font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  animation: slideIn 1.5s ease-out;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+@keyframes slideIn {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+h1 .highlight {
+  background: white;
+  color: #971aa8; /* accent pe titlu */
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 3rem;
+  animation: fadeInDown 1s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+button, .button {
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+ background: linear-gradient(135deg, #8e24aa, #d500f9);
+  box-shadow: 0 6px 15px rgba(142, 36, 170, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s;
+  background-size: 200% 200%;
+  background-position: left center;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover, .button:hover {
+  transform: scale(1.08);
+  background-position: right center;
+  box-shadow: 0 8px 20px rgba(142, 36, 170, 0.5);
+}
+
+/* Shine effect */
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: skewX(-20deg);
+}
+
+button:hover::before {
+  animation: shine 0.75s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+#goBackBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 6px;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #9c27b0, #ce93d8); /* mov gradient */
+  box-shadow: 0 6px 15px rgba(156, 39, 176, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s;
+  background-size: 200% 200%;
+  background-position: left center;
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* Hover effect */
+#goBackBtn:hover {
+  transform: scale(1.07);
+  background-position: right center;
+   box-shadow: 0 8px 20px rgba(156, 39, 176, 0.5);
+}
+
+/* Shine effect */
+#goBackBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: skewX(-20deg);
+}
+
+#goBackBtn:hover::before {
+  animation: shine 0.75s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+
+.section {
+  padding: 3rem;
+background: linear-gradient(to right bottom, #e1bee7, #f8bbd0); /* pastel mov-roz */
+  color: #6a1b9a;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem 0;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInUp 1.2s ease;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section h2 {
+  font-size: 2.5rem;
+ color: #8e24aa;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.section ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-top: 10px;
+}
+
+
+
+img {
+  max-width: 200px;
+  margin: 20px auto;
+  display: block;
+}
+
+
+#ce-este.section {
+  background: linear-gradient(to bottom right, #f3e5f5, #e1bee7);
+  color: #4a148c;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 4rem 2rem;
+  border-radius: 40px;
+  box-shadow: 0 12px 30px rgba(100, 0, 150, 0.15);
+  width: 90%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  animation: fadeInUp 1.2s ease;
+}
+
+.ce-este-container {
+  background-color: rgba(255, 255, 255, 0.45);
+  padding: 2rem;
+  border-radius: 24px;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 18px rgba(100, 0, 150, 0.1);
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+#ce-este.section h2 {
+  font-size: 3rem;
+  font-family: 'Dancing Script', cursive;
+  color: #6a1b9a;
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, #ab47bc, #ce93d8);
+
+  
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+
+#ce-este.section p {
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+  font-weight: 500;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+#ce-este.section ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin: 1rem auto 2rem auto;
+  text-align: left;
+  max-width: 800px;
+  line-height: 1.8;
+  color: #5e287d;
+  font-weight: 500;
+}
+
+#ce-este.section li {
+  margin-bottom: 0.6rem;
+}
+
+
+#embrionare.section {
+  background: linear-gradient(to bottom right, #f3e5f5, #e1bee7);
+  color: #4a148c;
+  text-align: center;
+  font-size: 1.25rem;
+  padding: 3rem 2rem;
+  border-radius: 40px;
+  box-shadow: 0 12px 30px rgba(100, 0, 150, 0.2);
+  width: 90%;
+  max-width: 1000px;
+  margin: 3rem auto;
+  animation: fadeInUp 1.2s ease;
+  line-height: 1.7;
+}
+
+#embrionare.section h2 {
+  font-size: 3rem;
+  font-family: 'Dancing Script', cursive;
+  color: #6a1b9a;
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, #ab47bc, #ce93d8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+#embrionare.section p {
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+#embrionare.section ul {
+  max-width: 800px;
+  margin: 1.5rem auto;
+  padding-left: 1.2rem;
+  text-align: left;
+}
+
+#embrionare.section ul ul {
+  padding-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+#embrionare.section li {
+  margin-bottom: 0.8rem;
+  color: #6a1b9a;
+  font-weight: 600;
+}
+
+#embrionare.section strong {
+  font-weight: 700;
+  color: #8e24aa;
+}
+/* Container pentru subsecțiuni Apicale și Secundare */
+.meristeme-container {
+  background: rgba(171, 71, 188, 0.1); /* un mov foarte deschis, translucid */
+  border-left: 6px solid #ab47bc; /* linie verticală mov accent */
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(171, 71, 188, 0.15);
+  transition: background 0.3s ease;
+}
+
+.meristeme-container:hover {
+  background: rgba(171, 71, 188, 0.2);
+}
+
+/* Titluri subsecțiuni */
+.meristeme-container h3 {
+  font-family: 'Dancing Script', cursive;
+  color: #6a1b9a;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Listele din container */
+.meristeme-container ul {
+  list-style-type: none; /* eliminăm punctele standard */
+  padding-left: 0;
+}
+
+.meristeme-container ul li {
+  position: relative;
+  padding-left: 2rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #4a148c;
+}
+
+
+/* Stil general sectiune definitive */
+#definitive.section {
+  background: linear-gradient(to bottom right, #f9f9f9, #eae6f5);
+  color: #4a148c;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 3rem 2rem;
+  border-radius: 40px;
+  box-shadow: 0 12px 30px rgba(100, 0, 150, 0.15);
+  width: 90%;
+  max-width: 1000px;
+  margin: 3rem auto;
+  animation: fadeInUp 1.2s ease;
+}
+
+/* Titlul principal */
+#definitive.section h2 {
+  font-size: 3rem;
+  font-family: 'Dancing Script', cursive;
+  color: #6a1b9a;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(to right, #ab47bc, #ce93d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1.2s ease-in-out;
+  transition: transform 0.4s ease;
+}
+
+#definitive.section h2:hover {
+  transform: scale(1.03);
+}
+
+/* Container general */
+.definitive-container {
+  border-radius: 20px;
+  padding: 1.8rem 2rem;
+  margin: 1.8rem auto;
+  max-width: 900px;
+  text-align: left;
+  box-shadow: 0 4px 20px rgba(100, 0, 150, 0.1);
+  transition: all 0.35s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.8s ease forwards;
+}
+
+.definitive-container:hover {
+  box-shadow: 0 8px 25px rgba(100, 0, 150, 0.25);
+  transform: translateY(-5px);
+}
+
+/* Titluri mici */
+.definitive-container h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #4a148c;
+  transition: transform 0.3s ease;
+}
+
+.definitive-container h3:hover {
+  transform: scale(1.05);
+}
+
+/* Liste */
+.definitive-container ul {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  line-height: 1.7;
+  color: #3c1361;
+  font-weight: 500;
+}
+
+/* Culori individuale pe categorii */
+.defense {
+  background: #fce4ec;
+  border: 2px solid #f48fb1;
+}
+
+.fundamental {
+  background: #e8f5e9;
+  border: 2px solid #81c784;
+}
+
+.conductive {
+  background: #e3f2fd;
+  border: 2px solid #64b5f6;
+}
+
+.mechanical {
+  background: #fff3e0;
+  border: 2px solid #ffb74d;
+}
+
+.secretory {
+  background: #ede7f6;
+  border: 2px solid #9575cd;
+}
+
+/* Emoji în titluri */
+.definitive-container h3::before {
+  margin-right: 8px;
+  font-size: 1.3em;
+}
+
+/* Paragrafe */
+.definitive-container p {
+  margin-bottom: 1rem;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+/* Efecte de animatie la aparitie */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Sectiune epitelial - păstrează dimensiuni și fonturi de la #definitive */
+#epitelial.section {
+  background: linear-gradient(to bottom right, #fefefe, #f3f0fa);
+  color: #4a148c;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 3rem 2rem;
+  border-radius: 40px;
+  box-shadow: 0 12px 30px rgba(100, 0, 150, 0.12);
+  width: 90%;
+  max-width: 1000px;
+  margin: 3rem auto;
+  animation: fadeInUp 1.2s ease;
+}
+
+/* Titlu principal */
+#epitelial.section h2 {
+  font-size: 3rem;
+  font-family: 'Dancing Script', cursive;
+  color: #6a1b9a;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(to right, #8e24aa, #ba68c8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Containere individuale */
+.epitelial-container {
+  border-radius: 25px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  text-align: left;
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(100, 0, 150, 0.1);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.8s ease forwards;
+}
+
+/* Stiluri individuale pe culori */
+.epitelial-container.covering {
+  background: #e3f2fd;
+  border-left: 8px solid #42a5f5;
+}
+
+.epitelial-container.secretory {
+  background: #f3e5f5;
+  border-left: 8px solid #ab47bc;
+}
+
+.epitelial-container.sensory {
+  background: #e8f5e9;
+  border-left: 8px solid #66bb6a;
+}
+
+/* Titluri mici */
+.epitelial-container h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #4a148c;
+}
+
+/* Liste și paragrafe */
+.epitelial-container ul {
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+  line-height: 1.7;
+  color: #3c1361;
+}
+
+.epitelial-container p {
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+/* Animație de apariție */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Sectiune generala */
+#conjunctiv.section {
+  background: linear-gradient(to bottom right, #f3e5f5, #ede7f6);
+  color: #4a148c;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 3rem 2rem;
+  border-radius: 40px;
+  box-shadow: 0 12px 30px rgba(100, 0, 150, 0.1);
+  width: 90%;
+  max-width: 1000px;
+  margin: 3rem auto;
+}
+
+/* Titlu principal */
+#conjunctiv h2 {
+  font-size: 3rem;
+  font-family: 'Dancing Script', cursive;
+  background: linear-gradient(to right, #7b1fa2, #ce93d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: zoomFadeIn 1.2s ease-out;
+  margin-bottom: 2rem;
+}
+
+/* Containere mai late și joase */
+.conjunctiv-container {
+  background: #f8f4fc;
+  border-left: 6px solid #7e57c2;
+  border-radius: 20px;
+  padding: 1rem 4rem; /* jos-sus: 1rem, stânga-dreapta: 4rem */
+  margin: 1.2rem auto;
+  max-width: 95vw; /* până la 95% din lățimea ecranului */
+  width: 100%;
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  box-shadow: 0 4px 20px rgba(124, 77, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Variante colorate */
+.soft { border-left-color: #81c784; background: #f1f8e9; }
+.semi { border-left-color: #4fc3f7; background: #e1f5fe; }
+.hard { border-left-color: #ffb74d; background: #fff3e0; }
+
+/* Efect hover */
+.conjunctiv-container:hover {
+  box-shadow: 0 8px 25px rgba(124, 77, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Stil pentru summary (dropdown) */
+details summary {
+  font-weight: bold;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0.6rem 0;
+  list-style: none;
+  outline: none;
+}
+
+details summary::marker {
+  content: "🔽 ";
+}
+
+details[open] summary::marker {
+  content: "🔼 ";
+}
+
+/* Liste si paragrafe */
+.conjunctiv-container ul,
+.conjunctiv-container ol {
+  margin-left: 1.5rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.conjunctiv-container p {
+  margin-bottom: 0.8rem;
+}
+
+/* Animatie noua pentru titlu */
+@keyframes zoomFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(-30px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05) translateY(5px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+/* Sectiune musculara */
+#muscular.section {
+  background: linear-gradient(to bottom right, #f3e5f5, #ede7f6);
+  padding: 3rem 2rem;
+  border-radius: 40px;
+  color: #4a148c;
+  text-align: center;
+  font-size: 1.2rem;
+  width: 95%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  animation: slideFadeIn 1s ease-in-out;
+}
+
+/* Titlu */
+#muscular.section h2 {
+  font-size: 3rem;
+  font-family: 'Dancing Script', cursive;
+  background: linear-gradient(to right, #8e24aa, #ba68c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+  animation: waveBounce 1.5s ease;
+}
+
+/* Container */
+.muscular-container {
+  background-color: #fdf6ff;
+  border: 4px dashed #ab47bc;
+  border-radius: 30px;
+  padding: 2rem 3rem;
+  text-align: left;
+  box-shadow: 0 8px 30px rgba(155, 39, 176, 0.15);
+  animation: riseIn 1.2s ease forwards;
+}
+
+/* Sub-boxuri */
+.muscle-box {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(124, 77, 255, 0.15);
+  animation: fadeInPop 0.8s ease forwards;
+}
+
+/* Culori diferite pentru fiecare tip */
+.muscle-box.striat {
+  background-color: #e1bee7;
+  border-left: 5px solid #8e24aa;
+}
+
+.muscle-box.neted {
+  background-color: #d1c4e9;
+  border-left: 5px solid #7e57c2;
+}
+
+.muscle-box.cardiac {
+  background-color: #ede7f6;
+  border-left: 5px solid #9575cd;
+}
+
+/* Subtitluri */
+.muscle-box h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #6a1b9a;
+  margin-bottom: 1rem;
+}
+
+/* Liste */
+.muscular-container ul {
+  margin-left: 1.5rem;
+  line-height: 1.7;
+  font-weight: 500;
+  color: #4a148c;
+}
+
+.muscular-container .muscle-types li {
+  list-style-type: '💪 ';
+  margin-left: 1rem;
+}
+
+/* Animatii */
+@keyframes slideFadeIn {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes waveBounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05) rotate(-1deg); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInPop {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Nervos - Sectiune de baza */
+/* Nervos - Sectiune stil nou */
+.nervos-section {
+  background: #f8edff;
+  padding: 6rem 3rem;
+  border-radius: 50px;
+  max-width: 1400px;
+  margin: 6rem auto;
+  box-shadow: 0 15px 30px rgba(136, 36, 192, 0.1);
+  animation: fadeUp 1.2s ease-in-out;
+}
+
+/* Titlu modern */
+.nervos-section h2 {
+  font-size: 3.2rem;
+  text-align: center;
+  background: linear-gradient(to right, #8e24aa, #ab47bc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  margin-bottom: 4rem;
+}
+
+/* Acordeon modern */
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.accordion-item {
+  background: #ffffff;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(174, 77, 200, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.accordion-item:hover {
+  transform: scale(1.01);
+}
+
+/* Buton de deschidere */
+.accordion-header {
+  background: linear-gradient(135deg, #d1a3e5, #c084dc);
+  color: #4a148c;
+  font-size: 1.4rem;
+  padding: 1.5rem 2rem;
+  font-weight: bold;
+  text-align: left;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+  background: linear-gradient(135deg, #c084dc, #b266d3);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  background-color: #fef7ff;
+  color: #4a148c;
+  padding: 0 2rem;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  transition: max-height 0.6s ease, padding 0.4s ease;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 800px;
+  padding: 1.5rem 2rem;
+}
+
+
+/* Animatie fade */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* THEME TOGGLE */
+#theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.8rem;
+ background: #f3e5f5;
+  color: #6a1b9a;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 10000;
+  transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background-color: #6a1b9a;
+  color: #fff;
+}
+
+body.dark {
+  background: linear-gradient(to right, #880e4f, #6a1b9a);
+  color: white;
+}
+
+/* LOADER */
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#loader-left, #loader-right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url('assets/poze/fundal_albastru.png');
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+  z-index: 2;
+  transition: all 1s ease;
+}
+
+#loader-left { left: 0; background-position: left center; }
+#loader-right { right: 0; background-position: right center; }
+
+#loader-center {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+}
+
+.site-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+ color: #f3e5f5;
+  text-shadow: 2px 2px 8px #6a1b9a;
+}
+
+#rotating-adn {
+  width: 100px;
+  height: 100px;
+  animation: rotateADN 3s linear infinite;
+  
+ filter: drop-shadow(0 0 10px #ce93d8);
+}
+
+@keyframes rotateADN {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loader-close #loader-left {
+  transform: translateX(-100%);
+}
+.loader-close #loader-right {
+  transform: translateX(100%);
+}
+.loader-close #loader-center {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+/* Stilizare pentru meniul lateral retractabil */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Inițial, meniul este ascuns pe stânga */
+  width: 250px;
+  height: 100%;
+ background-color: #9c27b0;
+  color: white;
+  z-index: 1000;
+  transition: left 0.3s ease-in-out;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.2);
+  overflow-y: auto; /* Asta adaugă scroll vertical dacă e nevoie */
+  scrollbar-width: thin; /* opțional: scroll mai subțire în Firefox */
+
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.side-menu li {
+  margin-bottom: 1.5rem;
+}
+
+.side-menu a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 20px 30px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.side-menu .submenu a {
+
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  font-weight: normal;
+  font-size: 1.1rem;
+  color: white;
+  text-decoration: none;
+
+  max-width: 100%;
+  box-sizing: border-box;
+
+  white-space: normal;       /* permite înfășurare text */
+  word-break: normal;        /* evită ruperea cuvintelor în mijloc */
+  overflow-wrap: break-word; /* rupe doar la spații sau linii */
+  text-align: left;
+}
+
+
+.side-menu a i {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.side-menu a:hover {
+ background-color: #7b1fa2;
+  color: white;
+}
+
+#menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+ background-color: #8e24aa;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+  font-size: 2rem;
+}
+
+#menu-toggle i {
+  display: block;
+}
+
+/* Când meniul este deschis */
+.side-menu.open {
+  left: 0; /* Meniul devine vizibil */
+}
+
+/* Adăugăm un efect de opacitate pentru fundal */
+body {
+  transition: background-color 0.3s ease;
+}
+
+body.menu-open {
+  background-color: rgba(0, 0, 0, 0.5); /* Fundal semitransparent când meniul este deschis */
+}
+
+/* Adăugăm stiluri pentru iconițele din meniu */
+#menu-toggle:hover i, .side-menu a:hover i {
+  background-color: #b167ea; 
+  border-radius: 50%;
+}
+
+.side-menu .has-submenu > a {
+  justify-content: space-between;
+   background-color: #ab47bc;
+  border-radius: 5px;
+}
+
+
+.side-menu .has-submenu .submenu a {
+  background-color: #ce93d8;
+  margin-left: 10px;
+  font-weight: normal;
+  font-size: 0.9rem;
+   padding: 10px 15px;       /* mai puțin padding să nu se extindă prea mult */
+  text-align: center;       /* centrează textul */
+  white-space: normal;      /* lasă textul să se înfășoare pe mai multe linii */
+  border-radius: 5px;
+  align-items: start;    /* aliniază iconița și textul pe verticală */
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.side-menu .submenu {
+display: none;
+  padding-left: 20px;
+  flex-direction: column;
+   max-width: 100%;          /* nu depăși lățimea părintelui */
+  box-sizing: border-box;   /* padding și border incluse în max-width */
+  overflow-wrap: break-word; /
+}
+
+/*.side-menu .has-submenu:hover .submenu {
+
+  align-items: center; /* centrează vertical elementele (dacă e nevoie) 
+  justify-content: center; 
+}
+*/
+
+.side-menu .arrow {
+  font-size: 1rem;
+  transition: transform 0.3s;
+}
+
+.side-menu .has-submenu:hover .arrow {
+  transform: rotate(180deg); /* răstoarnă săgeata */
+}
+
+.arrow.rotated {
+  transform: rotate(180deg);
+}
+
+
+.side-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.side-menu::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+}
+/* Butonul Notițe (dreapta sus) */
+.top-right {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.notite-btn {
+  background-color: #9e32cc;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notite-btn i {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.notite-panel {
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  width: 800px; /* mai lat */
+  height: 600px; /* mai puțin înalt */
+  background: #fff;
+  border: 2px solid #ae32ba;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: none;
+  resize: both;
+  overflow: hidden;
+  z-index: 9999;
+  cursor: move; /* drag din orice punct */
+}
+
+.notite-panel iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.notite-header {
+  background: #9b2f8b;
+  color: white;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* Stiluri pentru butonul de închidere (close-small) */
+.close-small {
+  cursor: pointer;
+  font-size: 24px; /* Mărim fontul pentru butonul de închidere */
+  color: #ff4040; /* Culoare mai vizibilă pentru buton */
+  font-weight: bold; /* Text mai gros pentru buton */
+  padding: 5px 10px; /* Adăugăm padding pentru un buton mai mare */
+  border-radius: 50%; /* Colțuri rotunjite pentru buton */
+  background-color: #fff; /* Fundal alb pentru a-l face mai vizibil */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Umbra pentru un efect 3D */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Tranziție pentru efecte de hover */
+}
+
+.close-small:hover {
+  background-color: #ff4040; /* Culoare de fundal mai aprinsă la hover */
+  color: white; /* Text alb la hover */
+  transform: scale(1.1); /* Mărim butonul puțin când trecem cu mouse-ul peste el */
+}
+
+.close-small:active {
+  transform: scale(0.95); /* Mărire inversă când butonul este apăsat */
+}
+
+
+.notite-panel:active {
+  cursor: grabbing;
+}
+/* SEARCH BAR */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: auto;
+  z-index: 10;
+  margin: 0;
+  
+}
+
+.search-bar input {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  width: 400px;
+  outline: none;
+  background-color: transparent;
+  color: white; /* Textul input-ului va fi alb */
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.search-bar input::placeholder {
+  color: white; /* Textul "Căutare..." va fi alb */
+}
+
+.search-bar input:focus {
+  border-color: #8300bf;
+}
+
+.search-bar i {
+  font-size: 24px;
+  margin-left: -40px;
+  cursor: pointer;
+  color: white; /* Iconița de căutare va fi albă */
+}
+
+.search-bar i:hover {
+  color: #00bfa5;
+}
+
+/* Dark Mode Search */
+body.dark .search-bar input {
+  background-color: transparent;
+  color: inherit;
+}
+
+body.dark .search-bar i {
+  color: inherit;
+}
+
+body.light .search-bar input {
+  border-color: #fe6262;
+  color: black;
+}
+
+body.light .search-bar i {
+  color: black;
+}
+
+  .highlighted {
+    background-color: rgb(255, 255, 255);
+    text-decoration: underline;
+  }
+  .current-highlighted {
+    background-color: rgb(170, 0, 255) !important;
+  }
+
+#scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 75px;
+  right: 20px;
+  width: 45px;       /* egal cu height */
+  height: 45px;
+  background: #6d1e8c;
+  color: #e0f7fa;
+  border-radius: 50%;  /* face cerc */
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  z-index: 10000;
+  transition: background-color 0.3s ease;
+  padding: 0;  /* important pentru centrare */
+  box-sizing: border-box;
+}
+
+
+#scrollTopBtn:hover {
+  background: #c388d1;
+  color: #32004d;
+}
+
+
+#chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 80px; /* Mutat mai la stânga față de butonul de temă */
+  background: #a423c4;
+  color: white;
+ font-size: 1.8rem;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 10000;
+  transition: background-color 0.3s ease;
+}
+
+#chat-box {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  flex-direction: column;
+}
+
+#chat-header {
+  background-color: #a60fc1;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+#chat-close {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#chat-box iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}

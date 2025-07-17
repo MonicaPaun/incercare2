@@ -1,0 +1,655 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    transition: background 0.4s ease, color 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+/* LAYOUT */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 60px;
+    background-color: #b22222;
+    color: white;
+    transition: width 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.sidebar:hover {
+    width: 220px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    margin-top: 80px;
+}
+
+.sidebar li {
+    padding: 12px;
+    border-bottom: 1px solid white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar li:hover {
+    background-color: white;
+    color: #b22222;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.item-icon {
+    font-size: 1.5rem;
+}
+
+.item-txt {
+    margin-left: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.sidebar:hover .item-txt {
+    opacity: 1;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    flex: 1;
+    padding: 5rem;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+
+.intro {
+    background-color: #fdfdfd;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    max-width: 1100px;
+    margin: 0 auto;
+    margin: 50px auto;
+    font-size: 18px;
+    color: #333;
+    overflow: hidden;
+  bottom: 10px;
+    left: 16%;
+    position: fixed;
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.intro-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.intro-text h2 {
+    font-size: 32px;
+    color: #2a7acb;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.intro-text p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.intro-text strong {
+    color: #007b83;
+    font-weight: bold;
+}
+
+.intro-image {
+    flex: 1;
+    text-align: center;
+    animation: float 4s ease-in-out infinite;
+}
+
+.intro-image img {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.intro-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Plutire ușoară */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .intro-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro-text, .intro-image {
+        flex: none;
+        width: 100%;
+    }
+
+    .intro-text p {
+        text-align: center;
+    }
+}
+
+
+
+/* LIGHT/DARK SWITCHER */
+#theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.8rem;
+    background: #fff;
+    color: #8b0000;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 10000;
+    transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #8b0000;
+    color: #fff;
+}
+
+body.dark {
+    background: linear-gradient(to right, #3b0a0a, #5a1f1f);
+    color: white;
+}
+
+body.dark .main-content {
+    background: rgba(255,255,255,0.05);
+}
+
+body.dark .sidebar {
+    background: #3a0f0f;
+    color: #eee;
+}
+
+body.dark .sidebar li:hover {
+    background-color: #ffffff22;
+    color: #fff;
+}
+
+/* SCROLL PROGRESS BAR */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: #8b0000;
+    z-index: 10000;
+    transition: width 0.3s ease-in-out;
+}
+
+/* SCROLL PROGRESS BAR (when scroll progresses) */
+#progress-bar.active {
+    animation: progressFill 0.3s ease-out forwards;
+}
+
+@keyframes progressFill {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* RESPONSIVE STYLES */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 60px;
+    }
+
+    .sidebar:hover {
+        width: 100%;
+    }
+
+    .sidebar li {
+        font-size: 1.2rem;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+}
+
+/* LOADER CORTINĂ CU ADN */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#loader-left, #loader-right {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url('assets/poze/fundal_rosu.png');
+    background-repeat: no-repeat;
+    background-size: 200% 100%;
+    z-index: 2;
+    transition: all 1s ease;
+}
+
+#loader-left {
+    left: 0;
+    background-position: left center;
+}
+
+#loader-right {
+    right: 0;
+    background-position: right center;
+}
+
+#loader-center {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+}
+
+.site-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px #000;
+}
+
+#rotating-adn {
+    width: 100px;
+    height: 100px;
+    animation: rotateADN 3s linear infinite;
+    filter: drop-shadow(0 0 10px #ff4040);
+}
+
+@keyframes rotateADN {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#loader-wrapper.loader-close #loader-left {
+  transform: translateX(-100%);
+}
+
+#loader-wrapper.loader-close #loader-right {
+  transform: translateX(100%);
+}
+
+#loader-wrapper.loader-close #loader-center {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+
+
+/* Icona User în colțul din dreapta sus */
+#user-icon {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    font-size: 5rem;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+#user-toggle {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    font-size: 1.8rem;
+    color: #eb3030; /* Culoare roșie pentru butonul care deschide meniul */
+    cursor: pointer;
+    z-index: 10001;
+}
+
+#user-toggle i {
+    color: white; /* Setează culoarea iconiței de afisaj pe alb */
+}
+
+#user-menu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: rgb(198, 27, 27); /* Fundal roșu pentru meniu */
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    min-width: 140px;
+    display: none;
+    z-index: 10002;
+}
+
+#user-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#user-menu li {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#user-menu li:hover {
+    background-color: #f2f2f2;
+}
+
+#user-menu li i {
+    font-size: 1.1rem;
+    color: #eb3030; /* Iconițele din meniu vor fi roșii */
+}
+
+/* Show menu when active */
+#user-menu.show {
+    display: block;
+}
+
+/* Dark mode adaptation */
+body.dark #user-menu {
+    background: #3b0a0a;
+    color: white;
+}
+
+body.dark #user-menu li:hover {
+    background-color: #5a1f1f;
+}
+
+/* Meniu User cu efect de tranziție */
+#user-menu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: white; /* Fundal alb pentru meniul de utilizator */
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    min-width: 140px;
+    display: block;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10002;
+}
+
+#user-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Meniu User cu fundal alb pentru tema deschisă */
+#user-menu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    min-width: 140px;
+    display: block;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10002;
+}
+
+#user-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* SEARCH BAR */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    z-index: 10;
+    margin: 0;
+}
+
+.search-container input {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    width: 400px;
+    outline: none;
+    background-color: transparent;
+    color: white; /* Textul input-ului va fi alb */
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.search-container input::placeholder {
+    color: white; /* Textul "Căutare..." va fi alb */
+}
+
+.search-container input:focus {
+    border-color: #b22222;
+}
+
+.search-container i {
+    font-size: 24px;
+    margin-left: -40px;
+    cursor: pointer;
+    color: white; /* Iconița de căutare va fi albă */
+}
+
+.search-container i:hover {
+    color: #b22222;
+}
+
+/* Dark Mode Search */
+body.dark .search-container input {
+    background-color: transparent;
+    color: inherit;
+}
+
+body.dark .search-container i {
+    color: inherit;
+}
+
+body.light .search-container input {
+    border-color: #fe6262;
+    color: black;
+}
+
+body.light .search-container i {
+    color: black;
+}
+
+/* Logo Styles */
+ .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    left: -6px;
+    position: relative;
+    
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    
+}
+.logo-img:hover {
+    transform: scale(1.2);
+}
+
+
+.logo-preview {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 100;
+    border: 2px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    padding: 5px;
+    border-radius: 8px;
+}
+.logo-preview img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.logo:hover .logo-preview {
+    display: block;
+}
+
+.top-menu {
+    width: 100%;
+    background-color: #c0392b; /* Roșu plăcut */
+    padding: 7px 20px; /* Creștem puțin padding-ul pentru a face bara mai mare */
+    color: white;
+    font-size: 20px; /* Mărim puțin fontul */
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px; /* Înalțimea barei este mai mare */
+}
+
+.top-menu h1 {
+    margin: 0;
+    font-size: 20px;
+    padding-left: 40px; /* Adăugăm puțin spațiu la stânga pentru a muta titlul spre dreapta */
+}
+
+
+.top-menu .icon {
+    font-size: 28px; /* Mărimea icon-ului mai mare */
+    margin-left: 10px;
+}
+/* Stiluri pentru bara de meniu în Dark Mode */
+body.dark .top-menu {
+    background-color: #8e1f1f; /* O nuanță mai închisă de roșu, dar încă plăcută */
+}
+
+body.dark .top-menu h1 {
+    color: white; /* Asigurăm că textul rămâne alb în dark mode */
+}
+
+body.dark .top-menu .icon {
+    color: white; /* Facem și iconițele albe în dark mode */
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  button, .button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.3s;
+  }
+  
+  button:hover, .button:hover {
+    transform: scale(1.05);
+  }
+
+  

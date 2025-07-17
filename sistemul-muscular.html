@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistemul Muscular</title>
+  <!-- Faviconuri pentru toate dispozitivele -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/poze/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/poze/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/poze/favicon_io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/poze/favicon_io/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/poze/favicon_io/android-chrome-512x512.png">
+
+
+<!-- Clasic .ico pentru fallback pe browsere vechi -->
+<link rel="shortcut icon" href="assets/poze/favicon_io/favicon.ico" type="image/x-icon">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+ 
+<link rel="stylesheet" href="assets/css/style-muscular.css" />
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<!--Google Fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+   <!-- Butonul pentru meniul retractabil -->
+   <div id="menu-toggle" class="menu-toggle">
+    <i class='bx bx-menu'></i> <!-- Iconița pentru meniu -->
+  </div>
+
+  <!-- Buton Notițe în colțul dreapta sus -->
+<div id="notite-btn-container" class="top-right">
+  <button id="notiteBtn" class="notite-btn" onclick="toggleNotite()">
+    <i class='bx bx-notepad'></i> Notițe
+  </button>
+</div>
+
+<div id="notitePanel" class="notite-panel">
+  <div class="notite-header">
+    <span>Notițele mele</span>
+    <span class="close-small" onclick="toggleNotite()">&times;</span>
+  </div>
+  <iframe src="notite1.html"></iframe>
+  
+ </div>
+
+<div id="side-menu" class="side-menu">
+  <ul>
+    <li class="has-submenu">
+      <a href="#"><i class='bx bx-book-open'></i> Introducere <i class='bx bx-chevron-down arrow'></i></a>
+      <ul class="submenu">
+        <li><a href="#ce-este"><i class='bx bx-question-mark'></i> Ce este sistemul muscular?</a></li>
+        <li><a href="#functii"><i class='bx bx-cog'></i> Funcțiile sistemului muscular</a></li>
+        <li><a href="#clasificare"><i class='bx bx-cog'></i>Clasificarea mușchiilor</a></li>
+        
+      </ul>
+    </li>
+
+    <li class="has-submenu">
+      <a href="#"><i class='bx bx-network-chart'></i>Tipuri de mușchi<i class='bx bx-chevron-down arrow'></i></a>
+      <ul class="submenu">
+        <li><a href="#tipuridemușchi"><i class='bx bx-body'></i>În funcție de formă și localizare</a></li>
+        <li><a href="#sectiune-striat"><i class='bx bx-body'></i>Mușchi striați</a></li>
+        <li><a href="#netezi"><i class='bx bx-extension'></i> Mușchi netezi</a></li>
+        <li><a href="#cardiaci"><i class='bx bx-walk'></i> Mușchi cardiaci</a></li>
+        <li><a href="#comparatie"><i class='bx bx-walk'></i>Comparație</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="has-submenu">
+      <a href="#"><i class='bx bx-git-merge'></i>Mușchii corpului uman<i class='bx bx-chevron-down arrow'></i></a>
+      <ul class="submenu">
+        <li><a href="#cap-gat"><i class='bx bx-link'></i> Mușchii capului și gâtului</a></li>
+        <li><a href="#trunchi"><i class='bx bx-plus-medical'></i>Mușchii trunchiului</a></li>
+        <li><a href="#superioare"><i class='bx bx-bug'></i>Mușchii membrelor superioare</a></li>
+        <li><a href="#inferioare"><i class='bx bx-bug'></i>Mușchii membrelor inferioare</a></li>
+      </ul>
+    </li>
+     <li class="has-submenu">
+      <a href="#"><i class='bx bx-git-merge'></i>Contracții și tulburări ale mușchilor<i class='bx bx-chevron-down arrow'></i></a>
+      <ul class="submenu">
+        <li><a href="#contractii"><i class='bx bx-link'></i>Tipuri de contracții musculare</a></li>
+        <li><a href="#tulburari"><i class='bx bx-plus-medical'></i>Tulburări și afecțiuni </a></li>
+        
+      </ul>
+    </li>
+
+    <li>
+      <a href="#harta-sistem"><i class='bx bx-map'></i> Hartă schematică</a>
+    </li>
+  </ul>
+</div>
+
+
+ <!-- <div id="loader-wrapper">
+       
+        <div id="loader-left" style="background-image: url('assets/poze/fundal.png');"></div>
+        
+       
+        <div id="loader-right" style="background-image: url('assets/poze/fundal.png');"></div>
+    
+       
+        <div id="loader-center">
+            <h1 class="site-title">Biblioteca</h1>
+            <img id="rotating-adn" src="assets/poze/adn.png" alt="Rotating ADN" />
+        </div>
+    </div>-->
+
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <h1>Sistemul Muscular</h1>
+    <p>Mușchii ne ajută să ne mișcăm, să stăm în picioare și să fim activi.</p>
+    <div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Caută..." autocomplete="off" />
+  <div id="searchInfo" style="font-size: 0.9em; margin-top: 4px; color: #555;"></div>
+</div>
+  </header>
+
+ <div id="searchContainer">
+  <!-- CE ESTE? -->
+<section id="ce-este" class="section">
+  <h2>Ce este sistemul musuclar?</h2>
+  <div class="content-wrapper"></div>
+  <p>
+    <span class="highlight">Sistemul muscular</span> reprezintă totalitatea mușchilor corpului uman, organe contractile care, împreună cu oasele și articulațiile, formează aparatul locomotor. Este partea activă a acestuia, generând mișcările corpului prin contracții musculare controlate.
+  </p>
+  <img src="assets/poze/sistemul-muscular.png" alt="scheletul-uman" class="center-img dynamic-img">
+</section>
+
+<!-- FUNCȚIILE SISTEMULUI MUSCULAR -->
+<section id="functii" class="section">
+  <h2> Funcțiile sistemului muscular</h2>
+  <div class="tabel-functii-container">
+    <table class="tabel-functii">
+      <thead>
+        <tr>
+          <th>Funcție</th>
+          <th>Descriere</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mișcare</td>
+          <td>Permite deplasarea corpului și a segmentelor acestuia prin contracții musculare.</td>
+        </tr>
+        <tr>
+          <td>Postură</td>
+          <td>Menține poziția corpului și echilibrul în ortostatism și mișcare.</td>
+        </tr>
+        <tr>
+          <td>Circulație</td>
+          <td>Mușchii inimii și cei ai pereților vaselor contribuie la circulația sângelui.</td>
+        </tr>
+        <tr>
+          <td>Respirație</td>
+          <td>Diafragma și mușchii intercostali permit ventilația pulmonară.</td>
+        </tr>
+        <tr>
+          <td>Termogeneză</td>
+          <td>Contracția mușchilor generează căldură, menținând temperatura corporală.</td>
+        </tr>
+        <tr>
+          <td>Protecție</td>
+          <td>Mușchii protejează organele interne prin peretele abdominal, toracic etc.</td>
+        </tr>
+        <tr>
+          <td>Digestie și excreție</td>
+          <td>Mușchii netezi din tubul digestiv, vezica urinară, uter etc. ajută la propulsia conținutului.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+
+
+<section id="clasificare" class="section">
+  <h2> Clasificarea mușchilor</h2>
+
+  <div class="clasificare-cards">
+
+    <article class="card muscul-striat">
+      <h3>Mușchi striați (scheletici)</h3>
+      <p><strong>Caracteristici:</strong> Control voluntar, contractare rapidă, atașați de oase</p>
+      <p><strong>Exemple:</strong> Biceps brahial, cvadriceps</p>
+    </article>
+
+    <article class="card muscul-neted">
+      <h3>Mușchi netezi</h3>
+      <p><strong>Caracteristici:</strong> Control involuntar, contracții lente, în organe interne</p>
+      <p><strong>Exemple:</strong> Pereți intestinali, vase de sânge</p>
+    </article>
+
+    <article class="card muscul-cardiac">
+      <h3>Mușchi cardiaci</h3>
+      <p><strong>Caracteristici:</strong> Striați, dar cu control involuntar, ritm automat</p>
+      <p><strong>Exemple:</strong> Miocardul</p>
+    </article>
+
+  </div>
+
+  <button id="openStructuraImageBtn" class="structura-image-btn">📷 Structura</button>
+
+  <div id="structuraImageModal" class="structura-image-modal">
+    <span class="structura-close-modal">&times;</span>
+    <img class="structura-modal-content" src="assets/poze/tipuridemuschi.jpg" alt="Mușchi">
+  </div>
+</section>
+
+
+
+<section id="tipuridemușchi" class="section">
+  <h2>Tipuri de mușchi în funcție de formă și localizare</h2>
+
+  <div class="table-container">
+    <table class="interactive-table">
+      <thead>
+        <tr>
+          <th>Tip morfologic</th>
+          <th>Caracteristici</th>
+          <th>Exemple</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fusiformi</td>
+          <td>Lungi, subțiri, cu burtă centrală</td>
+          <td>Biceps, triceps</td>
+        </tr>
+        <tr>
+          <td>Planoși</td>
+          <td>Lati, subțiri, acoperă suprafețe mari</td>
+          <td>Mușchii abdominali</td>
+        </tr>
+        <tr>
+          <td>Circulari (sfincteri)</td>
+          <td>În formă de inel, închid/deschid orificii</td>
+          <td>Orbicular al gurii, anal</td>
+        </tr>
+        <tr>
+          <td>Pene</td>
+          <td>Fibre dispuse ca penele</td>
+          <td>Deltoid, mușchii gambei</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+
+<section id="sectiune-striat" class="section">
+  <h2>Structura mușchiului striat (scheletic)</h2>
+
+
+     <button id="btnShowstriatImage" class="striat-image-btn">📷 Mușchi striat</button>
+
+  <div id="modalstriatImage" class="striat-image-modal">
+    <span id="btnClosestriatImage" class="striat-close-modal">&times;</span>
+    <img class="striat-modal-content" src="assets/poze/striat.jpeg" alt="Mușchi striat">
+  </div>
+
+  <div class="info-container">
+    <article class="info-block">
+      <h3>Structură Macroscopică</h3>
+      <ul>
+        <li><strong>Corp muscular (burtă):</strong> Porțiunea centrală, activă, contractilă</li>
+        <li>
+          <strong>Capete musculare:</strong>
+          <ul>
+            <li>Origine: punct fix de inserție (proximal)</li>
+            <li>Inserție: punct mobil (distal)</li>
+          </ul>
+        </li>
+        <li><strong>Tendoane:</strong> Structuri fibroase, leagă mușchiul de os</li>
+      </ul>
+    </article>
+
+    <article class="info-block">
+      <h3>Structură Microscopică</h3>
+      <ul>
+        <li><strong>Fibra musculară:</strong> Celulă multinucleată, cilindrică, lungă</li>
+        <li><strong>Sarcolema:</strong> Membrana celulei</li>
+        <li><strong>Sarcoplasma:</strong> Citoplasma, conține glicogen și mioglobină</li>
+        <li><strong>Reticul sarcoplasmatic:</strong> Depozitează și eliberează ioni de calciu necesari contracției</li>
+        <li><strong>Tuburi T:</strong> Extensii ale sarcolemei ce transmit impulsul nervos în profunzimea fibrei</li>
+        <li><strong>Miofibrile:</strong> Unități contractile organizate în:
+          <ul>
+            <li>Actină (filamente subțiri)</li>
+            <li>Miozină (filamente groase)</li>
+          </ul>
+        </li>
+        <li><strong>Sarcomer:</strong> Unitatea structurală și funcțională a contracției, delimitată de discurile Z</li>
+        <li><strong>Discuri Z:</strong> Limite ale fiecărui sarcomer, ancorează filamentele de actină</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+
+
+
+<section id="netezi" class="section neted-section">
+  <h2>Structura Mușchiului Neted</h2>
+
+  <button id="btnShowNetedImage" class="neted-image-btn">📷 Mușchi neted</button>
+
+  <div id="modalNetedImage" class="neted-image-modal">
+    <span id="btnCloseNetedImage" class="neted-close-modal">&times;</span>
+    <img class="neted-modal-content" src="assets/poze/muschi neted.png" alt="Mușchi neted">
+  </div>
+
+  <div class="neted-subsection">
+    <h3>Structură Macroscopică</h3>
+    <div class="neted-card-grid">
+      <div class="neted-card">
+        <h4>Localizare</h4>
+        <p>Mușchii netezi se găsesc în pereții organelor interne (intestin, stomac, uter, vase de sânge).</p>
+      </div>
+      <div class="neted-card">
+        <h4>Organizare</h4>
+        <p>Sunt dispuși în straturi (longitudinal și circular), fără tendoane sau inserții pe oase.</p>
+      </div>
+      <div class="neted-card">
+        <h4>Aspect vizual</h4>
+        <p>Nu formează mase musculare vizibile; au un aspect uniform, neted.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="neted-subsection">
+    <h3>Structură Microscopică</h3>
+    <div class="neted-card-grid">
+      <div class="neted-card">
+        <h4>Fibra musculară</h4>
+        <p>Celulă fusiformă, cu un singur nucleu central, mai mică decât cea striată.</p>
+      </div>
+      <div class="neted-card">
+        <h4>Sarcolema</h4>
+        <p>Membrana celulei musculare netede.</p>
+      </div>
+      <div class="neted-card">
+        <h4>Sarcoplasma</h4>
+        <p>Citoplasma conține puține miofibrile și mitocondrii.</p>
+      </div>
+      <div class="neted-card">
+        <h4>Miofibrile</h4>
+        <p>Filamentele de actină și miozină nu sunt organizate în sarcomeri, aspectul e nestriat.</p>
+      </div>
+      <div class="neted-card">
+        <h4>Contracție</h4>
+        <p>Este lentă, involuntară, controlată de sistemul nervos vegetativ (autonom).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="cardiaci" class="section cardiaci-section">
+  <h2>Structura Mușchiului Cardiac</h2>
+
+  <button id="btnShowCardiacImage" class="cardiac-image-btn">📷 Mușchi cardiac</button>
+
+  <div id="modalCardiacImage" class="cardiac-image-modal">
+    <span id="btnCloseCardiacImage" class="cardiac-close-modal">&times;</span>
+    <img class="cardiac-modal-content" src="assets/poze/muschi cardiac.png" alt="Mușchi cardiac">
+  </div>
+
+  <div class="cardiaci-content">
+    <div class="cardiaci-section-block">
+      <h3>Structură Macroscopică</h3>
+      <p>
+        Mușchiul cardiac formează pereții inimii și este striat, dar cu specificități 
+        funcționale adaptate contracției continue și ritmice.
+      </p>
+    </div>
+
+    <div class="cardiaci-section-block">
+      <h3>Celule Specializate</h3>
+      <ul>
+        <li><strong>Cardiomiocite:</strong> Celule striate, ramificate, cu un nucleu central</li>
+        <li><strong>Discuri intercalare:</strong> Conexiuni speciale între celule ce permit transmiterea rapidă a impulsurilor electrice</li>
+        <li><strong>Miofibrile:</strong> Organizate în sarcomeri, permit contracția ritmică</li>
+      </ul>
+    </div>
+
+    <div class="cardiaci-section-block">
+      <h3>Contracție și Control</h3>
+      <p>
+        Contracția este automată, ritmică și involuntară, controlată de sistemul nervos autonom 
+        și sistemul de conducere al inimii (nod sino-atrial, nod atrio-ventricular).
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section id="comparatie" class="section">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <h2>Comparație Mușchi</h2>
+        <p>Plasează cursorul pe card pentru detalii</p>
+      </div>
+      <div class="flip-card-back">
+        <table>
+          <thead>
+            <tr>
+              <th>Caracteristică</th>
+              <th>Mușchi Striat (Scheletic)</th>
+              <th>Mușchi Neted</th>
+              <th>Mușchi Cardiac</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Control</td><td>Voluntar</td><td>Involuntar</td><td>Involuntar (automat)</td></tr>
+            <tr><td>Nucleu</td><td>Multinucleat</td><td>Mononucleat</td><td>1–2 nuclei</td></tr>
+            <tr><td>Aspect microscopic</td><td>Striat</td><td>Nestriat</td><td>Striat</td></tr>
+            <tr><td>Sarcomeri</td><td>Da</td><td>Nu</td><td>Da</td></tr>
+            <tr><td>Viteză contracție</td><td>Rapidă</td><td>Lentă</td><td>Medie, ritmică</td></tr>
+            <tr><td>Oboseală</td><td>Se obosește repede</td><td>Nu se obosește ușor</td><td>Nu obosește</td></tr>
+            <tr><td>Localizare</td><td>Atașat de oase</td><td>Organe interne, vase</td><td>Inimă</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="cap-gat" class="section">
+  <h2>Mușchii Capului și Gâtului</h2>
+
+  <button id="btnShowCapGatImage" class="capgat-image-btn">📷 Mușchi cap și gât</button>
+
+  <div id="modalCapGatImage" class="capgat-image-modal">
+    <span id="btnCloseCapGatImage" class="capgat-close-modal">&times;</span>
+    <img class="capgat-modal-content" src="assets/poze/muschi-cap.png" alt="Mușchi cap și gât">
+  </div>
+
+  <table class="capgat-table">
+    <thead>
+      <tr>
+        <th>Regiune</th>
+        <th>Mușchi principali</th>
+        <th>Funcție</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Față</td>
+        <td>Orbicular al ochiului, orbicular al gurii, maseter</td>
+        <td>Expresii faciale, masticație</td>
+      </tr>
+      <tr>
+        <td>Gât</td>
+        <td>Sternocleidomastoidian, trapez</td>
+        <td>Rotația și flexia capului, susținerea umerilor</td>
+      </tr>
+      <tr>
+        <td>Regiunea submandibulară</td>
+        <td>Digastric, geniohioidian</td>
+        <td>Mișcări ale mandibulei, înghițire</td>
+      </tr>
+      <tr>
+        <td>Regiunea cervicală profundă</td>
+        <td>Scaleni, longus colli</td>
+        <td>Flexia și înclinarea laterală a gâtului</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+<section id="trunchi" class="section">
+  <h2>Mușchii Trunchiului</h2>
+ <button id="btnShowTrunchiImage" class="trunchi-image-btn">📷 Mușchi trunchi</button>
+
+  <div id="modalTrunchiImage" class="trunchi-image-modal">
+    <span id="btnCloseTrunchiImage" class="trunchi-close-modal">&times;</span>
+    <img class="trunchi-modal-content" src="assets/poze/muschi-trunchi.jpg" alt="Mușchi trunchi">
+  </div>
+  <div class="trunchi-container">
+    <div class="trunchi-card">
+      <h3>Torace</h3>
+      <p><strong>Mușchi principali:</strong> Pectoral mare, intercostali, diafragm</p>
+      <p><strong>Funcție:</strong> Respirație, mișcări ale brațului</p>
+    </div>
+
+    <div class="trunchi-card">
+      <h3>Abdomen</h3>
+      <p><strong>Mușchi principali:</strong> Drept abdominal, oblici, transvers abdominal</p>
+      <p><strong>Funcție:</strong> Flexie trunchi, protecție organe</p>
+    </div>
+
+    <div class="trunchi-card">
+      <h3>Spate</h3>
+      <p><strong>Mușchi principali:</strong> Dorsal mare, romboizi, erectori spinali</p>
+      <p><strong>Funcție:</strong> Extensia trunchiului, postură</p>
+    </div>
+  </div>
+</section>
+
+<section id="superioare" class="section">
+  <h2>Mușchii Membrelor Superioare</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Segment</th>
+        <th>Mușchi principali</th>
+        <th>Funcție</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Segment">Umăr</td>
+        <td data-label="Mușchi principali">Deltoid, supraspinos</td>
+        <td data-label="Funcție">Ridicare braț, stabilitate</td>
+      </tr>
+      <tr>
+        <td data-label="Segment">Braț</td>
+        <td data-label="Mușchi principali">Biceps, triceps</td>
+        <td data-label="Funcție">Flexie/extensie antebraț</td>
+      </tr>
+      <tr>
+        <td data-label="Segment">Antebraț</td>
+        <td data-label="Mușchi principali">Flexori, extensori</td>
+        <td data-label="Funcție">Mișcări ale mâinii și degetelor</td>
+      </tr>
+      <tr>
+        <td data-label="Segment">Mână</td>
+        <td data-label="Mușchi principali">Tenar, hipotenar, lombricali</td>
+        <td data-label="Funcție">Prindere și mișcări fine</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Buton imagine -->
+  <button id="btnShowSuperioareImage" class="superioare-image-btn">📷 Mușchi membre superioare</button>
+
+  <div id="modalSuperioareImage" class="superioare-image-modal">
+    <span id="btnCloseSuperioareImage" class="superioare-close-modal">&times;</span>
+    <img class="superioare-modal-content" src="assets/poze/muschi-superioare.png" alt="Mușchi membre superioare">
+  </div>
+</section>
+
+<section id="inferioare" class="section">
+  <h2>Mușchii Membrelor Inferioare</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Segment</th>
+        <th>Mușchi principali</th>
+        <th>Funcție</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Segment">Coapsă</td>
+        <td data-label="Mușchi principali">Cvadriceps, biceps femural</td>
+        <td data-label="Funcție">Extensie/flexie genunchi</td>
+      </tr>
+      <tr>
+        <td data-label="Segment">Gambă</td>
+        <td data-label="Mușchi principali">Gastrocnemian, solear</td>
+        <td data-label="Funcție">Flexie picior, mers</td>
+      </tr>
+      <tr>
+        <td data-label="Segment">Picior</td>
+        <td data-label="Mușchi principali">Mușchii plantari</td>
+        <td data-label="Funcție">Susținere, echilibru</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Buton imagine -->
+  <button id="btnShowInferioareImage" class="inferioare-image-btn">📷 Mușchi membre inferioare</button>
+
+  <div id="modalInferioareImage" class="inferioare-image-modal">
+    <span id="btnCloseInferioareImage" class="inferioare-close-modal">&times;</span>
+    <img class="inferioare-modal-content" src="assets/poze/muschi-inferioare.png" alt="Mușchi membre inferioare">
+  </div>
+</section>
+
+
+<section id="contractii" class="section">
+  <h2>Tipuri de contracții musculare</h2>
+
+<div class="dropdown-container">
+  <button class="dropdown-btn">Izotonică</button>
+  <div class="dropdown-content">
+    <p>Lungimea mușchiului se schimbă (mișcare vizibilă).</p>
+    <p><strong>Exemplu:</strong> Ridicarea unui obiect, mersul pe jos.</p>
+  </div>
+</div>
+
+<div class="dropdown-container">
+  <button class="dropdown-btn">Izometrică</button>
+  <div class="dropdown-content">
+    <p>Lungimea mușchiului nu se schimbă (forță fără mișcare).</p>
+    <p><strong>Exemplu:</strong> Menținerea poziției plank, ținut greutăți nemișcate.</p>
+  </div>
+</div>
+
+<div class="dropdown-container">
+  <button class="dropdown-btn">Isocinetică</button>
+  <div class="dropdown-content">
+    <p>Viteză constantă a mișcării (aparat special).</p>
+    <p><strong>Detalii:</strong> Folosită în kinetoterapie și antrenament de precizie.</p>
+  </div>
+</div>
+</section>
+
+<section id="tulburari" class="section">
+  <h2>Afecțiuni ale mușchilor</h2>
+  <div class="tulburari-container">
+    <div class="tulburare-card">
+      <button class="tulburare-btn">Atrofie musculară</button>
+      <div class="tulburare-desc">
+        Scădere a masei musculare (inactivitate, boli neurologice)
+      </div>
+    </div>
+    <div class="tulburare-card">
+      <button class="tulburare-btn">Distrofii musculare</button>
+      <div class="tulburare-desc">
+        Boli genetice – degenerare progresivă a mușchilor
+      </div>
+    </div>
+    <div class="tulburare-card">
+      <button class="tulburare-btn">Crampe musculare</button>
+      <div class="tulburare-desc">
+        Contracții involuntare, dureroase
+      </div>
+    </div>
+    <div class="tulburare-card">
+      <button class="tulburare-btn">Mialgii</button>
+      <div class="tulburare-desc">
+        Durere musculară, cauzată de efort, infecții, traumatisme
+      </div>
+    </div>
+    <div class="tulburare-card">
+      <button class="tulburare-btn">Miastenie gravis</button>
+      <div class="tulburare-desc">
+        Boală autoimună – slăbiciune musculară severă
+      </div>
+    </div>
+    <div class="tulburare-card">
+      <button class="tulburare-btn">Entorse și rupturi</button>
+      <div class="tulburare-desc">
+        Leziuni ale mușchilor sau tendoanelor
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="harta-sistem" class="section">
+  <h2>🧠 SISTEMUL MUSCULAR</h2>
+
+  <ul class="tree">
+    <li>
+      <span class="branch-label">🟠 Cap și gât</span>
+      <ul>
+        <li>🟡 Orbicular ochi/gură – expresii faciale</li>
+        <li>🟡 Maseter – masticație</li>
+        <li>🟡 Sternocleidomastoidian – mișcare cap</li>
+      </ul>
+    </li>
+    <li>
+      <span class="branch-label">🔵 Trunchi</span>
+      <ul>
+        <li>🟣 Pectoral – mișcare braț</li>
+        <li>🟣 Diafragm – respirație</li>
+        <li>🟣 Oblici abdominali – flexie trunchi</li>
+        <li>🟣 Dorsal mare – extensie trunchi</li>
+      </ul>
+    </li>
+    <li>
+      <span class="branch-label">🔴 Membre superioare</span>
+      <ul>
+        <li>🔺 Deltoid – ridicare braț</li>
+        <li>🔺 Biceps – flexie cot</li>
+        <li>🔺 Triceps – extensie cot</li>
+        <li>🔺 Flexori/extensori – mișcări deget</li>
+      </ul>
+    </li>
+    <li>
+      <span class="branch-label">🟢 Membre inferioare</span>
+      <ul>
+        <li>🔸 Cvadriceps – extensie genunchi</li>
+        <li>🔸 Biceps femural – flexie genunchi</li>
+        <li>🔸 Gastrocnemian – mers/sărit</li>
+        <li>🔸 Mușchi plantari – echilibru și susținere</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+
+</div>
+
+  <!-- ÎNAPOI -->
+  <div class="buttons" style="margin-bottom: 3rem;">
+    <button id="goBackBtn">Înapoi la Sisteme</button>
+  </div>
+
+  <!-- SWITCH TEMĂ -->
+  <div id="theme-toggle" onclick="toggleTheme()">
+    <i class='bx bx-moon'></i>
+  </div>
+<button id="scrollTopBtn" title="Du-te sus">
+  <i class='bx bx-up-arrow-alt'></i>
+</button>
+
+
+<!-- Buton deschidere ChatBot -->
+<div id="chat-toggle"><i class='bx bx-bot'></i></div>
+
+<!-- Fereastra ChatBot -->
+<div id="chat-box">
+  <div id="chat-header">
+    <span>BioBot</span>
+    <button id="chat-close">✖</button>
+  </div>
+  <iframe src="bio-bot2.html"></iframe>
+</div>
+
+
+  <script src="assets/js/script-muscular.js"></script>
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistemul Circulator</title>
+  <!-- Faviconuri pentru toate dispozitivele -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/poze/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/poze/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/poze/favicon_io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/poze/favicon_io/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/poze/favicon_io/android-chrome-512x512.png">
+
+
+<!-- Clasic .ico pentru fallback pe browsere vechi -->
+<link rel="shortcut icon" href="assets/poze/favicon_io/favicon.ico" type="image/x-icon">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style-circulator.css" />
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<!--Google Fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+
+
+</head>
+<!-- Butonul pentru meniul retractabil -->
+   <div id="menu-toggle" class="menu-toggle">
+    <i class='bx bx-menu'></i> <!-- Iconița pentru meniu -->
+  </div>
+
+  <!-- Buton Notițe în colțul dreapta sus -->
+<div id="notite-btn-container" class="top-right">
+  <button id="notiteBtn" class="notite-btn" onclick="toggleNotite()">
+    <i class='bx bx-notepad'></i> Notițe
+  </button>
+</div>
+
+<div id="notitePanel" class="notite-panel">
+  <div class="notite-header">
+    <span>Notițele mele</span>
+    <span class="close-small" onclick="toggleNotite()">&times;</span>
+  </div>
+  <iframe src="notite1.html"></iframe>
+  
+ </div>
+
+<div id="side-menu" class="side-menu">
+  <ul>
+    <li class="has-submenu">
+      <a href="#"><i class='bx bx-heart'></i> Sistemul Circulator <i class='bx bx-chevron-down arrow'></i></a>
+      <ul class="submenu">
+        <li><a href="#ce-este"><i class='bx bx-question-mark'></i> Ce este sistemul circulator?</a></li>
+        <li><a href="#componenta"><i class='bx bx-list-ul'></i> Componentele sistemului</a></li>
+       
+       
+      </ul>
+    </li>
+
+    <li>
+      <a href="#inima"><i class='bx bx-bolt-circle'></i> Inima </a>
+      
+    </li>
+
+    <li>
+      <a href="#vase"><i class='bx bx-git-compare'></i> Vase de sânge</a>
+      
+    </li>
+
+    <li class="has-submenu">
+      <a href="#"><i class='bx bx-transfer'></i> Circulația sângelui <i class='bx bx-chevron-down arrow'></i></a>
+      <ul class="submenu">
+        <li><a href="#circulatie-mare"><i class='bx bx-arrow-from-left'></i> Circulația mare</a></li>
+        <li><a href="#circulatie-mica"><i class='bx bx-arrow-from-right'></i> Circulația mică</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#boli"><i class='bx bx-first-aid'></i>Boli ale sistemului circulator</a>
+      
+    </li>
+  </ul>
+</div>
+
+
+<!-- <div id="loader-wrapper">
+       
+        <div id="loader-left" style="background-image: url('assets/poze/fundal.png');"></div>
+        
+       
+        <div id="loader-right" style="background-image: url('assets/poze/fundal.png');"></div>
+    
+       
+        <div id="loader-center">
+            <h1 class="site-title">Biblioteca</h1>
+            <img id="rotating-adn" src="assets/poze/adn.png" alt="Rotating ADN" />
+        </div>
+    </div>-->
+<!-- HEADER -->
+<header class="hero">
+  <h1>Sistemul Circulator</h1>
+  <p>Transportă oxigenul, substanțele nutritive și elimină deșeurile.</p>
+  
+  <div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Caută..." autocomplete="off" />
+  <div id="searchInfo" style="font-size: 0.9em; margin-top: 4px; color: #555;"></div>
+</div>
+  </header>
+
+ <div id="searchContainer">
+  <!-- CE ESTE? -->
+<section id="ce-este" class="section">
+  <h2>Ce este sistemul circulator?</h2>
+  <div class="content-wrapper"></div>
+  <p>
+    <span class="highlight">Sistemul circulator</span> este un ansamblu de organe și vase de sânge care asigură circulația sângelui în organism. Acesta are rolul de a transporta oxigenul, substanțele nutritive, hormonii și alte elemente esențiale către celule, precum și de a prelua deșeurile metabolice pentru eliminare. Sistemul circulator este format din inimă, vasele de sânge (artere, vene și capilare) și sânge.
+  </p>
+  <img src="assets/poze/sistemul-circulator.png" alt="Sistemul circulator uman" class="center-img dynamic-img">
+</section>
+
+
+<section id="componenta" class="section">
+  <h2>Componentele sistemului circulator</h2>
+  <p class="intro-text">
+    Circulația sângelui se realizează prin <strong>sistemul circulator</strong>, care este alcătuit din:
+  </p>
+
+  <div class="cards-container">
+    <article class="card">
+      <h3>❤️ Inima</h3>
+      <ul>
+        <li>Organ muscular cavitar, care acționează ca o pompă.</li>
+        <li>Asigură mișcarea continuă a sângelui prin vasele de sânge.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3>🧠 Vasele de sânge</h3>
+      <p>Sunt tuburi prin care circulă sângele, fiind de mai multe tipuri:</p>
+
+      <div class="subcards-container">
+        <div class="subcard">
+          <h4>🔴 Artere</h4>
+          <ul>
+            <li>Transportă sângele de la inimă spre organe.</li>
+            <li>Au pereți groși și elastici.</li>
+            <li>Ramuri mai mici: arteriole.</li>
+          </ul>
+        </div>
+
+        <div class="subcard">
+          <h4>🔵 Vene</h4>
+          <ul>
+            <li>Transportă sângele de la organe spre inimă.</li>
+            <li>Au pereți mai subțiri și conțin valve care previn întoarcerea sângelui.</li>
+            <li>Ramuri mai mici: venule.</li>
+          </ul>
+        </div>
+
+        <div class="subcard">
+          <h4>🟡 Capilare</h4>
+          <ul>
+            <li>Vase microscopice ce fac legătura între arteriole și venule.</li>
+            <li>Au pereți foarte subțiri (un singur strat de celule).</li>
+            <li>Locul unde se realizează schimbul de gaze, substanțe nutritive și reziduuri între sânge și celule.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="inima" class="section">
+  <h2>❤️ Inima</h2>
+
+  <div class="card heart-card">
+    <h3>Descriere generală</h3>
+    <ul>
+      <li>Organ muscular cavitar, care acționează ca o pompă.</li>
+      <li>Asigură mișcarea continuă a sângelui prin vasele de sânge.</li>
+    </ul>
+
+    <h3>📍 Localizare</h3>
+    <p>Situată în cavitatea toracică, între cei doi plămâni.</p>
+
+    <h3>🏛️ Structură</h3>
+    <ul>
+      <li>Organ musculos, tetracameral (cu 4 camere):</li>
+      <li>2 atrii (drept și stâng)</li>
+      <li>2 ventricule (drept și stâng)</li>
+    </ul>
+
+    <h3>🔄 Comunicarea dintre camere</h3>
+    <ul>
+      <li>
+        Atriu drept → ventricul drept<br>
+        <small>prin orificiul atrio-ventricular drept, prevăzut cu valvă tricuspidă</small><br>
+        <em>Conține sânge cu CO₂</em>
+      </li>
+      <li>
+        Atriu stâng → ventricul stâng<br>
+        <small>prin orificiul atrio-ventricular stâng, prevăzut cu valvă bicuspidă (mitrală)</small><br>
+        <em>Conține sânge cu O₂</em>
+      </li>
+    </ul>
+
+    <h3>🧱 Structura peretelui inimii</h3>
+    <ol>
+      <li>
+        <strong>Endocard</strong><br>
+        Țesut epitelial subțire
+      </li>
+      <li>
+        <strong>Miocard</strong><br>
+        Mușchiul inimii, mai gros în ventricule decât în atrii (cel mai gros în ventriculul stâng)<br>
+        Conține țesut specializat: <strong>Țesut excitoconductor</strong> – asigură automatismul inimii
+      </li>
+      <li>
+        <strong>Epicard</strong><br>
+        Membrană subțire ce acoperă miocardul, foița internă a pericardului
+      </li>
+    </ol>
+
+    <h3>💉 Vascularizația inimii</h3>
+    <ul>
+      <li>Artere coronare</li>
+      <li>Vene coronare</li>
+    </ul>
+  </div>
+
+ <button id="openInimaModal" class="structura-image-btn">❤️ Structura Inimii</button>
+<div id="inimaModal" class="structura-image-modal">
+  <span class="structura-close-modal" id="closeInimaModal">&times;</span>
+  <img class="structura-modal-content" src="assets/poze/inima.png" alt="Structura Inimii">
+</div>
+</section>
+
+
+<section id="vase" class="section">
+  <h2>🧠 Vasele de sânge</h2>
+  <p>Sunt tuburi prin care circulă sângele, fiind de mai multe tipuri:</p>
+
+  <div class="cards-wrapper">
+
+    <div class="card artery-card">
+      <h3>🔴 Artere</h3>
+      <ul>
+        <li>Transportă sângele <strong>de la inimă spre organe</strong>.</li>
+        <li>Au pereți groși și elastici.</li>
+        <li>Ramuri mai mici: arteriole.</li>
+      </ul>
+      <details>
+        <summary>Exemple importante și detalii valve</summary>
+        <p>La baza arterelor se află valve semilunare (sigmoide), ce nu permit sângelui să se întoarcă spre inimă.</p>
+        <ul>
+          <li><strong>Artera pulmonară</strong> – sânge cu CO₂ din ventriculul drept spre plămâni.</li>
+          <li><strong>Artera aortă</strong> – sânge cu O₂ din ventriculul stâng spre corp.</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="card vein-card">
+      <h3>🔵 Vene</h3>
+      <ul>
+        <li>Transportă sângele <strong>de la organe spre inimă</strong>.</li>
+        <li>Pereți mai subțiri decât arterele.</li>
+        <li>Conțin valve pentru a preveni întoarcerea sângelui.</li>
+        <li>Ramuri mai mici: venule.</li>
+      </ul>
+      <details>
+        <summary>Exemple importante și detalii valve</summary>
+        <ul>
+          <li><strong>Venele pulmonare (4)</strong> – sânge cu O₂ din plămâni spre atriul stâng.</li>
+          <li><strong>Venele cave</strong> (superioară și inferioară) – sânge cu CO₂ din corp spre atriul drept.</li>
+        </ul>
+        <p>Valvele în cuib de rândunică împiedică întoarcerea sângelui spre capilare.</p>
+      </details>
+    </div>
+
+    <div class="card capillary-card">
+      <h3>🟡 Capilare</h3>
+      <ul>
+        <li>Vase microscopice care fac legătura între arteriole și venule.</li>
+        <li>Au pereți foarte subțiri (un singur strat de celule).</li>
+        <li>Locul unde se realizează schimbul de gaze, substanțe nutritive și reziduuri între sânge și celule.</li>
+      </ul>
+    </div>
+<button id="openVaseModal" class="structura-image-btn">🩸 Vase de sânge</button>
+<div id="vaseModal" class="structura-image-modal">
+  <span class="structura-close-modal" id="closeVaseModal">&times;</span>
+  <img class="structura-modal-content" src="assets/poze/vase.png" alt="Vase de sânge">
+</div>
+  </div>
+</section>
+
+
+<section id="circulatie-mare">
+  <h2>Circulația Mare (Circulația Sistemică)</h2>
+  <p>
+    Circulația mare transportă sângele oxigenat de la inimă către toate celulele corpului și aduce sângele cu dioxid de carbon înapoi la inimă.
+  </p>
+  
+  <div class="flux-sange">
+    <p><strong>Traseul sângelui:</strong></p>
+    <ul>
+      <li><span class="valoare-vs">Vₛ</span> → <strong>Artera Aortă</strong> → Celule</li>
+      <li>Celulele eliberează dioxid de carbon → <strong>2 Vene Cave</strong> (Superioară și Inferioară)</li>
+      <li>→ <span class="valoare-ad">Aᴰ</span> (Atriu drept)</li>
+    </ul>
+    <p><em>Vₛ = sânge bogat în oxigen | Aᴰ = sânge bogat în dioxid de carbon</em></p>
+  </div>
+
+  <button id="openCirculatieModal" class="structura-image-btn">🔁 Circulația sângelui</button>
+<div id="circulatieModal" class="structura-image-modal">
+  <span class="structura-close-modal" id="closeCirculatieModal">&times;</span>
+  <img class="structura-modal-content" src="assets/poze/circulatia.jpg" alt="Circulația sângelui">
+</div>
+</section>
+
+
+<section id="circulatie-mica">
+  <h2>Circulația Mică (Circulația Pulmonară)</h2>
+  <p>
+    Circulația mică transportă sângele cu dioxid de carbon de la inimă către plămâni și aduce sângele oxigenat înapoi la inimă.
+  </p>
+  
+  <div class="flux-sange">
+    <p><strong>Traseul sângelui:</strong></p>
+    <ul>
+      <li><span class="valoare-v0">V₀</span> → <strong>Arterele Pulmonare</strong> → Plămâni</li>
+      <li>Plămânii oxigenează sângele → <strong>4 Vene Pulmonare</strong></li>
+      <li>→ <span class="valoare-as">Aₛ</span> (Atriu stâng)</li>
+    </ul>
+    <p><em>V₀ = sânge bogat în dioxid de carbon | Aₛ = sânge bogat în oxigen</em></p>
+  </div>
+</section>
+
+
+
+
+
+
+<section id="boli" class="section">
+  <h2>📘 Boli ale sistemului circulator</h2>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Boală</th>
+          <th>Cauze</th>
+          <th>Manifestări</th>
+          <th>Prevenire</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Varicele</td>
+          <td>
+            <ul>
+              <li>Statul în picioare prelungit (ospătari, frizeri, bucătari)</li>
+              <li>Dilatarea inegală și neregulată a venelor superficiale</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Ulcerații ale gambelor</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Viață echilibrată, fără excese de alcool, tutun și droguri</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Accident vascular</td>
+          <td>
+            <ul>
+              <li>Hipertensiune</li>
+              <li>Ateroscleroză</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Pareze</li>
+              <li>Tulburări senzoriale, de vorbire, memorie, vedere</li>
+              <li>Comă</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Evitarea tensiunii psihice și a ritmului neregulat de muncă</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Infarct miocardic</td>
+          <td>
+            <ul>
+              <li>Fumat</li>
+              <li>Eforturi fizice intense</li>
+              <li>Enervări, emoții puternice</li>
+              <li>Răceli pronunțate</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Blocarea parțială sau totală a arterei coronare cu un cheag de sânge</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Îmbrăcăminte și încălțăminte care să nu afecteze circulația sângelui</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Ateroscleroza</td>
+          <td>
+            <ul>
+              <li>Excesul de alimente cu grăsimi</li>
+              <li>Sedentarism</li>
+              <li>Fumat</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Scăderea elasticității vaselor</li>
+              <li>Creșterea tensiunii arteriale</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Evitarea sedentarismului și menținerea unui regim rațional</li>
+              <li>Reducerea consumului de lipide</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Hipertensiunea arterială</td>
+          <td>
+            <ul>
+              <li>Factori nervoși, glandulari, vasculari, renali</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Depășirea valorilor normale ale tensiunii arteriale</li>
+              <li>Amețeli, dureri de cap, insomnie</li>
+              <li>Oboseală, palpitații, tulburări de vedere</li>
+              <li>Hemoragie cerebrală</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Controlul greutății corporale</li>
+              <li>Evitarea alimentelor bogate în lipide</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+</div>
+
+  <!-- ÎNAPOI -->
+  <div class="buttons" style="margin-bottom: 3rem;">
+    <button id="goBackBtn">Înapoi la Sisteme</button>
+  </div>
+
+  <!-- SWITCH TEMĂ -->
+  <div id="theme-toggle" onclick="toggleTheme()">
+    <i class='bx bx-moon'></i>
+  </div>
+<button id="scrollTopBtn" title="Du-te sus">
+  <i class='bx bx-up-arrow-alt'></i>
+</button>
+
+
+<!-- Buton deschidere ChatBot -->
+<div id="chat-toggle"><i class='bx bx-bot'></i></div>
+
+<!-- Fereastra ChatBot -->
+<div id="chat-box">
+  <div id="chat-header">
+    <span>BioBot</span>
+    <button id="chat-close">✖</button>
+  </div>
+  <iframe src="bio-bot2.html"></iframe>
+</div>
+
+
+  <script src="assets/js/script-circulator.js"></script>
+</body>
+</html>

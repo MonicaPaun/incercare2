@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style-calculator.css">
+    
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <title>Calculator</title>
+    <!-- Faviconuri pentru toate dispozitivele -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/poze/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/poze/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/poze/favicon_io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/poze/favicon_io/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/poze/favicon_io/android-chrome-512x512.png">
+
+
+<!-- Clasic .ico pentru fallback pe browsere vechi -->
+<link rel="shortcut icon" href="assets/poze/favicon_io/favicon.ico" type="image/x-icon">
+</head>
+<body class="page-biologie">
+        <div class="container">
+        
+            <div class="top-menu">
+                <h1><span class="icon">🧮</span> CALCULATOR</h1>
+              </div>
+           <!-- <div id="loader-wrapper">
+       
+        <div id="loader-left" style="background-image: url('assets/poze/fundal.png');"></div>
+        
+       
+        <div id="loader-right" style="background-image: url('assets/poze/fundal.png');"></div>
+    
+       
+        <div id="loader-center">
+            <h1 class="site-title">Biblioteca</h1>
+            <img id="rotating-adn" src="assets/poze/adn.png" alt="Rotating ADN" />
+        </div>
+    </div>-->
+            <!-- Progress bar -->
+            <div id="progress-bar"></div>
+        
+            <!-- User icon in top-right corner -->
+            <div id="user-toggle">
+                <i class='bx bx-user-circle'></i>
+                <div id="user-menu" class="hidden">
+                  <ul>
+                    <li><i class='bx bxs-user'></i> Profil</li>
+                    <li><i class='bx bxs-cog'></i> Setări</li>
+                    <li><i class='bx bxs-lock'></i> Login</li>
+                    <li><i class='bx bxs-log-out'></i> Logout</li>
+                  </ul>
+                </div>
+            </div>
+        
+            <!-- Light/Dark toggle at the bottom-right corner -->
+            <div id="theme-toggle" onclick="toggleTheme()" class="bottom-right">
+                <i class='bx bx-moon'></i>
+            </div>
+         <!-- Main Layout -->
+    <div class="container">
+        <div class="sidebar">
+           <!-- Logo-ul din pagină -->
+<div class="logo">
+    <img src="assets/poze/logo-ANATOMIQ.png" alt="Logo" class="logo-img" />
+  <div class="logo-preview">
+                <img src="assets/poze/logo-ANATOMIQ.png" alt="Logo Preview" />
+            </div>
+        </div>
+  
+ 
+  
+ <ul>
+                <li><a href="index.html" class="nav-link"><i class='bx bxs-home'></i><span class="item-txt">Introducere</span></a></li>
+                <li><a href="sisteme.html" class="nav-link"><i class='bx bxs-capsule'></i><span class="item-txt">Sisteme ale corpului</span></a></li>
+                <li><a href="teste.html" class="nav-link"><i class='bx bx-task'></i><span class="item-txt">Teste</span></a></li>
+                <li><a href="bio-bot.html" class="nav-link"><i class='bx bxs-message-dots'></i><span class="item-txt">Chatbot</span></a></li>
+                <li><a href="modele3d.html" class="nav-link"><i class='bx bxs-cube'></i><span class="item-txt">Modele 3D</span></a></li>
+                <li><a href="videoclipuri.html" class="nav-link"><i class='bx bxs-video'></i><span class="item-txt">Videoclipuri</span></a></li>
+                <li><a href="notite.html" class="nav-link"><i class='bx bxs-pencil'></i><span class="item-txt">Notițe</span></a></li>
+                <li><a href="calculator.html" class="nav-link"><i class='bx bxs-calculator'></i><span class="item-txt">Calculator</span></a></li>
+                <li><a href="subiecte-bac.html" class="nav-link"><i class='bx bxs-book'></i><span class="item-txt">Subiecte BAC</span></a></li>
+                <li><a href="biblioteca.html" class="nav-link"><i class='bx bxs-book'></i><span class="item-txt">Biblioteca</span></a></li>
+                <li><a href="contact.html" class="nav-link"><i class='bx bxs-phone-call'></i><span class="item-txt">Contact</span></a></li>
+                
+            </ul>
+        </div>
+        
+       
+      <!-- Main Content -->
+  <div class="main-content">
+        <div class="calculator dark">
+            <div class="theme-toggler active">
+                <i class="toggler-icon"></i>
+            </div>
+            <div class="display-screen">
+                <div id="display"></div>
+            </div>
+            <div class="buttons">
+                <table>
+                    <tr>
+                        <td><button class="btn-operator" id="clear">C</button></td>
+                        <td><button class="btn-operator" id="/">&divide;</button></td>
+                        <td><button class="btn-operator" id="*">&times;</button></td>
+                        <td><button class="btn-operator" id="backspace"><</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-number" id="7">7</button></td>
+                        <td><button class="btn-number" id="8">8</button></td>
+                        <td><button class="btn-number" id="9">9</button></td>
+                        <td><button class="btn-operator" id="-">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-number" id="4">4</button></td>
+                        <td><button class="btn-number" id="5">5</button></td>
+                        <td><button class="btn-number" id="6">6</button></td>
+                        <td><button class="btn-operator" id="+">+</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-number" id="1">1</button></td>
+                        <td><button class="btn-number" id="2">2</button></td>
+                        <td><button class="btn-number" id="3">3</button></td>
+                        <td rowspan="2"><button class="btn-equal" id="equal">=</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-operator" id="(">(</button></td>
+                        <td><button class="btn-number" id="0">0</button></td>
+                        <td><button class="btn-operator" id=")">)</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    
+  
+    <script src="assets/js/script-calculator.js"></script>
+    
+</body>
+</html>

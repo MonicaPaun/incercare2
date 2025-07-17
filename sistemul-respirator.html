@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistemul Respirator</title>
+  <!-- Faviconuri pentru toate dispozitivele -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/poze/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/poze/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/poze/favicon_io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/poze/favicon_io/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/poze/favicon_io/android-chrome-512x512.png">
+
+<!-- Clasic .ico pentru fallback pe browsere vechi -->
+<link rel="shortcut icon" href="assets/poze/favicon_io/favicon.ico" type="image/x-icon">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="assets/css/style-respirator.css" />
+
+   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<!--Google Fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+   <!-- Butonul pentru meniul retractabil -->
+   <div id="menu-toggle" class="menu-toggle">
+    <i class='bx bx-menu'></i> <!-- Iconița pentru meniu -->
+  </div>
+
+  <!-- Buton Notițe în colțul dreapta sus -->
+<div id="notite-btn-container" class="top-right">
+  <button id="notiteBtn" class="notite-btn" onclick="toggleNotite()">
+    <i class='bx bx-notepad'></i> Notițe
+  </button>
+</div>
+
+<div id="notitePanel" class="notite-panel">
+  <div class="notite-header">
+    <span>Notițele mele</span>
+    <span class="close-small" onclick="toggleNotite()">&times;</span>
+  </div>
+  <iframe src="notite1.html"></iframe>
+  
+ </div>
+
+<div id="side-menu" class="side-menu">
+  <ul>
+    <li class="has-submenu">
+      <a href="#"><i class='bx bx-book-open'></i>Introducere<i class='bx bx-chevron-down arrow'></i></a>
+      <ul class="submenu">
+        <li><a href="#ce-este"><i class='bx bx-question-mark'></i> Ce este sistemul nervos?</a></li>
+      </ul>
+    </li>
+
+    <li class="has-submenu">
+      <a href="#"><i class='bx bx-wind'></i> Tipuri de respirație<i class='bx bx-chevron-down arrow'></i></a>
+      <ul class="submenu">
+        <li><a href="#aeroba"><i class='bx bx-cloud'></i> Respirația aerobă</a></li>
+        <li><a href="#anaeroba"><i class='bx bx-cloud'></i> Respirația anaerobă</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#tipuri"><i class='bx bx-bug '></i>Tipuri de fermentație</a></li>
+    <li><a href="#plante"><i class='bx bx-leaf '></i>Respirația la plante</a></li>
+    <li><a href="#animale"><i class='bx bx-leaf '></i>Respirația la animale</a></li>
+
+    <li><a href="#boli"><i class='bx bx-health'></i> Boli ale aparatului respirator</a></li>
+  </ul>
+</div>
+
+
+<!-- <div id="loader-wrapper">
+       
+        <div id="loader-left" style="background-image: url('assets/poze/fundal.png');"></div>
+        
+       
+        <div id="loader-right" style="background-image: url('assets/poze/fundal.png');"></div>
+    
+       
+        <div id="loader-center">
+            <h1 class="site-title">Biblioteca</h1>
+            <img id="rotating-adn" src="assets/poze/adn.png" alt="Rotating ADN" />
+        </div>
+    </div>-->
+
+  <!-- HEADER -->
+  <header class="hero">
+    <h1>Sistemul Respirator</h1>
+    <p>Permite schimbul de oxigen și dioxid de carbon între organism și mediu.</p>
+    <div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Caută..." autocomplete="off" />
+  <div id="searchInfo" style="font-size: 0.9em; margin-top: 4px; color: #555;"></div>
+</div>
+  </header>
+
+<div id="searchContainer">
+  <!-- CE ESTE? -->
+<section id="ce-este" class="section">
+  <h2>Ce este sistemul respirator?</h2>
+
+  <div class="content-wrapper">
+    <p>
+      <span class="highlight">Sistemul respirator</span> este esențial pentru viață, asigurând schimbul de gaze între organism și mediu.
+    </p>
+    <p>
+      Toate organismele au nevoie de energie pentru funcții vitale: întreținerea celulelor, mișcare, încălzire etc.
+    </p>
+    <p>
+      <strong>Sursa de energie:</strong> substanțe organice (energie chimică stocată în legături chimice).
+    </p>
+    <p>
+      <strong>Respirația</strong> = procesul prin care organismele eliberează energia din substanțele organice pentru a o folosi.
+    </p>
+    <p>
+      Eliberarea energiei are loc în celule, prin reacții de oxidoreducere, cu ajutorul enzimelor.
+    </p>
+    <p>
+      Există două tipuri de respirație: <span class="highlight-red">respirația aerobă</span> și <span class="highlight-blue">respirația anaerobă</span>.
+    </p>
+  </div>
+
+  <img src="assets/poze/sistemul-respirator.jpg" alt="scheletul-uman" class="center-img dynamic-img">
+</section>
+
+
+<section id="aeroba" class="section">
+  <div class="container">
+    <h2 class="section-title">Respirația aerobă</h2>
+
+    <p class="desc">
+      Oxidarea completă a <strong>substanțelor organice</strong>, cu consum de <strong>oxigen</strong>, rezultând
+      <strong>CO₂</strong> și <strong>H₂O</strong>.
+    </p>
+
+    <div class="equation-box">
+      <span class="label">Ecuația generală:</span>
+      <div class="equation">
+        substanțe organice + O₂ → CO₂ + H₂O + energie
+      </div>
+    </div>
+
+    <p class="desc">
+      Este procesul <em>invers fotosintezei</em>.
+    </p>
+
+    <p class="desc">
+      Energia eliberată se transferă în molecula de <strong>ATP (adenozintrifosfat)</strong>, 
+      considerată <em>"moneda energetică universală"</em>.
+    </p>
+
+    <p class="desc">
+      La <strong>eucariote</strong>, respirația aerobă are loc în <strong>mitocondrii</strong>.
+    </p>
+
+    <div class="equation-box">
+      <span class="label">Reacția de formare a ATP:</span>
+      <div class="equation">
+        ADP + H₃PO₄ + energie → ATP + H₂O
+      </div>
+    </div>
+
+    <p class="desc">
+      ATP conține <strong>3 radicali fosfat</strong>, ADP doar <strong>2</strong>; 
+      energia este stocată în <strong>legătura fosfat macroergică</strong>.
+    </p>
+  </div>
+</section>
+
+
+
+<section id="anaeroba" class="section">
+  <div class="container">
+    <h2 class="section-title">Respirația anaerobă</h2>
+
+    <p class="desc">
+      Oxidare parțială a unor <strong>substanțe organice</strong>, cu produse organice și <strong>CO₂</strong>, cu eliberare de mai puțină energie.
+    </p>
+
+    <div class="equation-box">
+      <span class="label">Ecuația generală:</span>
+      <div class="equation">
+        substanța organică A → substanța organică B + CO₂ + energie
+      </div>
+    </div>
+
+    <p class="desc">
+      Descoperită la bacterii, ciuperci și țesuturi superioare ale plantelor.
+    </p>
+
+    <p class="desc">
+      Apare în condiții de lipsă de oxigen, pentru perioade scurte la plante.
+    </p>
+
+    <p class="desc">
+      Se poate demonstra prin experiment cu semințe germinate în absența oxigenului (se formează <strong>CO₂</strong> și <strong>alcool etilic</strong>).
+    </p>
+
+    <p class="desc">
+      La microorganisme, respirația anaerobă se numește <em>fermentație</em>.
+    </p>
+  </div>
+</section>
+
+<section id="tipuri" class="section">
+  <div class="container">
+    <h2 class="section-title">Tipuri de fermentație</h2>
+
+    <div class="dropdown">
+      <button class="dropbtn">Fermentația alcoolică</button>
+      <div class="dropdown-content">
+        <p>Glucoza → alcool etilic + CO₂ (produsă de drojdii).</p>
+        <p><strong>Roluri și aplicații:</strong> Fabricarea pâinii și băuturilor alcoolice.</p>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">Fermentația lactică</button>
+      <div class="dropdown-content">
+        <p>Glucoza → acid lactic (produsă de bacterii <em>Lactobacillus</em>, <em>Streptococcus</em>).</p>
+        <p><strong>Roluri și aplicații:</strong> Conservarea alimentelor, acrirea laptelui, murături.</p>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">Fermentația acetică</button>
+      <div class="dropdown-content">
+        <p>Alcool etilic + oxigen → acid acetic (produsă de bacterii <em>Mycoderma aceti</em>).</p>
+        <p><strong>Roluri și aplicații:</strong> Prepararea oțetului.</p>
+      </div>
+    </div>
+
+    <div class="fermentatii-intestin">
+      <p><strong>Fermentații în intestin și în medii anaerobe (bălți)</strong> produc metan (<em>CH₄</em>) și biogaz (combustibil).</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="plante" class="section">
+  <div class="container">
+    <h2 class="section-title">🌿 Respirația la plante (B.1)</h2>
+
+    <ul class="info-list">
+      <li>🌱 Toate celulele vii respiră, intensitatea fiind mai mare în <strong>frunze</strong>, <strong>flori</strong> și <strong>meristeme</strong>.</li>
+      <li>⚡ Energia degajată este folosită pentru <strong>sinteze organice</strong>, <strong>schimburi active</strong>, <strong>transport</strong>, și se elimină căldură.</li>
+      <li>🧬 Respirația are loc în <em>mitocondrii</em>, unde substanțele organice sunt oxidate pentru a produce ATP, esențial pentru activitățile celulare.</li>
+      <li>🌬️ Plantele consumă oxigen și produc dioxid de carbon, proces vital pentru creștere și dezvoltare.</li>
+      <li>🌡️ Intensitatea respirației variază în funcție de stadiul de dezvoltare și condițiile de mediu, crescând la temperaturi și umiditate optime.</li>
+      <li>🔋 Respirația transformă energia chimică din zaharuri în energie utilizabilă pentru procese vitale, cum ar fi repararea celulelor și creșterea.</li>
+    </ul>
+  </div>
+</section>
+
+
+<section id="animale" class="section">
+  <div class="container">
+    <h2 class="section-title">🐾 Sistemul respirator la mamifere</h2>
+
+    <div class="tabs">
+      <nav class="tab-nav">
+        <button class="tab-btn active" data-tab="tab1">General</button>
+        <button class="tab-btn" data-tab="tab2">Căile respiratorii</button>
+        <button class="tab-btn" data-tab="tab3">Plămânii</button>
+        <button class="tab-btn" data-tab="tab4">Ventilația pulmonară</button>
+      </nav>
+
+      <div class="tab-content active" id="tab1">
+        <p>🌬️ <strong>Schimbul de gaze</strong> dintre mediul intern și extern + transportul gazelor.</p>
+        <p>🎯 Rol principal: schimbul de gaze la nivelul <strong>plămânilor</strong>.</p>
+        <p>🔧 Componente: <em>căi respiratorii extrapulmonare</em> + plămâni.</p>
+      </div>
+
+      <div class="tab-content" id="tab2">
+        <ul>
+          <li>👃 <strong>Căile respiratorii</strong> (cavități nazale, faringe, laringe, trahee, bronhii):</li>
+          <li>➡️ Conduc aerul, îl încălzesc, umezesc și purifică.</li>
+          <li>👃 <strong>Cavitățile nazale:</strong> mucoasă cu vase pentru încălzire, mucus pentru umezeală și captarea particulelor.</li>
+          <li>🍽️ <strong>Faringele:</strong> organ comun digestiv și respirator.</li>
+          <li>🔊 <strong>Laringele:</strong> epiglotă pentru protecția traheei, coarde vocale pentru sunete.</li>
+          <li>🦴 <strong>Traheea:</strong> inele cartilaginoase pentru menținerea deschiderii.</li>
+          <li>🌬️ <strong>Bronhiile:</strong> cartilaj, mucoasă cu cili pentru eliminarea corpurilor străine.</li>
+        </ul>
+      </div>
+
+      <div class="tab-content" id="tab3">
+        <p>🏠 <strong>Plămânii</strong> ocupă cavitatea toracică, acoperiți de pleure (două membrane cu lichid între ele).</p>
+        <p>🏗️ Structură: lobi → segmente → lobuli, fiecare cu căi aeriene, vase și nervi proprii.</p>
+        <p>🌿 Bronhiile se ramifică în bronhiole fără cartilaj, cu mușchi neted, terminate cu saci alveolari.</p>
+        <p>🌬️ <strong>Alveolele pulmonare:</strong> pereți subțiri pentru schimbul gazelor între aer și sânge (O₂ în sânge, CO₂ în aer).</p>
+      </div>
+
+      <div class="tab-content" id="tab4">
+        <p>💨 <strong>Ventilația pulmonară</strong>: mișcări respiratorii — inspirație și expirație.</p>
+        <p>💪 Mușchi inspirație:</p>
+        <ul>
+          <li>a) Diafragmul – se contractă și coboară pentru a mări volumul cavității toracice.</li>
+          <li>b) Mușchii intercostali externi – ridică coastele, deplasează sternul.</li>
+        </ul>
+        <p>➡️ Aceste mișcări permit aerului să intre și să iasă din plămâni.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="boli">
+  <h2>Bolile aparatului respirator</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>BOALĂ</th>
+        <th>CAUZE</th>
+        <th>MANIFESTĂRI</th>
+        <th>PREVENIRE</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><strong> Bronsita</strong></td>
+        <td>- Inflamarea mucoasei arborelui bronșic</td>
+        <td>
+          <ul>
+            <li>Tuse umedă cu expectorații</li>
+            <li>Dureri de cap</li>
+            <li>Febră</li>
+          </ul>
+        </td>
+        <td>(Aceleași măsuri generale ca la tuse)</td>
+      </tr>
+      <tr>
+        <td><strong>Laringita</strong></td>
+        <td>
+          <ul>
+            <li>Răceală</li>
+            <li>Boli infecțioase</li>
+            <li>Rinita, sinuzita, amigdalita</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Vorbire răgușită (posibil pierderea vocii pentru scurt timp)</li>
+            <li>Senzație de arsură în gât</li>
+            <li>Tuse seacă</li>
+            <li>Fără dureri la înghițire</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Evitarea frigului și umezelii</li>
+            <li>Tratamente la primele simptome</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Astmul bronșic</strong></td>
+        <td>- Spasm al bronhiilor provocat de praf, peri, lână etc.</td>
+        <td>
+          <ul>
+            <li>Crize de sufocare, mai ales noaptea</li>
+            <li>Nevoie urgentă de aer</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Evitarea factorilor iritanți</li>
+            <li>Tratament medicamentos</li>
+            <li>Control medical regulat</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Pneumonia</strong></td>
+        <td>
+          <ul>
+            <li>Microbi: Pneumococ, Streptococ, Stafilococ</li>
+            <li>Favorizată de frig, umezeală, surmenaj</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Temperatura ridicată</li>
+            <li>Tuse uscată, chinuitoare</li>
+            <li>Modificări ale respirației</li>
+            <li>Junghi toracic</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Evitarea frigului și umezelii</li>
+            <li>Odihnă</li>
+            <li>Tratament antibiotic la indicație medicală</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>TBC (Tuberculoza)</strong></td>
+        <td>- Bacilul Koch, foarte rezistent în afara organismului</td>
+        <td>
+          <ul>
+            <li>Stare generală proastă</li>
+            <li>Lipsa poftei de mâncare</li>
+            <li>Scăderea capacității de muncă</li>
+            <li>Slăbire</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Vaccinarea antituberculoasă</li>
+            <li>Evitarea expunerii la bacil</li>
+            <li>Tratament medical corect și complet</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+
+</div>
+
+  <!-- ÎNAPOI -->
+  <div class="buttons" style="margin-bottom: 3rem;">
+    <button id="goBackBtn">Înapoi la Sisteme</button>
+  </div>
+
+  <!-- SWITCH TEMĂ -->
+  <div id="theme-toggle" onclick="toggleTheme()">
+    <i class='bx bx-moon'></i>
+  </div>
+<button id="scrollTopBtn" title="Du-te sus">
+  <i class='bx bx-up-arrow-alt'></i>
+</button>
+
+
+<!-- Buton deschidere ChatBot -->
+<div id="chat-toggle"><i class='bx bx-bot'></i></div>
+
+<!-- Fereastra ChatBot -->
+<div id="chat-box">
+  <div id="chat-header">
+    <span>BioBot</span>
+    <button id="chat-close">✖</button>
+  </div>
+  <iframe src="bio-bot2.html"></iframe>
+</div>
+
+  <script src="assets/js/script-respirator.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Celula</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    header {
+      padding: 2rem;
+      font-size: 3.5rem;
+      font-weight: bold;
+      text-align: center;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 3s infinite;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #00c6ff; }
+      50% { text-shadow: 0 0 20px #00c6ff; }
+      100% { text-shadow: 0 0 5px #00c6ff; }
+    }
+
+    main {
+      flex: 1;
+      width: 90%;
+      max-width: 1200px;
+      margin-bottom: 2rem;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      aspect-ratio: 16 / 9;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        font-size: 2.5rem;
+        padding: 1.5rem;
+      }
+
+      iframe {
+        aspect-ratio: 4 / 3;
+      }
+    }
+  .back-button-fixed {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #00c9ff, #92fe9d);
+  color: #00344d;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.back-button-fixed:hover {
+  background: linear-gradient(135deg, #92fe9d, #00c9ff);
+  color: #001f33;
+  transform: scale(1.05);
+}
+  </style>
+</head>
+<body>
+    
+
+
+  <header>Celula</header>
+  <main>
+    <iframe id="embedded-human"
+      loading="lazy"
+      allowfullscreen="true"
+      src="https://human.biodigital.com/viewer/?id=69ou&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=true&ui-audio=true&ui-chapter-list=false&ui-fullscreen=true&ui-help=true&ui-info=true&ui-label-list=true&ui-layers=true&ui-skin-layers=true&ui-loader=circle&ui-media-controls=full&ui-menu=true&ui-nav=true&ui-search=true&ui-tools=true&ui-tutorial=false&ui-undo=true&ui-whiteboard=true&initial.hand=true&disable-scroll=false&uaid=M3tuq&paid=o_2244a44b">
+    </iframe>
+  </main>
+ <a href="modele3d.html" class="back-button-fixed">⟵ Înapoi</a>
+
+</body>
+</html>
