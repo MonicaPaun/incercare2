@@ -1,0 +1,31 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "pagini_html"
+    label: "Pagini HTML"
+    folder: "pagini_html"
+    extension: "html"
+    create: false
+    fields:
+      - {label: "Conținut HTML", name: "content", widget: "code", language: "html"}
+
+  - name: "css_files"
+    label: "Fișiere CSS"
+    folder: "assets/css"
+    extension: "css"
+    create: false
+    fields:
+      - {label: "CSS", name: "content", widget: "code", language: "css"}
+
+  - name: "js_files"
+    label: "Fișiere JS"
+    folder: "assets/js"
+    extension: "js"
+    create: false
+    fields:
+      - {label: "JavaScript", name: "content", widget: "code", language: "javascript"}
